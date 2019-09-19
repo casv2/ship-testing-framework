@@ -1,0 +1,11 @@
+*.pdf
+*.pyc
+.DS_Store
+example_run_dir/Si
+example_run_dir/Ti
+tests/Al
+tests/Si
+tests/Ti
+tests/W
+tests/tmp
+

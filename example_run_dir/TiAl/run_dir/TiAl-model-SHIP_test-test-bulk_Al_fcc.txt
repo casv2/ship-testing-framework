@@ -1,0 +1,55 @@
+Model SHIP_test, Test bulk_Al_fcc
+Test run at 2019-09-19 19:40
+
+model file: ../../models/SHIP_test/model.py
+============================================================
+import pyjulip
+import os
+import glob
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+pot_name = glob.glob(os.path.join(model_dir,"*.json"))[0]
+
+calculator = pyjulip.SHIP(pot_name)
+
+no_checkpoint = True
+
+name = 'SHIP'
+============================================================
+test file: /Users/Cas/gits/ship-testing-framework/scripts/../tests/TiAl/bulk_Al_fcc/test.py
+============================================================
+import os.path, lattice
+
+properties = lattice.do_lattice(os.path.abspath(os.path.dirname(__file__)), 'cubic')
+============================================================
+relax bulk
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-bulk-relaxed.xyz
+PreconLBFGS:   0  19:40:46     -109.788146       0.0000       0.0694
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:473: UserWarning: Cell length L[0] == 0. Setting H[0,0] = 0.
+  (i, i, i))
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:473: UserWarning: Cell length L[1] == 0. Setting H[1,1] = 0.
+  (i, i, i))
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:473: UserWarning: Cell length L[2] == 0. Setting H[2,2] = 0.
+  (i, i, i))
+Traceback (most recent call last):
+  File "../../../scripts/run-model-test.py", line 130, in <module>
+    import test  # import and run the current test
+  File "/Users/Cas/gits/ship-testing-framework/scripts/../tests/TiAl/bulk_Al_fcc/test.py", line 3, in <module>
+    properties = lattice.do_lattice(os.path.abspath(os.path.dirname(__file__)), 'cubic')
+  File "/Users/Cas/gits/ship-testing-framework/scripts/../share/lattice.py", line 86, in do_lattice
+    refine_symmetry_tol=1.0e-2, keep_symmetry=True, config_label="bulk", from_base_model=True, save_config=True)
+  File "/Users/Cas/gits/ship-testing-framework/scripts/../share/utilities.py", line 186, in relax_config
+    opt.run(tol, max_steps)
+  File "/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/lbfgs.py", line 373, in run
+    return Optimizer.run(self, fmax, steps)
+  File "/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/optimize.py", line 202, in run
+    for converged in self.irun(fmax, steps):
+  File "/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/optimize.py", line 185, in irun
+    self.step(f)
+  File "/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/lbfgs.py", line 239, in step
+    self.precon.make_precon(self.atoms)
+  File "/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py", line 176, in make_precon
+    self.estimate_mu(atoms)
+  File "/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py", line 512, in estimate_mu
+    self.mu = longsum(LHS[:3 * natoms]) / longsum(RHS[:3 * natoms])
+ZeroDivisionError: float division by zero
