@@ -1,3 +1,4 @@
+*.traj
 *.pdf
 *.pyc
 .DS_Store
@@ -8,4 +9,3 @@ tests/Si
 tests/Ti
 tests/W
 tests/tmp
-
