@@ -1,6 +1,6 @@
 #!/bin/bash
 #$ -pe smp 1 
-#$ -l h_rt=4:00:00
+#$ -l h_rt=6:00:00
 #$ -q 'tomsk|any|orinoco'
 #$ -S /bin/bash
 #$ -N job
