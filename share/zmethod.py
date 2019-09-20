@@ -6,6 +6,8 @@ from ase.md.verlet import VelocityVerlet
 import time
 from ase.io import read, write
 import numpy as np
+import pandas as pd
+import os
 
 def Zmethod(calculator, atoms, nsteps, dt, A, T, R, save_config, name):
 
@@ -30,39 +32,49 @@ def Zmethod(calculator, atoms, nsteps, dt, A, T, R, save_config, name):
     Stationary(atoms)
     ZeroRotation(atoms)
 
-    try:
-        t1 = time.time()
+    #try:
+    t1 = time.time()
+    for i in xrange(R):
+        dyn = VelocityVerlet(atoms, dt * units.fs)
+        traj = Trajectory('{}_run.traj'.format(name), 'a', atoms)
+        dyn.attach(traj.write, interval=save_config)
+        dyn.attach(_write_log, interval=1)
+        dyn.run(nsteps)
 
-        for i in xrange(R):
-            dyn = VelocityVerlet(atoms, dt * units.fs)
-            traj = Trajectory('{}_run.traj'.format(name), 'a', atoms)
-            dyn.attach(traj.write, interval=save_config)
-            dyn.attach(_write_log, interval=1)
-            dyn.run(nsteps)
+        m = atoms.get_masses()[0]
+        v = atoms.arrays["momenta"] / m
+        C = A / np.linalg.norm(v)
 
-            m = atoms.get_masses()[0]
-            v = atoms.arrays["momenta"] / m
-            C = A / np.linalg.norm(v)
+        atoms.set_momenta( (v + C*v) * m )
 
-            atoms.set_momenta( (v + C*v) * m )
+    t2 = time.time()
 
-        t2 = time.time()
+    print "Elapsed Zmethod TIME [s]: ", t2-t1
 
-        print "Elapsed Zmethod TIME [s]: ", t2-t1
+    traj = Trajectory('{}_run.traj'.format(name))
+    write('{}_run.xyz'.format(name), traj)
+    os.system("rm {}_run.traj".format(name))
 
-        traj = Trajectory('{}_run.traj'.format(name))
-        write('{}_run.xyz'.format(name), traj)
-        os.system("rm {}_run.traj".format(name))
-    except:
-        print "CRASHH!!!", name
+    D = pd.read_csv("{}_run.txt".format(name))
 
-        traj = Trajectory('{}_run.traj'.format(name))
-        #write("./MD_run.xyz", traj)
-        log = pd.read_csv("./{}_run.txt".format(name))
+    T = D["Temp"].tolist()
+    P = D["Pres"].tolist()
+    Etot = D["Etot"].tolist()
+    Ekin = D["Ekin"].tolist()
+    Epot = D["Epot"].tolist()
 
-        Etot = np.array(log["Etot"].tolist())
-        Edif = np.diff(Etot)
-        index = [i for i, x in enumerate(Edif) if x > 1.0]
-        mnindex = np.amin(index)
+    # except:
+    #     print "CRASHH!!!", name
+    #
+    #     traj = Trajectory('{}_run.traj'.format(name))
+    #     #write("./MD_run.xyz", traj)
+    #     log = pd.read_csv("./{}_run.txt".format(name))
+    #
+    #     Etot = np.array(log["Etot"].tolist())
+    #     Edif = np.diff(Etot)
+    #     index = [i for i, x in enumerate(Edif) if x > 1.0]
+    #     mnindex = np.amin(index)
+    #
+    #     write("{}_crash.xyz".format(name), traj[mnindex])
 
-        write("{}_crash.xyz".format(name), traj[mnindex])
+    return Etot, Ekin, Epot, T, P

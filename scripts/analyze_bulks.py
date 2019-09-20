@@ -17,7 +17,7 @@ import subprocess
 
 #models = models + ["CASTEP_ASE"] ############################
 
-bulk_tests = ["bulk_TiAl", "bulk_Ti3Al", "bulk_TiAl3"]
+bulk_tests = ["bulk_TiAl"]#, "bulk_Ti3Al", "bulk_TiAl3"]
 
 ref_linestyles=[ "-", "--" ]
 other_linestyles=[ ":", ":" ]
