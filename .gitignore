@@ -1,3 +1,7 @@
+*.log
+*.aux
+*.po*
+*.o*
 *.traj
 *.pdf
 *.pyc
