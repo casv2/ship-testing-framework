@@ -38,6 +38,7 @@ for model_name in models:
 # plt.plot(data["SHIP_test"]["Zmethod_TiAl"]["E_tot"], label="E_tot")
 # #plt.plot(data["SHIP_test"]["Zmethod_TiAl"]["E_kin"], label="E_kin")
 # #plt.plot(data["SHIP_test"]["Zmethod_TiAl"]["E_pot"], label="E_pot")
-plt.plot(data["SHIP_test"]["Zmethod_TiAl"]["T"], data["SHIP_test"]["Zmethod_TiAl"]["P"])
+plt.scatter(data["SHIP_test"]["Zmethod_TiAl"]["P"][100:], data["SHIP_test"]["Zmethod_TiAl"]["T"][100:])
+#plt.plot(data["SHIP_test"]["Zmethod_TiAl"]["T"][100:])
 plt.legend()
 plt.savefig("Zmethod_Energy.png")
