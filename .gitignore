@@ -1,6 +1,15 @@
+*.param
+*.cell
+*.bands
 *.png
 *.traj
 *.pdf
+*.castep
+*.bib
+*.cst_esp
+*.e*
+*.o*
+*.bak*
 *.pyc
 .DS_Store
 example_run_dir/Si
