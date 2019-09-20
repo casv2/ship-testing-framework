@@ -17,7 +17,7 @@ import subprocess
 
 #models = models + ["CASTEP_ASE"] ############################
 
-bulk_tests = ["bulk_TiAl"]#, "bulk_Ti3Al", "bulk_TiAl3"]
+bulk_tests = ["bulk_Ti_bcc", "bulk_Ti_hcp", "bulk_TiAl"]#, "bulk_Ti3Al", "bulk_TiAl3"]
 
 ref_linestyles=[ "-", "--" ]
 other_linestyles=[ ":", ":" ]
@@ -200,13 +200,15 @@ for bulk_test_name in bulk_tests:
 #bulk_tests = bulk_tests[0] ###############################
 #print bulk_tests
 
+print bulk_tests
+
 for bulk_test_name in bulk_tests:
     print "   ,", bulk_test_name
     #bulk_test_name = bulk_tests[0]
     for model in models:
         if model != ref_model_name:
             for key in data[model][bulk_test_name]:
-                print key
+                print data[model]["bulk_Ti_bcc"]["c44"]
                 if type(data[model][bulk_test_name][key]) == float:
                     print bulk_test_name
                     pct_diff = int(((data[model][bulk_test_name][key] - ref_bulk_dict[bulk_test_name][key])/ref_bulk_dict[bulk_test_name][key])*100)
