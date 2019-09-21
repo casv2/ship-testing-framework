@@ -1,3 +1,4 @@
+*.po*
 *.param
 *.cell
 *.bands
