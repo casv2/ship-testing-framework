@@ -1,18 +1,19 @@
 
-    \documentclass[preview]{standalone}
-    \usepackage[paperwidth=6in,paperheight=2in,margin=0.5in,showframe]{geometry}
-    \usepackage{booktabs}
-    \begin{document}
-    \begin{center}
-    \textnormal{Elastic Constants} \\
-    \vspace{2mm}
-    \begin{tabular}{ l l c c c c } \toprule 
+\documentclass[preview]{standalone}
+\usepackage[paperwidth=8in,paperheight=4in,margin=0.5in,showframe]{geometry}
+\usepackage{booktabs}
+\begin{document}
+\begin{center}
+\textnormal{Elastic Constants} \\
+\vspace{2mm}
+\begin{tabular}{ l l c c c c } \toprule 
 Model & Struct & B & $c_{11}$ & $c_{12}$ & $c_{44}$\\ \midrule 
-CASTEP & TiAl & 130.6 & 234.6 & 78.6 & 127.2\\ 
-SHIP\_v1 & TiAl & 90\% & 25\% & 187\% & 5\%\\ 
-SHIP\_v2 & TiAl & 52\% & 19\% & 101\% & -13\%\\ 
- \bottomrule
-    \end{tabular}
-    \end{center}
-    \end{document}
-    
+CASTEP & Ti bcc & 118.7 & 119.4 & 118.3 & 32.3\\ 
+SHIP\_TiAl\_v2 & Ti bcc & 105\% & 82\% & 116\% & -61\%\\ 
+\end{tabular} \bigskip \begin{tabular}{ l l c c c c c c c } \toprule 
+Model & Struct & B & $c_{11}$ & $c_{12}$ & $c_{13}$ & $c_{33}$ & $c_{44}$ & $c_{66}$\\ \midrule 
+CASTEP & Ti hcp & 131.5 & 209.0 & 83.6 & 96.8 & 211.6 & 35.5 & 62.4\\ 
+SHIP\_TiAl\_v2 & Ti hcp & -29\% & -39\% & -49\% & -9\% & -2\% & -25\% & -34\%\\ 
+\end{tabular} \bigskip 
+\end{center}
+\end{document}

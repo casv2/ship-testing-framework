@@ -17,7 +17,7 @@ import subprocess
 
 #models = models + ["CASTEP_ASE"] ############################
 
-bulk_tests = ["bulk_Ti_bcc", "bulk_Ti_hcp", "bulk_TiAl"]#, "bulk_Ti3Al", "bulk_TiAl3"]
+bulk_tests = ["bulk_Ti_bcc", "bulk_Ti_hcp"]#, "bulk_TiAl"]#, "bulk_Ti3Al", "bulk_TiAl3"]
 
 ref_linestyles=[ "-", "--" ]
 other_linestyles=[ ":", ":" ]
@@ -28,43 +28,6 @@ print models
 #del models[1]
 
 element_ref_struct_data = get_element_ref_structs(args.test_set, models, default_analysis_settings["element_ref_struct"])
-
-def pdf_table(table, bulk_test_name):
-    filename = 'out.tex'
-
-    # template = r'''
-    # \documentclass[preview]{standalone}
-    # \usepackage{booktabs}
-    # \begin{document}
-    # \begin{center}
-    # \textnormal{Elastic Constants} \\
-    # \vspace{2mm}
-    # %(x)s \bottomrule
-    # \end{tabular}
-    # \end{center}
-    # \end{document}
-    # '''
-
-    template = r'''
-    \documentclass[preview]{standalone}
-    \usepackage[paperwidth=6in,paperheight=2in,margin=0.5in,showframe]{geometry}
-    \usepackage{booktabs}
-    \begin{document}
-    \begin{center}
-    \textnormal{Elastic Constants} \\
-    \vspace{2mm}
-    %(x)s \bottomrule
-    \end{tabular}
-    \end{center}
-    \end{document}
-    '''
-
-    with open(filename, 'wb') as f:
-        f.write(template % {'x' : table })
-
-    subprocess.call(['pdflatex', filename])
-    os.rename("out.pdf", "{}_table.pdf".format(bulk_test_name))
-    #os.system("rm out.*")
 
 # read and parse all data
 data = {}
@@ -215,9 +178,28 @@ for bulk_test_name in bulk_tests:
                     data[model][bulk_test_name][key] = str(pct_diff) + "\%"
 #print data
 
+filename = 'out.tex'
+
+template = r'''
+\documentclass[preview]{standalone}
+\usepackage[paperwidth=8in,paperheight=4in,margin=0.5in,showframe]{geometry}
+\usepackage{booktabs}
+\begin{document}
+\begin{center}
+\textnormal{Elastic Constants} \\
+\vspace{2mm}
+%(x)s
+\end{center}
+\end{document}
+'''
+
+tables = ""
+
 for bulk_test_name in bulk_tests:
     #bulk_test_name = bulk_tests[0]
     print bulk_test_name
+    #table = "\\textnormal{Elastic Constants} \\"
+    #table += "\\vspace{2mm}"
     table = "\\begin{tabular}{ l l " + " ".join(["c"]*len(sorted_consts_dict[bulk_test_name]))+" } \\toprule \n"
     table += "Model & Struct & " + " & ".join(sorted_consts_tex_dict[bulk_test_name]) + "\\\ \midrule \n"
 
@@ -228,10 +210,20 @@ for bulk_test_name in bulk_tests:
             #print model
             table += model.replace("_","\\_")+" & " +bulk_test_name.replace("bulk_","").replace("_"," ") + " & " + " & ".join(["{}".format(data[model][bulk_test_name][k]) for k in sorted_consts_dict[bulk_test_name]]) + "\\\\ \n"
 
+    table += "\\end{tabular} \\bigskip "
+    tables += table
     print table
-    pdf_table(table, bulk_test_name)
+    #pdf_table(table, bulk_test_name)
 
+with open(filename, 'wb') as f:
+    f.write(template % {'x' : tables })
 
+subprocess.call(['pdflatex', filename])
+os.rename("out.pdf", "elastic_const_table.pdf")
+
+print bulk_tests
+
+plt.title("/".join(bulk_tests))
 plt.legend(loc="center left", bbox_to_anchor=[1, 0.5])
 #plt.legend()
 plt.xlabel("V ($A^3$/atom)")
@@ -240,6 +232,6 @@ plt.ylabel("E (eV/atom)")
 plt.savefig("bulk_plot.pdf", bbox_inches='tight')
 
 #os.system("convert -density 350 *_plot.pdf *_table.pdf -quality 100 bulk_analysis.pdf")
-os.system("pdfjoin *_plot.pdf *_table.pdf")
+os.system("pdfjoin *_plot.pdf elastic_const_table.pdf")
 time.sleep(1)
 os.system("mv *-joined.pdf bulk_analysis.pdf")

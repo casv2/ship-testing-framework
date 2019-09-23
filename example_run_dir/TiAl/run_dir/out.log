@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.25)  20 SEP 2019 23:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.25)  23 SEP 2019 00:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -148,12 +148,12 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: showframe 
-* h-part:(L,W,R)=(36.135pt, 361.35pt, 36.135pt)
-* v-part:(T,H,B)=(36.135pt, 72.27pt, 36.135pt)
-* \paperwidth=433.62pt
-* \paperheight=144.54pt
-* \textwidth=361.35pt
-* \textheight=72.27pt
+* h-part:(L,W,R)=(36.135pt, 505.89pt, 36.135pt)
+* v-part:(T,H,B)=(36.135pt, 216.81pt, 36.135pt)
+* \paperwidth=578.15999pt
+* \paperheight=289.07999pt
+* \textwidth=505.89pt
+* \textheight=216.81pt
 * \oddsidemargin=-36.135pt
 * \evensidemargin=-36.135pt
 * \topmargin=-73.135pt
@@ -185,16 +185,16 @@ Preview: Tightpage 0 0 0 0
 Here is how much of TeX's memory you used:
  1595 strings out of 492649
  24643 string characters out of 6129622
- 89590 words of memory out of 5000000
+ 90616 words of memory out of 5000000
  5499 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,9n,68p,262b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,9n,68p,258b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r7.pfb>
-Output written on out.pdf (1 page, 31967 bytes).
+Output written on out.pdf (1 page, 33224 bytes).
 PDF statistics:
  20 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream
