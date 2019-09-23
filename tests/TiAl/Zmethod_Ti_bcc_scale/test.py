@@ -4,6 +4,7 @@ import subprocess
 import sys
 from ase.io import read, write
 import zmethod
+import matplotlib.pyplot as plt
 
 calculator = model.calculator
 
@@ -15,7 +16,7 @@ def find_PTmelt(nsteps, R, P, T):
 
     Tm_l, Pm_l = [], []
 
-    for k in xrange(1, len(P)/steps - 1):
+    for k in xrange(0, R - 1):
         Pm = np.mean(P[points[k]:points[k+1]])
         Tm = np.mean(T[points[k]:points[k+1]])
         Tm_l.append(Tm)
@@ -29,14 +30,21 @@ def find_PTmelt(nsteps, R, P, T):
     return Pmelt_est, Tmelt_est
 
 nsteps = 1000
-R = 100
+R = 10
+A = 0.2 #0.02, 1000, 100, 3500
+T = 3500
 
 D = {}
 
 for i in xrange(3):
     big_at.set_cell(big_at.cell*1.02, scale_atoms=True)
     V = big_at.get_volume()
-    Etot, Ekin, Epot, T, P = zmethod.Zmethod(calculator, big_at, nsteps=nsteps, dt=1, A=0.02, T=3500, R=R, save_config=100, name="Ti_bcc")
+    Etot, Ekin, Epot, T, P = zmethod.Zmethod(calculator, big_at, nsteps=nsteps, dt=1, A=A, T=T, R=R, save_config=100, name="Ti_bcc")
+    P = 160.21766208*np.array(P[1000:])
+    T = np.array(T[1000:])
+    plt.scatter(P, T, label="{}".format(i))
+    plt.savefig("zmethod_{}.png".format(i))
+    Pmelt_est, Tmelt_est = find_PTmelt(nsteps, R, P, T)
     D[i] = [Pmelt_est, Tmelt_est, V]
 
 properties = D
