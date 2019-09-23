@@ -42,7 +42,7 @@ D = {}
 for i in xrange(3):
     big_at.set_cell(big_at.cell*1.02, scale_atoms=True)
     V = big_at.get_volume()
-    Etot, Ekin, Epot, T, P = zmethod.Zmethod(calculator, big_at, nsteps=nsteps, dt=1, A=A, T=T, R=R, save_config=100, name="Ti_bcc")
+    Etot, Ekin, Epot, T, P = zmethod.Zmethod(calculator, big_at, nsteps=nsteps, dt=1, A=A, T=T, R=R, save_config=1000, name="Ti_bcc")
     P = 160.21766208*np.array(P[1000:])
     T = np.array(T[1000:])
     plt.scatter(P, T, label="{}".format(i))
