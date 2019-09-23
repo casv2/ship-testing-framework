@@ -33,8 +33,8 @@ def find_PTmelt(nsteps, R, P, T):
     return Pmelt_est, Tmelt_est
 
 nsteps = 1000
-R = 10
-A = 0.2 #0.02, 1000, 100, 3500
+R = 100
+A = 0.02 #0.02, 1000, 100, 3500
 T = 3500
 
 D = {}
