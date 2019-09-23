@@ -120,10 +120,10 @@ for model_name in sorted(models):
         #print l
 
         if model_name != ref_model_name:
-            plt.plot( [x[0] for x in data[model_name][bulk_test_name]["E_vs_V"]], [x[1] - E0 for x in data[model_name][bulk_test_name]["E_vs_V"]], other_linestyles[0], color=struct_colors[n], marker="o", markersize="2.5", label=model_name)
+            plt.plot( [x[0] for x in data[model_name][bulk_test_name]["E_vs_V"]], [x[1]  for x in data[model_name][bulk_test_name]["E_vs_V"]], other_linestyles[0], color=struct_colors[n], marker="o", markersize="2.5", label=model_name)
         if model_name == ref_model_name:
             print bulk_test_name
-            plt.plot( [x[0] for x in data[ref_model_name][bulk_test_name]["E_vs_V"]], [x[1] - E0 for x in data[ref_model_name][bulk_test_name]["E_vs_V"]], ref_linestyles[0], color="black", label=model_name)
+            plt.plot( [x[0] for x in data[ref_model_name][bulk_test_name]["E_vs_V"]], [x[1] for x in data[ref_model_name][bulk_test_name]["E_vs_V"]], ref_linestyles[0], color="black", label=model_name)
 
         sorted_consts = sorted([k for k in data[model_name][bulk_test_name].keys() if (re.match("^c[0-9][0-9]$",k) or k == 'B') ])
 
@@ -228,7 +228,7 @@ plt.legend(loc="center left", bbox_to_anchor=[1, 0.5])
 #plt.legend()
 plt.xlabel("V ($A^3$/atom)")
 plt.ylabel("E (eV/atom)")
-#plt.ylim(-1593.8, -1593)
+plt.ylim(-1593.8, -1593)
 plt.savefig("bulk_plot.pdf", bbox_inches='tight')
 
 #os.system("convert -density 350 *_plot.pdf *_table.pdf -quality 100 bulk_analysis.pdf")
