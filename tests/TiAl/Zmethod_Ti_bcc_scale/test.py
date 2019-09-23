@@ -5,6 +5,7 @@ import sys
 from ase.io import read, write
 import zmethod
 import matplotlib.pyplot as plt
+import numpy as np 
 
 calculator = model.calculator
 
