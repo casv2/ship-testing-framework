@@ -39,8 +39,10 @@ startT = 3500
 
 D = {}
 
-for i in xrange(3):
-    big_at.set_cell(big_at.cell*1.01, scale_atoms=True)
+for (i, scale) in enumerate([1.01, 1.02, 1.03]):
+    at = read(os.path.join(os.path.abspath(os.path.dirname(__file__)), "bulk.xyz"))
+    big_at = at * (6,6,6)
+    big_at.set_cell(big_at.cell*scale, scale_atoms=True)
     V = big_at.get_volume()
     Etot, Ekin, Epot, T, P = zmethod.Zmethod(calculator, big_at, nsteps=nsteps, dt=1, A=A, T=startT, R=R, save_config=1000, name="Ti_bcc")
     P = 160.21766208*np.array(P[1000:])
