@@ -7,6 +7,9 @@ element = split(cur_work, "/")[end-1]
 model_dir = joinpath("/Users/Cas/gits/ship-testing-framework/example_run_dir/", element, "models")
 
 for model in readdir(model_dir)
+    if model == ".DS_Store"
+        continue
+    end
     fit_dir = joinpath(model_dir, model)
     cd(fit_dir)
     @show readdir(fit_dir)
