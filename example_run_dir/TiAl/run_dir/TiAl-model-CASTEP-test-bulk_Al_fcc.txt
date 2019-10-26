@@ -1,0 +1,542 @@
+Model CASTEP, Test bulk_Al_fcc
+Test run at 2019-10-24 17:31
+
+model file: ../../models/CASTEP/model.py
+============================================================
+import os
+from distutils import spawn
+
+#from matscipy.socketcalc import CastepClient, SocketCalculator
+from ase.calculators.castep import Castep
+
+model_abs_dir = os.path.abspath(os.path.dirname(__file__))
+
+mpirun = "aprun"
+mpirun_args = "-n 48"
+castep = "castep.mpi"
+
+os.environ['CASTEP_COMMAND'] = '{0} {1} {2}'.format(mpirun, mpirun_args, castep)
+
+print os.environ['CASTEP_COMMAND']
+
+name = 'CASTEP'
+Castep.name = name
+Castep.todict = lambda self: {}
+
+no_checkpoint = True
+
+def start(test_name):
+        global calculator
+	calculator = Castep(directory="./_CASTEP",
+                        cut_off_energy=600, #700
+                        max_scf_cycles=250,
+                        calculate_stress=True,
+                        finite_basis_corr='automatic',
+                        smearing_width='0.1', #0.1
+                        #elec_energy_tol='0.0000001',
+                        #elec_method='edft',
+                        #nextra_bands='13',
+                        mixing_scheme='Pulay',
+                        kpoints_mp_spacing='0.04', #0.015
+                        #perc_extra_bands=150,
+                        write_checkpoint='none')
+
+============================================================
+test file: /fs3/e89/e89/casv2/ship-testing-framework/scripts/../tests/TiAl/bulk_Al_fcc/test.py
+============================================================
+import os.path, lattice
+
+properties = lattice.do_lattice(os.path.abspath(os.path.dirname(__file__)), 'cubic')
+============================================================
+aprun -n 48 castep.mpi
+relax bulk
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-bulk-relaxed.xyz
+castep call stdout:
+Application 37546930 resources: utime ~792s, stime ~29s, Rss ~278944, inblocks ~136891, outblocks ~304415
+PreconLBFGS:   0  17:31:43     -439.146666       0.0000       0.0054
+symmetry.check: prec 0.01 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+final relaxed bulk
+4
+Lattice="4.0 0.0 0.0 0.0 4.0 0.0 0.0 0.0 4.0" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=1
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.00000000       2.00000000       0.00000000 
+Al       2.00000000       0.00000000       2.00000000 
+Al       0.00000000       2.00000000       2.00000000 
+calculating E vs. V
+4
+Lattice="4.0 0.0 0.0 0.0 4.0 0.0 0.0 0.0 4.0" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=1
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.00000000       2.00000000       0.00000000 
+Al       2.00000000       0.00000000       2.00000000 
+Al       0.00000000       2.00000000       2.00000000 
+trying to relax i 0
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_00-relaxed.xyz
+PreconLBFGS:   0  17:31:52     -439.146666       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.0 0.0 0.0 0.0 4.0 0.0 0.0 0.0 4.0" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.00000000       2.00000000       0.00000000 
+Al       2.00000000       0.00000000       2.00000000 
+Al       0.00000000       2.00000000       2.00000000 
+4
+Lattice="3.9663849653615495 0.0 0.0 0.0 3.9663849653615495 0.0 0.0 0.0 3.9663849653615495" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.98319248       1.98319248       0.00000000 
+Al       1.98319248       0.00000000       1.98319248 
+Al       0.00000000       1.98319248       1.98319248 
+trying to relax i -1
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-1-relaxed.xyz
+castep call stdout:
+Application 37546934 resources: utime ~772s, stime ~29s, Rss ~279104, inblocks ~136868, outblocks ~304417
+PreconLBFGS:   0  17:32:14     -439.145353       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.9663849653615495 0.0 0.0 0.0 3.9663849653615495 0.0 0.0 0.0 3.9663849653615495" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.98319248       1.98319248       0.00000000 
+Al       1.98319248       0.00000000       1.98319248 
+Al       0.00000000       1.98319248       1.98319248 
+4
+Lattice="3.932190289966234 0.0 0.0 0.0 3.932190289966234 0.0 0.0 0.0 3.932190289966234" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.96609514       1.96609514       0.00000000 
+Al       1.96609514       0.00000000       1.96609514 
+Al       0.00000000       1.96609514       1.96609514 
+trying to relax i -2
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-2-relaxed.xyz
+castep call stdout:
+Application 37546935 resources: utime ~763s, stime ~28s, Rss ~279096, inblocks ~136881, outblocks ~304417
+PreconLBFGS:   0  17:32:38     -439.122672       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.932190289966234 0.0 0.0 0.0 3.932190289966234 0.0 0.0 0.0 3.932190289966234" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.96609514       1.96609514       0.00000000 
+Al       1.96609514       0.00000000       1.96609514 
+Al       0.00000000       1.96609514       1.96609514 
+4
+Lattice="3.897390320749315 0.0 0.0 0.0 3.897390320749315 0.0 0.0 0.0 3.897390320749315" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.94869516       1.94869516       0.00000000 
+Al       1.94869516       0.00000000       1.94869516 
+Al       0.00000000       1.94869516       1.94869516 
+trying to relax i -3
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-3-relaxed.xyz
+castep call stdout:
+Application 37546940 resources: utime ~760s, stime ~28s, Rss ~279092, inblocks ~136875, outblocks ~304415
+PreconLBFGS:   0  17:33:01     -439.075358       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.897390320749315 0.0 0.0 0.0 3.897390320749315 0.0 0.0 0.0 3.897390320749315" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.94869516       1.94869516       0.00000000 
+Al       1.94869516       0.00000000       1.94869516 
+Al       0.00000000       1.94869516       1.94869516 
+4
+Lattice="3.8619575384225184 0.0 0.0 0.0 3.8619575384225184 0.0 0.0 0.0 3.8619575384225184" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.93097877       1.93097877       0.00000000 
+Al       1.93097877       0.00000000       1.93097877 
+Al       0.00000000       1.93097877       1.93097877 
+trying to relax i -4
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-4-relaxed.xyz
+castep call stdout:
+Application 37546952 resources: utime ~919s, stime ~29s, Rss ~279088, inblocks ~136806, outblocks ~304182
+PreconLBFGS:   0  17:33:28     -438.998975       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.8619575384225184 0.0 0.0 0.0 3.8619575384225184 0.0 0.0 0.0 3.8619575384225184" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.93097877       1.93097877       0.00000000 
+Al       1.93097877       0.00000000       1.93097877 
+Al       0.00000000       1.93097877       1.93097877 
+4
+Lattice="3.825862365544777 0.0 0.0 0.0 3.825862365544777 0.0 0.0 0.0 3.825862365544777" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.91293118       1.91293118       0.00000000 
+Al       1.91293118       0.00000000       1.91293118 
+Al       0.00000000       1.91293118       1.91293118 
+trying to relax i -5
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-5-relaxed.xyz
+castep call stdout:
+Application 37546953 resources: utime ~685s, stime ~26s, Rss ~279088, inblocks ~136829, outblocks ~304184
+PreconLBFGS:   0  17:33:50     -438.888237       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.825862365544777 0.0 0.0 0.0 3.825862365544777 0.0 0.0 0.0 3.825862365544777" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.91293118       1.91293118       0.00000000 
+Al       1.91293118       0.00000000       1.91293118 
+Al       0.00000000       1.91293118       1.91293118 
+4
+Lattice="3.7890729487436374 0.0 0.0 0.0 3.7890729487436374 0.0 0.0 0.0 3.7890729487436374" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.89453647       1.89453647       0.00000000 
+Al       1.89453647       0.00000000       1.89453647 
+Al       0.00000000       1.89453647       1.89453647 
+trying to relax i -6
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-6-relaxed.xyz
+castep call stdout:
+Application 37546954 resources: utime ~652s, stime ~26s, Rss ~279092, inblocks ~136803, outblocks ~304181
+PreconLBFGS:   0  17:34:10     -438.737782       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.7890729487436374 0.0 0.0 0.0 3.7890729487436374 0.0 0.0 0.0 3.7890729487436374" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.89453647       1.89453647       0.00000000 
+Al       1.89453647       0.00000000       1.89453647 
+Al       0.00000000       1.89453647       1.89453647 
+4
+Lattice="3.7515549107338066 0.0 0.0 0.0 3.7515549107338066 0.0 0.0 0.0 3.7515549107338066" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.87577746       1.87577746       0.00000000 
+Al       1.87577746       0.00000000       1.87577746 
+Al       0.00000000       1.87577746       1.87577746 
+trying to relax i -7
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-7-relaxed.xyz
+castep call stdout:
+Application 37546957 resources: utime ~638s, stime ~26s, Rss ~279092, inblocks ~136804, outblocks ~304187
+PreconLBFGS:   0  17:34:31     -438.540366       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.7515549107338066 0.0 0.0 0.0 3.7515549107338066 0.0 0.0 0.0 3.7515549107338066" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.87577746       1.87577746       0.00000000 
+Al       1.87577746       0.00000000       1.87577746 
+Al       0.00000000       1.87577746       1.87577746 
+4
+Lattice="3.713271066890223 0.0 0.0 0.0 3.713271066890223 0.0 0.0 0.0 3.713271066890223" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.85663553       1.85663553       0.00000000 
+Al       1.85663553       0.00000000       1.85663553 
+Al       0.00000000       1.85663553       1.85663553 
+trying to relax i -8
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-8-relaxed.xyz
+castep call stdout:
+Application 37546962 resources: utime ~652s, stime ~26s, Rss ~279088, inblocks ~136804, outblocks ~304179
+PreconLBFGS:   0  17:34:51     -438.289025       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.713271066890223 0.0 0.0 0.0 3.713271066890223 0.0 0.0 0.0 3.713271066890223" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.85663553       1.85663553       0.00000000 
+Al       1.85663553       0.00000000       1.85663553 
+Al       0.00000000       1.85663553       1.85663553 
+4
+Lattice="3.674181100028455 0.0 0.0 0.0 3.674181100028455 0.0 0.0 0.0 3.674181100028455" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.83709055       1.83709055       0.00000000 
+Al       1.83709055       0.00000000       1.83709055 
+Al       0.00000000       1.83709055       1.83709055 
+trying to relax i -9
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-9-relaxed.xyz
+castep call stdout:
+Application 37546964 resources: utime ~650s, stime ~26s, Rss ~279092, inblocks ~136788, outblocks ~304188
+PreconLBFGS:   0  17:35:11     -437.975317       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.674181100028455 0.0 0.0 0.0 3.674181100028455 0.0 0.0 0.0 3.674181100028455" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.83709055       1.83709055       0.00000000 
+Al       1.83709055       0.00000000       1.83709055 
+Al       0.00000000       1.83709055       1.83709055 
+4
+Lattice="3.6342411856642793 0.0 0.0 0.0 3.6342411856642793 0.0 0.0 0.0 3.6342411856642793" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.81712059       1.81712059       0.00000000 
+Al       1.81712059       0.00000000       1.81712059 
+Al       0.00000000       1.81712059       1.81712059 
+trying to relax i -10
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_-10-relaxed.xyz
+castep call stdout:
+Application 37546967 resources: utime ~685s, stime ~28s, Rss ~279096, inblocks ~136824, outblocks ~304185
+PreconLBFGS:   0  17:35:33     -437.589981       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="3.6342411856642793 0.0 0.0 0.0 3.6342411856642793 0.0 0.0 0.0 3.6342411856642793" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       1.81712059       1.81712059       0.00000000 
+Al       1.81712059       0.00000000       1.81712059 
+Al       0.00000000       1.81712059       1.81712059 
+4
+Lattice="4.033059350436209 0.0 0.0 0.0 4.033059350436209 0.0 0.0 0.0 4.033059350436209" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=1
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.01652968       2.01652968       0.00000000 
+Al       2.01652968       0.00000000       2.01652968 
+Al       0.00000000       2.01652968       2.01652968 
+trying to relax i 1
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_01-relaxed.xyz
+castep call stdout:
+Application 37546968 resources: utime ~767s, stime ~29s, Rss ~279092, inblocks ~136919, outblocks ~304415
+PreconLBFGS:   0  17:35:56     -439.128877       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.033059350436209 0.0 0.0 0.0 4.033059350436209 0.0 0.0 0.0 4.033059350436209" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.01652968       2.01652968       0.00000000 
+Al       2.01652968       0.00000000       2.01652968 
+Al       0.00000000       2.01652968       2.01652968 
+4
+Lattice="4.065585427259414 0.0 0.0 0.0 4.065585427259414 0.0 0.0 0.0 4.065585427259414" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.03279271       2.03279271       0.00000000 
+Al       2.03279271       0.00000000       2.03279271 
+Al       0.00000000       2.03279271       2.03279271 
+trying to relax i 2
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_02-relaxed.xyz
+castep call stdout:
+Application 37546972 resources: utime ~825s, stime ~29s, Rss ~279104, inblocks ~136904, outblocks ~304418
+PreconLBFGS:   0  17:36:20     -439.093847       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.065585427259414 0.0 0.0 0.0 4.065585427259414 0.0 0.0 0.0 4.065585427259414" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.03279271       2.03279271       0.00000000 
+Al       2.03279271       0.00000000       2.03279271 
+Al       0.00000000       2.03279271       2.03279271 
+4
+Lattice="4.097599229036531 0.0 0.0 0.0 4.097599229036531 0.0 0.0 0.0 4.097599229036531" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.04879961       2.04879961       0.00000000 
+Al       2.04879961       0.00000000       2.04879961 
+Al       0.00000000       2.04879961       2.04879961 
+trying to relax i 3
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_03-relaxed.xyz
+castep call stdout:
+Application 37546973 resources: utime ~858s, stime ~28s, Rss ~279104, inblocks ~136892, outblocks ~304415
+PreconLBFGS:   0  17:36:47     -439.043436       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.097599229036531 0.0 0.0 0.0 4.097599229036531 0.0 0.0 0.0 4.097599229036531" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.04879961       2.04879961       0.00000000 
+Al       2.04879961       0.00000000       2.04879961 
+Al       0.00000000       2.04879961       2.04879961 
+4
+Lattice="4.129120461825468 0.0 0.0 0.0 4.129120461825468 0.0 0.0 0.0 4.129120461825468" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.06456023       2.06456023       0.00000000 
+Al       2.06456023       0.00000000       2.06456023 
+Al       0.00000000       2.06456023       2.06456023 
+trying to relax i 4
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_04-relaxed.xyz
+castep call stdout:
+Application 37546979 resources: utime ~767s, stime ~28s, Rss ~279096, inblocks ~136877, outblocks ~304415
+PreconLBFGS:   0  17:37:10     -438.979631       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.129120461825468 0.0 0.0 0.0 4.129120461825468 0.0 0.0 0.0 4.129120461825468" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.06456023       2.06456023       0.00000000 
+Al       2.06456023       0.00000000       2.06456023 
+Al       0.00000000       2.06456023       2.06456023 
+4
+Lattice="4.160167646103808 0.0 0.0 0.0 4.160167646103808 0.0 0.0 0.0 4.160167646103808" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.08008382       2.08008382       0.00000000 
+Al       2.08008382       0.00000000       2.08008382 
+Al       0.00000000       2.08008382       2.08008382 
+trying to relax i 5
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_05-relaxed.xyz
+castep call stdout:
+Application 37546980 resources: utime ~781s, stime ~29s, Rss ~279104, inblocks ~136882, outblocks ~304418
+PreconLBFGS:   0  17:37:33     -438.904439       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.160167646103808 0.0 0.0 0.0 4.160167646103808 0.0 0.0 0.0 4.160167646103808" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.08008382       2.08008382       0.00000000 
+Al       2.08008382       0.00000000       2.08008382 
+Al       0.00000000       2.08008382       2.08008382 
+4
+Lattice="4.190758212686589 0.0 0.0 0.0 4.190758212686589 0.0 0.0 0.0 4.190758212686589" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.09537911       2.09537911       0.00000000 
+Al       2.09537911       0.00000000       2.09537911 
+Al       0.00000000       2.09537911       2.09537911 
+trying to relax i 6
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_06-relaxed.xyz
+castep call stdout:
+Application 37546981 resources: utime ~755s, stime ~21s, Rss ~279040, inblocks ~134696, outblocks ~304388
+PreconLBFGS:   0  17:37:56     -438.784832       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.190758212686589 0.0 0.0 0.0 4.190758212686589 0.0 0.0 0.0 4.190758212686589" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.09537911       2.09537911       0.00000000 
+Al       2.09537911       0.00000000       2.09537911 
+Al       0.00000000       2.09537911       2.09537911 
+4
+Lattice="4.220908588980298 0.0 0.0 0.0 4.220908588980298 0.0 0.0 0.0 4.220908588980298" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.11045429       2.11045429       0.00000000 
+Al       2.11045429       0.00000000       2.11045429 
+Al       0.00000000       2.11045429       2.11045429 
+trying to relax i 7
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_07-relaxed.xyz
+castep call stdout:
+Application 37546984 resources: utime ~730s, stime ~21s, Rss ~279056, inblocks ~134689, outblocks ~304389
+PreconLBFGS:   0  17:38:18     -438.690059       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.220908588980298 0.0 0.0 0.0 4.220908588980298 0.0 0.0 0.0 4.220908588980298" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.11045429       2.11045429       0.00000000 
+Al       2.11045429       0.00000000       2.11045429 
+Al       0.00000000       2.11045429       2.11045429 
+4
+Lattice="4.250634276730444 0.0 0.0 0.0 4.250634276730444 0.0 0.0 0.0 4.250634276730444" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.12531714       2.12531714       0.00000000 
+Al       2.12531714       0.00000000       2.12531714 
+Al       0.00000000       2.12531714       2.12531714 
+trying to relax i 8
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_08-relaxed.xyz
+castep call stdout:
+Application 37546986 resources: utime ~776s, stime ~22s, Rss ~279060, inblocks ~134703, outblocks ~304391
+PreconLBFGS:   0  17:38:42     -438.588520       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.250634276730444 0.0 0.0 0.0 4.250634276730444 0.0 0.0 0.0 4.250634276730444" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.12531714       2.12531714       0.00000000 
+Al       2.12531714       0.00000000       2.12531714 
+Al       0.00000000       2.12531714       2.12531714 
+4
+Lattice="4.279949922260317 0.0 0.0 0.0 4.279949922260317 0.0 0.0 0.0 4.279949922260317" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.13997496       2.13997496       0.00000000 
+Al       2.13997496       0.00000000       2.13997496 
+Al       0.00000000       2.13997496       2.13997496 
+trying to relax i 9
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_09-relaxed.xyz
+castep call stdout:
+Application 37546992 resources: utime ~804s, stime ~21s, Rss ~279048, inblocks ~134704, outblocks ~304390
+PreconLBFGS:   0  17:39:06     -438.481425       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.279949922260317 0.0 0.0 0.0 4.279949922260317 0.0 0.0 0.0 4.279949922260317" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.13997496       2.13997496       0.00000000 
+Al       2.13997496       0.00000000       2.13997496 
+Al       0.00000000       2.13997496       2.13997496 
+4
+Lattice="4.308869380063766 0.0 0.0 0.0 4.308869380063766 0.0 0.0 0.0 4.308869380063766" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.15443469       2.15443469       0.00000000 
+Al       2.15443469       0.00000000       2.15443469 
+Al       0.00000000       2.15443469       2.15443469 
+trying to relax i 10
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_Al_fcc-E_vs_V_10-relaxed.xyz
+castep call stdout:
+Application 37546994 resources: utime ~805s, stime ~22s, Rss ~279048, inblocks ~134692, outblocks ~304570
+PreconLBFGS:   0  17:39:29     -438.369826       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+4
+Lattice="4.308869380063766 0.0 0.0 0.0 4.308869380063766 0.0 0.0 0.0 4.308869380063766" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Al       0.00000000       0.00000000       0.00000000 
+Al       2.15443469       2.15443469       0.00000000 
+Al       2.15443469       0.00000000       2.15443469 
+Al       0.00000000       2.15443469       2.15443469 
+calculating elastic constants
+/work/e89/e89/casv2/miniconda2/lib/python2.7/site-packages/ase/optimize/precon/lbfgs.py:137: UserWarning: The system is likely too small to benefit from the standard preconditioner, hence it is disabled. To re-enable preconditioning, call`PreconLBFGS` by explicitly providing the kwarg `precon`
+  'kwarg `precon`')
+castep call stdout:
+Application 37546997 resources: utime ~766s, stime ~29s, Rss ~279088, inblocks ~136883, outblocks ~304417
+PreconLBFGS:   0  17:39:53     -439.134726       0.0000
+castep call stdout:
+Application 37546998 resources: utime ~948s, stime ~28s, Rss ~279072, inblocks ~136883, outblocks ~304414
+PreconLBFGS:   0  17:40:24     -439.141760       0.0000
+castep call stdout:
+Application 37547000 resources: utime ~877s, stime ~29s, Rss ~279100, inblocks ~136894, outblocks ~304414
+PreconLBFGS:   0  17:40:54     -439.139775       0.0000
+castep call stdout:
+Application 37547001 resources: utime ~751s, stime ~29s, Rss ~279076, inblocks ~136890, outblocks ~304419
+PreconLBFGS:   0  17:41:16     -439.137118       0.0000
+castep call stdout:
+Application 37547002 resources: utime ~767s, stime ~28s, Rss ~279084, inblocks ~136887, outblocks ~304415
+PreconLBFGS:   0  17:41:39     -439.128837       0.0000
+Fitting C_11
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-1.891289, -0.022262,  0.857686,  1.625737,  2.56238 ]) GPa
+Cij (gradient) / GPa    :     105.55336999999992
+Error in Cij / GPa      :     11.806672882630165
+Correlation coefficient :     0.9817450042151474
+Setting C11 (1) to 0.658812 +/- 0.073691
+
+
+Fitting C_21
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-0.268452,  0.122822,  0.857686,  1.655178,  2.179372]) GPa
+Cij (gradient) / GPa    :     64.28003999999996
+Error in Cij / GPa      :     3.9074610001550796
+Correlation coefficient :     0.9945028738843039
+Setting C21 (7) to 0.401204 +/- 0.024388
+
+
+Fitting C_31
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-0.268452,  0.122822,  0.857686,  1.655178,  2.179372]) GPa
+Cij (gradient) / GPa    :     64.28003999999996
+Error in Cij / GPa      :     3.9074610001550796
+Correlation coefficient :     0.9945028738843039
+Updating C31 (7) with value 0.401204 +/- 0.024388
+
+
+Fitting C_44
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-1.383962, -0.59918 ,  0.      , -0.041271,  0.375062]) GPa
+Cij (gradient) / GPa    :     40.75957
+Error in Cij / GPa      :     8.393012933464354
+Correlation coefficient :     0.9418872193662249
+Setting C44 (4) to 0.254401 +/- 0.052385
+
+
+[[ C11  C12  C12               ]
+ [ C12  C11  C12               ]
+ [ C12  C12  C11               ]
+ [                C44          ]
+ [                     C44     ]
+ [                          C44]]
+
+ = 
+
+[[105.55  64.28  64.28   0.     0.     0.  ]
+ [ 64.28 105.55  64.28   0.     0.     0.  ]
+ [ 64.28  64.28 105.55   0.     0.     0.  ]
+ [  0.     0.     0.    40.76   0.     0.  ]
+ [  0.     0.     0.     0.    40.76   0.  ]
+ [  0.     0.     0.     0.     0.    40.76]]
+C_11 = 105.55 +/- 11.81 GPa
+C_12 = 64.28 +/- 3.91 GPa
+C_44 = 40.76 +/- 8.39 GPa
+============================================================
+Property calculation output:
+
+
+Summary of computed properties:
+{'c44': 40.75957, 'c12': 64.28003999999996, 'c11': 105.55336999999992, 'B': 78.03781666666661, 'E_vs_V': [(11.999999999999996, -109.397253824675), (12.399999999999991, -109.493582056975), (12.799999999999995, -109.572002530975), (13.199999999999996, -109.63482836565), (13.599999999999993, -109.6841339351), (13.999999999999993, -109.721585560225), (14.4, -109.748980885975), (14.799999999999994, -109.767665837), (15.200000000000001, -109.7791010032), (15.6, -109.784576946975), (15.999999999999995, -109.78494364335), (16.39999999999999, -109.78065802805), (16.80000000000001, -109.772057489525), (17.199999999999978, -109.759549626475), (17.59999999999999, -109.743626520525), (18.0, -109.7247929011), (18.400000000000002, -109.694606522925), (18.799999999999965, -109.6708009783), (19.2, -109.645245246125), (19.59999999999999, -109.61824012445), (19.999999999999993, -109.59006612945)]}
+============================================================

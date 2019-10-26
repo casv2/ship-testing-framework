@@ -1,0 +1,28 @@
+#######################################################
+#CASTEP cell file: /fs3/e89/e89/casv2/ship-testing-framework/example_run_dir/TiAl/run_dir/run_TiAl-model-CASTEP-test-bulk_Ti3Al/_CASTEP/castep.cell
+#Created using the Atomic Simulation Environment (ASE)#
+#######################################################
+
+%BLOCK LATTICE_CART
+ 5.610505  0.056284 -0.000000
+-2.756508  4.830872 -0.000000
+-0.000000 -0.000000  4.635746
+%ENDBLOCK LATTICE_CART
+
+%BLOCK POSITIONS_ABS
+Ti  2.843475  3.238326  1.158950
+Ti -1.357011  4.029087  3.476823
+Ti  1.396686  4.039823  3.476823
+Ti  1.457419  0.847249  1.158949
+Ti  4.211038  0.858025  1.158950
+Ti  0.010546  1.648992  3.476824
+Al  0.033493  3.239190  1.158951
+Al  2.820628  1.647924  3.476824
+%ENDBLOCK POSITIONS_ABS
+
+%BLOCK SPECIES_POT
+Al 3|2.2|2.2|1.4|4|5|5|30:31:32U2U2
+Ti 3|1.8|9|10|11|30U:40:31:32(qc=5.5)
+%ENDBLOCK SPECIES_POT
+
+KPOINTS_MP_SPACING: 0.04 
