@@ -49,20 +49,28 @@ def run(calc, phonon):
     set_of_forces = []
     for (i,scell) in enumerate(supercells):
         ##########
-        qat = Atoms(symbols=scell.get_chemical_symbols(),
+        at = Atoms(symbols=scell.get_chemical_symbols(),
                       scaled_positions=scell.get_scaled_positions(),
                       cell=scell.get_cell(),
                       pbc=True)
 
-        qat.set_calculator(calc)
-        forces = qat.get_forces()
+        at.set_calculator(calc)
+
+        energy = at.get_potential_energy(force_consistent=True)
+        forces = at.get_forces()
+        stress = at.get_stress(voigt=False)
+
         drift_force = forces.sum(axis=0)
         print(("[Phonopy] Drift force:" + "%11.5f" * 3) % tuple(drift_force))
         # Simple translational invariance
         for force in forces:
             force -= drift_force / forces.shape[0]
 
-        write("{}_scell.xyz".format(i), qat)
+        at.arrays["force"] = forces
+        at.info["virial"] = -1.0 * at.get_volume() * stress
+        at.info["energy"] = energy
+
+        write("{}_scell.xyz".format(i), at)
         set_of_forces.append(forces)
     return set_of_forces
 

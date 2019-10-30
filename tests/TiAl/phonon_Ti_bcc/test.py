@@ -30,7 +30,7 @@ def get_crystal():
 
 def phonopy_pre_process(cell, supercell_matrix=None):
 
-    smat = [[2,0,0], [0,2,0], [0,0,2]]
+    smat = [[3,0,0], [0,3,0], [0,0,3]]
 
 
     phonon = Phonopy(cell,
