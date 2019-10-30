@@ -13,11 +13,17 @@ import re
 import time
 import subprocess
 
+print sys.argv
+
+try:
+    bulk_tests = [sys.argv[2]]
+except:
+    pass
+
 (args, models, bulk_tests, default_analysis_settings) = analyze_start('bulk_*')
 
-#models = models + ["CASTEP_ASE"] ############################
-
-bulk_tests = ["bulk_Ti_bcc", "bulk_Ti_hcp"]#, "bulk_TiAl"]#, "bulk_Ti3Al", "bulk_TiAl3"]
+print bulk_tests
+#bulk_tests = ["bulk_TiAl3"]#["bulk_Ti_bcc", "bulk_Ti_hcp"]#, "bulk_Al_fcc"]#, "bulk_Ti3Al", "bulk_TiAl3"]
 
 ref_linestyles=[ "-", "--" ]
 other_linestyles=[ ":", ":" ]
@@ -171,7 +177,7 @@ for bulk_test_name in bulk_tests:
     for model in models:
         if model != ref_model_name:
             for key in data[model][bulk_test_name]:
-                print data[model]["bulk_Ti_bcc"]["c44"]
+                #print data[model]["bulk_Ti_bcc"]["c44"]
                 if type(data[model][bulk_test_name][key]) == float:
                     print bulk_test_name
                     pct_diff = int(((data[model][bulk_test_name][key] - ref_bulk_dict[bulk_test_name][key])/ref_bulk_dict[bulk_test_name][key])*100)
@@ -228,10 +234,11 @@ plt.legend(loc="center left", bbox_to_anchor=[1, 0.5])
 #plt.legend()
 plt.xlabel("V ($A^3$/atom)")
 plt.ylabel("E (eV/atom)")
-plt.ylim(-1593.8, -1593)
+#plt.ylim(-1593.8, -1593)
 plt.savefig("bulk_plot.pdf", bbox_inches='tight')
 
 #os.system("convert -density 350 *_plot.pdf *_table.pdf -quality 100 bulk_analysis.pdf")
 os.system("pdfjoin *_plot.pdf elastic_const_table.pdf")
 time.sleep(1)
-os.system("mv *-joined.pdf bulk_analysis.pdf")
+os.system("mv *-joined.pdf bulk_analysis_{0}.pdf".format(bulk_tests[0]))
+os.system("rm *_plot.pdf elastic_const_table.pdf *-joined.pdf")

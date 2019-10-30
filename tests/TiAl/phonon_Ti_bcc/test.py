@@ -88,16 +88,16 @@ phonon.plot_band_structure().show()
 
 #print model.name
 
-try:
-    model_name = model.orig_dir.split("/")[-1].split("-")[2]
-except:
-    model_name = model.pot_name.split("/")[-2]#.split("-")[2]
+# try:
+#     model_name = model.orig_dir.split("/")[-1].split("-")[2]
+# except:
+#     model_name = model.pot_name.split("/")[-2]#.split("-")[2]
 
 #print split(split(model.orig_dir, "/")[-1], "-")[2]
 #print vars(model)
 #print dict(model)
 
-phonon.write_yaml_band_structure(filename="{}.yaml".format(model_name))
+phonon.write_yaml_band_structure(filename="data.yaml")#filename="{}.yaml".format(model_name))
 
 
 #fig, plt = phonon.plot_band_structure_2()
