@@ -16,11 +16,16 @@ import phonopy
 from phonopy.phonon.band_structure import get_band_qpoints_and_path_connections
 
 import model
+from ase.optimize import BFGS
 
 calc = model.calculator
 
 def get_crystal():
     at = read(os.path.join(os.path.abspath(os.path.dirname(__file__)), "bulk.xyz"))
+
+    at.set_calculator(calc)
+    dyn = BFGS(water)
+    dyn.run(fmax=0.05)
 
     cell = PhonopyAtoms(symbols=at.get_chemical_symbols(),
                     cell=at.get_cell(),
