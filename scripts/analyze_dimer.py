@@ -6,6 +6,7 @@ import json
 import os
 import itertools
 import glob
+import numpy as np
 from analyze_utils import *
 
 (args, models, tests, default_analysis_settings) = analyze_start('dimer_*')
@@ -27,6 +28,8 @@ print args, models, tests, default_analysis_settings
 #     if model.startswith("CASTEP"):
 #         del models[i]
 ##del models[2] #delete CASTEP
+del models[0]
+del models[0]
 
 data = {}
 struct_data = {}
@@ -70,9 +73,9 @@ for test in tests:
         R = data[model_name][test]["dimer_distance"]
         if model_name != ref_model_name:
             n+=1
-            plot(R, E, linestyle=ref_linestyles[0], color=struct_colors[n], label=model_name)
+            plot(R, np.array(E) - E[-1], linestyle=ref_linestyles[0], color=struct_colors[n], label=model_name)
         else:
-            plot(R, E, linestyle=ref_linestyles[0], color=struct_colors[0], label=model_name)
+            plot(R, np.array(E) - E[-1], linestyle=ref_linestyles[0], color=struct_colors[0], label=model_name)
 
         title("Ti-Ti, Ti-Al, Al-Al dimers")
         xlabel(r"Dimer distance ($\AA$)")

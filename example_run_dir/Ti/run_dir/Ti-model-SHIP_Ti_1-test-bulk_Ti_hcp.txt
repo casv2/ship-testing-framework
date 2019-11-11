@@ -1,0 +1,422 @@
+Model SHIP_Ti_1, Test bulk_Ti_hcp
+Test run at 2019-10-10 00:11
+
+model file: ../../models/SHIP_Ti_1/model.py
+============================================================
+import pyjulip
+import os
+import glob
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+pot_name = glob.glob(os.path.join(model_dir,"*.json"))[0]
+
+calculator = pyjulip.SHIP(pot_name)
+
+no_checkpoint = True
+
+name = 'SHIP'
+============================================================
+test file: /Users/Cas/gits/ship-testing-framework/scripts/../tests/Ti/bulk_Ti_hcp/test.py
+============================================================
+import os.path, lattice
+
+properties = lattice.do_lattice(os.path.abspath(os.path.dirname(__file__)), 'tetragonal')
+============================================================
+relax bulk
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-bulk-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.156459       0.0000       0.0721
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:473: UserWarning: Cell length L[0] == 0. Setting H[0,0] = 0.
+  (i, i, i))
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:514: UserWarning: mu (0.216) < 1.0, capping at mu=1.0
+  warnings.warn('mu (%.3f) < 1.0, capping at mu=1.0' % self.mu)
+estimate_mu(): mu=1.0, mu_c=47.087784429394986
+PreconLBFGS:   1  00:12:24    -3187.267634       0.0000       0.0464
+PreconLBFGS:   2  00:12:24    -3187.296148       0.0000       0.0047
+symmetry.check: prec 0.01 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+final relaxed bulk
+2
+Lattice="2.839510143299915 7.51706347605616e-12 -4.885562805723191e-12 -1.4197550716434468 2.45908791917421 3.0699345492655895e-13 -7.758273735488426e-12 -3.916318443431069e-12 4.55136679449952" Properties=species:S:1:pos:R:3 stress="0.004665953305139799 -4.754453050847351e-13 -3.988221762052049e-12 -4.754453050847351e-13 0.004665953119187112 -2.131765091211526e-12 -3.988221762052049e-12 -2.131765091211526e-12 0.0014671957011605013" pbc="T T T" n_minim_iter=3
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.63939194       2.27568340 
+calculating E vs. V
+2
+Lattice="2.839510143299915 7.51706347605616e-12 -4.885562805723191e-12 -1.4197550716434468 2.45908791917421 3.0699345492655895e-13 -7.758273735488426e-12 -3.916318443431069e-12 4.55136679449952" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=3
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.63939194       2.27568340 
+trying to relax i 0
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_00-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.296148       0.0000       0.0021
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.839510143299915 7.51706347605616e-12 -4.885562805723191e-12 -1.4197550716434468 2.45908791917421 3.0699345492655895e-13 -7.758273735488426e-12 -3.916318443431069e-12 4.55136679449952" Properties=species:S:1:pos:R:3 energy=-3187.29614784 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.63939194       2.27568340 
+2
+Lattice="2.8156475853441 7.453891888774395e-12 -4.844505714987514e-12 -1.4078237926655943 2.4384223377787007 3.0441355602127547e-13 -7.69307507540017e-12 -3.883406648398284e-12 4.513118206387172" Properties=species:S:1:pos:R:3 energy=-3187.29614784 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.62561489       2.25655910 
+trying to relax i -1
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-1-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.291050       0.0000       0.0029
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.8156475853441 7.453891888774395e-12 -4.844505714987514e-12 -1.4078237926655943 2.4384223377787007 3.0441355602127547e-13 -7.69307507540017e-12 -3.883406648398284e-12 4.513118206387172" Properties=species:S:1:pos:R:3 energy=-3187.2910498 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.62561489       2.25655910 
+2
+Lattice="2.7913735534361384 7.389631002401965e-12 -4.80274065642123e-12 -1.3956867767116692 2.4174004094875245 3.0178917063635044e-13 -7.626752162396912e-12 -3.849927338918831e-12 4.474210078851439" Properties=species:S:1:pos:R:3 energy=-3187.2910498 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.61160027       2.23710504 
+trying to relax i -2
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-2-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.268612       0.0000       0.0044
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.7913735534361384 7.389631002401965e-12 -4.80274065642123e-12 -1.3956867767116692 2.4174004094875245 3.0178917063635044e-13 -7.626752162396912e-12 -3.849927338918831e-12 4.474210078851439" Properties=species:S:1:pos:R:3 energy=-3187.26861223 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.61160027       2.23710504 
+2
+Lattice="2.766669837041647 7.32423260800987e-12 -4.760236297609608e-12 -1.38333491851448 2.396006363515285 2.9911832994104054e-13 -7.559255240604056e-12 -3.815855398600068e-12 4.4346132227655675" Properties=species:S:1:pos:R:3 energy=-3187.26861223 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.59733757       2.21730661 
+trying to relax i -3
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-3-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.227130       0.0000       0.0058
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.766669837041647 7.32423260800987e-12 -4.760236297609608e-12 -1.38333491851448 2.396006363515285 2.9911832994104054e-13 -7.559255240604056e-12 -3.815855398600068e-12 4.4346132227655675" Properties=species:S:1:pos:R:3 energy=-3187.2271296 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.59733757       2.21730661 
+2
+Lattice="2.7415169008360785 7.257644989538919e-12 -4.7169590267498375e-12 -1.3707584504117534 2.3742232817746465 2.963989218749996e-13 -7.490530934478742e-12 -3.781163883867941e-12 4.394296325535841" Properties=species:S:1:pos:R:3 energy=-3187.2271296 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.58281552       2.19714816 
+trying to relax i -4
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-4-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.164624       0.0000       0.0070
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.7415169008360785 7.257644989538919e-12 -4.7169590267498375e-12 -1.3707584504117534 2.3742232817746465 2.963989218749996e-13 -7.490530934478742e-12 -3.781163883867941e-12 4.394296325535841" Properties=species:S:1:pos:R:3 energy=-3187.16462393 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.58281552       2.19714816 
+2
+Lattice="2.7158937484584507 7.189812563113618e-12 -4.672872718230427e-12 -1.3579468742229983 2.3520329808836067 2.936286764180223e-13 -7.420521876549919e-12 -3.745823836052958e-12 4.3532257327164725" Properties=species:S:1:pos:R:3 energy=-3187.16462393 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.56802198       2.17661287 
+trying to relax i -5
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-5-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.078437       0.0000       0.0083
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.7158937484584507 7.189812563113618e-12 -4.672872718230427e-12 -1.3579468742229983 2.3520329808836067 2.936286764180223e-13 -7.420521876549919e-12 -3.745823836052958e-12 4.3532257327164725" Properties=species:S:1:pos:R:3 energy=-3187.07843735 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.56802198       2.17661287 
+2
+Lattice="2.68977776791522 7.120675467778306e-12 -4.6279384666384546e-12 -1.3448888839514428 2.32941587828132 2.908051488758936e-13 -7.349166285021865e-12 -3.709804068167615e-12 4.3113652002120455" Properties=species:S:1:pos:R:3 energy=-3187.07843735 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.55294392       2.15568260 
+trying to relax i -6
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-6-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3186.964964       0.0000       0.0091
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.68977776791522 7.120675467778306e-12 -4.6279384666384546e-12 -1.3448888839514428 2.32941587828132 2.908051488758936e-13 -7.349166285021865e-12 -3.709804068167615e-12 4.3113652002120455" Properties=species:S:1:pos:R:3 energy=-3186.96496449 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.55294392       2.15568260 
+2
+Lattice="2.6631445555438127 7.050169099474058e-12 -4.582114283877319e-12 -1.3315722777658001 2.306350839776046 2.8792570084821753e-13 -7.27639748279718e-12 -3.673070922112802e-12 4.268675612113865" Properties=species:S:1:pos:R:3 energy=-3186.96496449 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.53756722       2.13433781 
+trying to relax i -7
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-7-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3186.820888       0.0000       0.0093
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.6631445555438127 7.050169099474058e-12 -4.582114283877319e-12 -1.3315722777658001 2.306350839776046 2.8792570084821753e-13 -7.27639748279718e-12 -3.673070922112802e-12 4.268675612113865" Properties=species:S:1:pos:R:3 energy=-3186.82088769 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.53756722       2.13433781 
+2
+Lattice="2.635967714814221 6.978223578404147e-12 -4.535354752991737e-12 -1.3179838574010667 2.282815005302219 2.8498747847586487e-13 -7.202143347750876e-12 -3.6355879911802864e-12 4.225114658204992" Properties=species:S:1:pos:R:3 energy=-3186.82088769 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.52187667       2.11255733 
+trying to relax i -8
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-8-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3186.641697       0.0000       0.0087
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.635967714814221 6.978223578404147e-12 -4.535354752991737e-12 -1.3179838574010667 2.282815005302219 2.8498747847586487e-13 -7.202143347750876e-12 -3.6355879911802864e-12 4.225114658204992" Properties=species:S:1:pos:R:3 energy=-3186.64169683 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.52187667       2.11255733 
+2
+Lattice="2.6082186254629094 6.904763137859937e-12 -4.487610630947536e-12 -1.3041093127254744 2.258783588984546 2.819873874809002e-13 -7.1263256819446844e-12 -3.597315801636824e-12 4.180636463911808" Properties=species:S:1:pos:R:3 energy=-3186.64169683 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.50585572       2.09031823 
+trying to relax i -9
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-9-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3186.422378       0.0000       0.0088
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.6082186254629094 6.904763137859937e-12 -4.487610630947536e-12 -1.3041093127254744 2.258783588984546 2.819873874809002e-13 -7.1263256819446844e-12 -3.597315801636824e-12 4.180636463911808" Properties=species:S:1:pos:R:3 energy=-3186.42237793 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.50585572       2.09031823 
+2
+Lattice="2.5798661774730074 6.829705419983997e-12 -4.438828390927189e-12 -1.2899330887305884 2.234229648758096 2.7892206440586787e-13 -7.048859484792373e-12 -3.5582114458234537e-12 4.1351911639087415" Properties=species:S:1:pos:R:3 energy=-3186.42237793 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.48948643       2.06759558 
+trying to relax i -10
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-10-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3186.157896       0.0000       0.0095
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.5798661774730074 6.829705419983997e-12 -4.438828390927189e-12 -1.2899330887305884 2.234229648758096 2.7892206440586787e-13 -7.048859484792373e-12 -3.5582114458234537e-12 4.1351911639087415" Properties=species:S:1:pos:R:3 energy=-3186.15789594 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.48948643       2.06759558 
+2
+Lattice="2.862978233523545 7.579190784982702e-12 -4.925941188941319e-12 -1.4314891167552082 2.4794118814925667 3.0953070597856884e-13 -7.822394608038812e-12 -3.948686179391363e-12 4.588983101955291" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=3
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.65294125       2.29449155 
+trying to relax i 1
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_01-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.285966       0.0000       0.0027
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.862978233523545 7.579190784982702e-12 -4.925941188941319e-12 -1.4314891167552082 2.4794118814925667 3.0953070597856884e-13 -7.822394608038812e-12 -3.948686179391363e-12 4.588983101955291" Properties=species:S:1:pos:R:3 energy=-3187.28596637 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.65294125       2.29449155 
+2
+Lattice="2.886067764788856 7.64031593100948e-12 -4.965668236727206e-12 -1.4430338823878108 2.499408002136086 3.1202702915335947e-13 -7.8854811599228e-12 -3.980531798030157e-12 4.625992628457411" Properties=species:S:1:pos:R:3 energy=-3187.28596637 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.66627200       2.31299631 
+trying to relax i 2
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_02-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.262390       0.0000       0.0025
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.886067764788856 7.64031593100948e-12 -4.965668236727206e-12 -1.4430338823878108 2.499408002136086 3.1202702915335947e-13 -7.8854811599228e-12 -3.980531798030157e-12 4.625992628457411" Properties=species:S:1:pos:R:3 energy=-3187.26239039 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.66627200       2.31299631 
+2
+Lattice="2.908793643506786 7.700478376026598e-12 -5.0047695965352264e-12 -1.4543968217467236 2.519089190435323 3.1448403605658235e-13 -7.947574119297937e-12 -4.0118758586161755e-12 4.662419267050927" Properties=species:S:1:pos:R:3 energy=-3187.26239039 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.67939279       2.33120963 
+trying to relax i 3
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_03-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.227035       0.0000       0.0025
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.908793643506786 7.700478376026598e-12 -5.0047695965352264e-12 -1.4543968217467236 2.519089190435323 3.1448403605658235e-13 -7.947574119297937e-12 -4.0118758586161755e-12 4.662419267050927" Properties=species:S:1:pos:R:3 energy=-3187.22703506 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.67939279       2.33120963 
+2
+Lattice="2.9311698585651613 7.759715152956093e-12 -5.043269337161269e-12 -1.46558492927586 2.538467561122511 3.1690323909593735e-13 -8.008711707412094e-12 -4.042737654948925e-12 4.698285440110241" Properties=species:S:1:pos:R:3 energy=-3187.22703506 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.69231170       2.34914272 
+trying to relax i 4
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_04-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.180935       0.0000       0.0024
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.9311698585651613 7.759715152956093e-12 -5.043269337161269e-12 -1.46558492927586 2.538467561122511 3.1690323909593735e-13 -8.008711707412094e-12 -4.042737654948925e-12 4.698285440110241" Properties=species:S:1:pos:R:3 energy=-3187.18093501 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.69231170       2.34914272 
+2
+Lattice="2.953209557234973 7.818061066699365e-12 -5.081190079344441e-12 -1.4766047786107153 2.5575545000683206 3.192860596877746e-13 -8.068929845998971e-12 -4.07313532005039e-12 4.733612221007026" Properties=species:S:1:pos:R:3 energy=-3187.18093501 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.70503633       2.36680611 
+trying to relax i 5
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_05-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.125002       0.0000       0.0023
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.953209557234973 7.818061066699365e-12 -5.081190079344441e-12 -1.4766047786107153 2.5575545000683206 3.192860596877746e-13 -8.068929845998971e-12 -4.07313532005039e-12 4.733612221007026" Properties=species:S:1:pos:R:3 energy=-3187.12500183 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.70503633       2.36680611 
+2
+Lattice="2.9749251132602486 7.87554887439219e-12 -5.118553112920152e-12 -1.4874625566233033 2.576360723249424 3.2163383561862693e-13 -8.128262343317199e-12 -4.103085920076179e-12 4.768419443249477" Properties=species:S:1:pos:R:3 energy=-3187.12500183 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.71757381       2.38420972 
+trying to relax i 6
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_06-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3187.060175       0.0000       0.0026
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.9749251132602486 7.87554887439219e-12 -5.118553112920152e-12 -1.4874625566233033 2.576360723249424 3.2163383561862693e-13 -8.128262343317199e-12 -4.103085920076179e-12 4.768419443249477" Properties=species:S:1:pos:R:3 energy=-3187.06017493 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.71757381       2.38420972 
+2
+Lattice="2.9963281880878228 7.932209447498888e-12 -5.1553785021699275e-12 -1.4981640940370413 2.5948963297750285 3.2394782766506234e-13 -8.186741061445844e-12 -4.1326055387650394e-12 4.802725798625691" Properties=species:S:1:pos:R:3 energy=-3187.06017493 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.72993088       2.40136290 
+trying to relax i 7
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_07-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3186.988291       0.0000       0.0033
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.9963281880878228 7.932209447498888e-12 -5.1553785021699275e-12 -1.4981640940370413 2.5948963297750285 3.2394782766506234e-13 -8.186741061445844e-12 -4.1326055387650394e-12 4.802725798625691" Properties=species:S:1:pos:R:3 energy=-3186.9882908 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.72993088       2.40136290 
+2
+Lattice="3.0174297860585977 7.988071917920703e-12 -5.191685180781589e-12 -1.5087148930223806 2.6131708496839097 3.262292255606836e-13 -8.244396067081163e-12 -4.16170935355993e-12 4.836548925668107" Properties=species:S:1:pos:R:3 energy=-3186.9882908 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.74211390       2.41827446 
+trying to relax i 8
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_08-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3186.910231       0.0000       0.0039
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="3.0174297860585977 7.988071917920703e-12 -5.191685180781589e-12 -1.5087148930223806 2.6131708496839097 3.262292255606836e-13 -8.244396067081163e-12 -4.16170935355993e-12 4.836548925668107" Properties=species:S:1:pos:R:3 energy=-3186.91023064 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.74211390       2.41827446 
+2
+Lattice="3.038240304268463 8.043163809993109e-12 -5.227491037638218e-12 -1.5191201521272655 2.631193287125236 3.2847915338683815e-13 -8.30125576776949e-12 -4.190411704377363e-12 4.869905489574103" Properties=species:S:1:pos:R:3 energy=-3186.91023064 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.75412885       2.43495274 
+trying to relax i 9
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_09-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3186.826532       0.0000       0.0045
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="3.038240304268463 8.043163809993109e-12 -5.227491037638218e-12 -1.5191201521272655 2.631193287125236 3.2847915338683815e-13 -8.30125576776949e-12 -4.190411704377363e-12 4.869905489574103" Properties=species:S:1:pos:R:3 energy=-3186.82653241 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.75412885       2.43495274 
+2
+Lattice="3.0587695777113706 8.097511159993524e-12 -5.262812994489772e-12 -1.5293847888486722 2.6489721594536193 3.3069867445325915e-13 -8.357347035249758e-12 -4.218726155869783e-12 4.902811254564491" Properties=species:S:1:pos:R:3 energy=-3186.82653241 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.76598144       2.45140563 
+trying to relax i 10
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_10-relaxed.xyz
+PreconLBFGS:   0  00:12:24    -3186.737677       0.0000       0.0050
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="3.0587695777113706 8.097511159993524e-12 -5.262812994489772e-12 -1.5293847888486722 2.6489721594536193 3.3069867445325915e-13 -8.357347035249758e-12 -4.218726155869783e-12 4.902811254564491" Properties=species:S:1:pos:R:3 energy=-3186.73767714 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000       0.00000000 
+Ti      -0.00000000       1.76598144       2.45140563 
+calculating elastic constants
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/lbfgs.py:137: UserWarning: The system is likely too small to benefit from the standard preconditioner, hence it is disabled. To re-enable preconditioning, call`PreconLBFGS` by explicitly providing the kwarg `precon`
+  'kwarg `precon`')
+PreconLBFGS:   0  00:12:24    -3187.290851       0.0317
+PreconLBFGS:   0  00:12:24    -3187.295582       0.0163
+PreconLBFGS:   0  00:12:24    -3187.296148       0.0000
+PreconLBFGS:   0  00:12:24    -3187.292648       0.0172
+PreconLBFGS:   0  00:12:24    -3187.285313       0.0328
+PreconLBFGS:   0  00:12:24    -3187.287482       0.0361
+PreconLBFGS:   0  00:12:24    -3187.294360       0.0174
+PreconLBFGS:   0  00:12:24    -3187.296148       0.0000
+PreconLBFGS:   0  00:12:24    -3187.293720       0.0162
+PreconLBFGS:   0  00:12:24    -3187.287463       0.0306
+Fitting C_11
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-2.8307522 , -1.0187924 ,  0.74756813,  2.46935127,  4.01203202]) GPa
+Cij (gradient) / GPa    :     171.73712105794542
+Error in Cij / GPa      :     2.962760596499907
+Correlation coefficient :     0.9995538660056219
+Setting C11 (1) to 1.071899 +/- 0.018492
+
+
+Fitting C_21
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-1.30709809, -0.2628131 ,  0.7475681 ,  1.72861956,  2.63792955]) GPa
+Cij (gradient) / GPa    :     98.81487936742239
+Error in Cij / GPa      :     1.4801404895421768
+Correlation coefficient :     0.9996636175952751
+Setting C21 (7) to 0.616754 +/- 0.009238
+
+
+Fitting C_31
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-1.79637834, -0.75126421,  0.23507067,  1.18082017,  2.05222225]) GPa
+Cij (gradient) / GPa    :     96.29285574880086
+Error in Cij / GPa      :     1.8988125634572668
+Correlation coefficient :     0.999417242921615
+Setting C31 (8) to 0.601013 +/- 0.011851
+
+
+Fitting C_61
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([ 1.60361683e-09,  5.27118093e-10, -7.61747352e-11,  1.72732803e-09,
+        1.23660288e-09]) GPa
+Cij (gradient) / GPa    :     4.661820385176802e-09
+Error in Cij / GPa      :     2.7744721224170203e-08
+Correlation coefficient :     0.0965562873316761      <----- WARNING
+Setting C61 (0) to 0.000000 +/- 0.000000
+
+
+Fitting C_44
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-6.19473319e-01, -3.08115374e-01, -3.41546419e-10,  3.07806035e-01,
+        5.99547113e-01]) GPa
+Cij (gradient) / GPa    :     30.53962270992873
+Error in Cij / GPa      :     0.21065025411593274
+Correlation coefficient :     0.9999286422066509
+Setting C44 (4) to 0.190613 +/- 0.001315
+
+
+Fitting C_33
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-4.0315003 , -1.78928959,  0.23507067,  1.83318284,  3.36589728]) GPa
+Cij (gradient) / GPa    :     184.172675770803
+Error in Cij / GPa      :     9.131656263916879
+Correlation coefficient :     0.996332705214086
+Setting C33 (3) to 1.149515 +/- 0.056995
+
+
+Fitting C_66
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-7.52815828e-01, -3.75643972e-01, -7.61747352e-11,  3.73127284e-01,
+        7.32308684e-01]) GPa
+Cij (gradient) / GPa    :     37.190202797347844
+Error in Cij / GPa      :     0.2023525303661274
+Correlation coefficient :     0.999955595956694
+Setting C66 (6) to 0.232123 +/- 0.001263
+
+
+[[ C11  C12  C13               ]
+ [ C12  C11  C13               ]
+ [ C13  C13  C33               ]
+ [                C44          ]
+ [                     C44     ]
+ [                          C66]]
+
+ = 
+
+[[171.74  98.81  96.29   0.     0.     0.  ]
+ [ 98.81 171.74  96.29   0.     0.     0.  ]
+ [ 96.29  96.29 184.17   0.     0.     0.  ]
+ [  0.     0.     0.    30.54   0.     0.  ]
+ [  0.     0.     0.     0.    30.54   0.  ]
+ [  0.     0.     0.     0.     0.    37.19]]
+C_11 = 171.74 +/- 2.96 GPa
+C_12 = 98.81 +/- 1.48 GPa
+C_13 = 96.29 +/- 1.90 GPa
+C_33 = 184.17 +/- 9.13 GPa
+C_44 = 30.54 +/- 0.21 GPa
+C_66 = 37.19 +/- 0.20 GPa
+============================================================
+Property calculation output:
+
+
+Summary of computed properties:
+{'c44': 30.53962270992873, 'B': 123.34008444677815, 'E_vs_V': [(11.917648854259564, -1593.0789479697346), (12.31490381606822, -1593.2111889656626), (12.712158777876873, -1593.3208484134998), (13.109413739685523, -1593.4104438472032), (13.50666870149418, -1593.4824822472135), (13.90392366330282, -1593.539218675332), (14.301178625111486, -1593.5823119671486), (14.698433586920125, -1593.613564801735), (15.095688548728784, -1593.6343061166986), (15.492943510537437, -1593.645524897687), (15.89019847234609, -1593.6480739181295), (16.287453434154738, -1593.6429831837409), (16.684708395963405, -1593.6311951950322), (17.08196335777204, -1593.6135175307038), (17.479218319580703, -1593.590467504159), (17.876473281389334, -1593.5625009165067), (18.273728243198015, -1593.5300874666575), (18.670983205006653, -1593.494145399407), (19.068238166815306, -1593.4551153183018), (19.465493128623947, -1593.4132662026975), (19.86274809043261, -1593.3688385688486)], 'c66': 37.190202797347844, 'c13': 96.29285574880086, 'c12': 98.81487936742239, 'c11': 171.73712105794542, 'c33': 184.172675770803}
+============================================================

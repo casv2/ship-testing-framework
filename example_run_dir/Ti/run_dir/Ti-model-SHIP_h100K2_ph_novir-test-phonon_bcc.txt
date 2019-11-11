@@ -1,0 +1,9 @@
+Model SHIP_h100K2_ph_novir, Test phonon_bcc
+Test run at 2019-09-06 15:11
+
+model file: ../../models/SHIP_h100K2_ph_novir/model.py
+============================================================
+Traceback (most recent call last):
+  File "../../../scripts/run-model-test.py", line 109, in <module>
+    sys.stdout.write(open(model_file).read())
+IOError: [Errno 2] No such file or directory: '../../models/SHIP_h100K2_ph_novir/model.py'

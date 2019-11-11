@@ -1,0 +1,34 @@
+Model SHIP_Ti_pot_mreg, Test dimer
+Test run at 2019-10-31 21:36
+
+model file: ../../models/SHIP_Ti_pot_mreg/model.py
+============================================================
+import pyjulip
+import os
+import glob
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+pot_name = glob.glob(os.path.join(model_dir,"*.json"))[0]
+
+calculator = pyjulip.SHIP(pot_name)
+
+no_checkpoint = True
+
+name = 'SHIP'
+============================================================
+test file: /Users/Cas/gits/ship-testing-framework/scripts/../tests/Ti/dimer/test.py
+============================================================
+import dimer
+
+#dimer: element, start, end, step
+
+properties = dimer.dimer('Ti', 2.0, 7.0, 0.1)
+
+
+============================================================
+Traceback (most recent call last):
+  File "../../../scripts/run-model-test.py", line 130, in <module>
+    import test  # import and run the current test
+  File "/Users/Cas/gits/ship-testing-framework/scripts/../tests/Ti/dimer/test.py", line 5, in <module>
+    properties = dimer.dimer('Ti', 2.0, 7.0, 0.1)
+TypeError: dimer() takes exactly 5 arguments (4 given)

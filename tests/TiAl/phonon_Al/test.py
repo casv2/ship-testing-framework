@@ -23,9 +23,9 @@ calc = model.calculator
 def get_crystal():
     at = read(os.path.join(os.path.abspath(os.path.dirname(__file__)), "bulk.xyz"))
 
-    at.set_calculator(calc)
-    dyn = BFGS(at)
-    dyn.run(fmax=0.05)
+    #at.set_calculator(calc)
+    #dyn = BFGS(at)
+    #dyn.run(fmax=0.05)
 
     cell = PhonopyAtoms(symbols=at.get_chemical_symbols(),
                     cell=at.get_cell(),

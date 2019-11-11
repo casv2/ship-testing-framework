@@ -1,0 +1,2 @@
+{ "global" : [ "--test_set" , "Ti" ],
+    "GAP*" : [ "--OpenMP" ] }

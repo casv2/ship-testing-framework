@@ -1,0 +1,515 @@
+Model SHIP_hb100K2_ph_novir, Test bulk_Ti_hcp
+Test run at 2019-09-06 15:12
+
+model file: ../../models/SHIP_hb100K2_ph_novir/model.py
+============================================================
+import pyjulip
+import os
+import glob
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+pot_name = glob.glob(os.path.join(model_dir,"*.json"))[0]
+
+calculator = pyjulip.SHIP(pot_name)
+
+no_checkpoint = True
+
+name = 'SHIP'
+============================================================
+test file: /Users/Cas/gits/ship-testing-framework/scripts/../tests/Ti/bulk_Ti_hcp/test.py
+============================================================
+import os.path, lattice
+
+properties = lattice.do_lattice(os.path.abspath(os.path.dirname(__file__)), 'tetragonal')
+============================================================
+relax bulk
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-bulk-relaxed.xyz
+PreconLBFGS:   0  15:12:49    -3187.145566       0.0000       0.3168
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:473: UserWarning: Cell length L[0] == 0. Setting H[0,0] = 0.
+  (i, i, i))
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:514: UserWarning: mu (-4.555) < 1.0, capping at mu=1.0
+  warnings.warn('mu (%.3f) < 1.0, capping at mu=1.0' % self.mu)
+mu_c (-560.642) < 1.0, capping at mu_c=1.0
+estimate_mu(): mu=1.0, mu_c=1.0
+PreconLBFGS:   1  15:12:49    -3187.285970       0.0000       0.0478
+PreconLBFGS:   2  15:12:49    -3187.309761       0.0000       0.0081
+symmetry.check: prec 0.01 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+final relaxed bulk
+2
+Lattice="2.8683112312572216 2.2573832018875987e-12 7.083648700941891e-13 -1.4341556156266553 2.484030392282774 -6.290717272222331e-13 1.1248834137095728e-12 -5.040547241068865e-13 4.509623350481232" Properties=species:S:1:pos:R:3 stress="-0.0014774001094779343 1.220657674323415e-12 -8.139223896438795e-13 1.220657674323415e-12 -0.001477400578445479 1.1660430997358139e-12 -8.139223896438795e-13 1.1660430997358139e-12 -0.008070659574460392" pbc="T T T" n_minim_iter=3
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.65602026       2.25481168 
+calculating E vs. V
+2
+Lattice="2.8683112312572216 2.2573832018875987e-12 7.083648700941891e-13 -1.4341556156266553 2.484030392282774 -6.290717272222331e-13 1.1248834137095728e-12 -5.040547241068865e-13 4.509623350481232" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=3
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.65602026       2.25481168 
+trying to relax i 0
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_00-relaxed.xyz
+PreconLBFGS:   0  15:12:49    -3187.309761       0.0000       0.0044
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.8683112312572216 2.2573832018875987e-12 7.083648700941891e-13 -1.4341556156266553 2.484030392282774 -6.290717272222331e-13 1.1248834137095728e-12 -5.040547241068865e-13 4.509623350481232" Properties=species:S:1:pos:R:3 energy=-3187.3097612 pbc="T T T" n_minim_iter=0
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.65602026       2.25481168 
+2
+Lattice="2.8442066359090794 2.238412698256672e-12 7.024119426829697e-13 -1.4221033179526006 2.4631552003628867 -6.237851602470718e-13 1.1154301649805564e-12 -4.998187698542546e-13 4.471725564198034" Properties=species:S:1:pos:R:3 energy=-3187.3097612 pbc="T T T" n_minim_iter=0
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.64210346       2.23586278 
+trying to relax i -1
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-1-relaxed.xyz
+PreconLBFGS:   0  15:12:49    -3187.301656       0.0000       0.0059
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.8442066359090794 2.238412698256672e-12 7.024119426829697e-13 -1.4221033179526006 2.4631552003628867 -6.237851602470718e-13 1.1154301649805564e-12 -4.998187698542546e-13 4.471725564198034" Properties=species:S:1:pos:R:3 energy=-3187.30165638 pbc="T T T" n_minim_iter=0
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.64210346       2.23586278 
+2
+Lattice="2.819686393037685 2.219115076798826e-12 6.963563659843908e-13 -1.40984319651692 2.441920047128835 -6.184074343688882e-13 1.1058139091832133e-12 -4.95509772936177e-13 4.433174287541824" Properties=species:S:1:pos:R:3 energy=-3187.30165638 pbc="T T T" n_minim_iter=0
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.62794669       2.21658714 
+trying to relax i -2
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-2-relaxed.xyz
+PreconLBFGS:   0  15:12:49    -3187.314691       0.0000       0.1132
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:514: UserWarning: mu (0.161) < 1.0, capping at mu=1.0
+  warnings.warn('mu (%.3f) < 1.0, capping at mu=1.0' % self.mu)
+mu_c (-0.000) < 1.0, capping at mu_c=1.0
+estimate_mu(): mu=1.0, mu_c=1.0
+PreconLBFGS:   1  15:12:49    -3188.340930       0.0000       1.3355
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/lbfgs.py:349: UserWarning: Armijo linesearch failed, resetting Hessian and trying again
+  'Armijo linesearch failed, resetting Hessian and '
+PreconLBFGS:   2  15:12:49    -3188.340930       0.0000       1.3355
+PreconLBFGS:   3  15:12:49    -3191.873783       0.0000       3.2493
+PreconLBFGS:   4  15:12:49    -3191.873783       0.0000       3.2493
+PreconLBFGS:   5  15:12:49    -3198.644631       0.0000       3.6476
+PreconLBFGS:   6  15:12:49    -3198.644631       0.0000       3.6476
+PreconLBFGS:   7  15:12:49    -3207.566654       0.0000       8.0282
+PreconLBFGS:   8  15:12:49    -3207.566654       0.0000       8.0282
+PreconLBFGS:   9  15:12:49    -3239.558617       0.0000      30.3050
+PreconLBFGS:  10  15:12:49    -3239.558617       0.0000      30.3050
+PreconLBFGS:  11  15:12:49    -3318.283033       0.0000      48.5135
+PreconLBFGS:  12  15:12:49    -3318.283033       0.0000      48.5135
+PreconLBFGS:  13  15:12:49    -3346.186159       0.0001      60.8802
+PreconLBFGS:  14  15:12:49    -3359.926783       6.8721       4.1796
+PreconLBFGS:  15  15:12:49    -3359.926889       2.0623       4.1801
+PreconLBFGS:  16  15:12:49    -3359.926920       2.8698       4.1801
+PreconLBFGS:  17  15:12:49    -3359.926970       2.7967       4.1791
+PreconLBFGS:  18  15:12:49    -3359.927031       2.7546       4.1775
+PreconLBFGS:  19  15:12:49    -3359.927165       2.7790       4.1755
+PreconLBFGS:  20  15:12:49    -3359.927441       2.7453       4.1712
+PreconLBFGS:  21  15:12:49    -3359.927528       5.2142       4.1680
+PreconLBFGS:  22  15:12:49    -3359.927692       5.2112       4.1652
+PreconLBFGS:  23  15:12:49    -3359.928063       5.3218       4.1599
+PreconLBFGS:  24  15:12:49    -3359.928778       5.3065       4.1478
+PreconLBFGS:  25  15:12:49    -3359.930229       5.2767       4.1245
+PreconLBFGS:  26  15:12:49    -3359.933113       5.2158       4.0769
+PreconLBFGS:  27  15:12:49    -3359.938803       5.0931       3.9811
+PreconLBFGS:  28  15:12:50    -3359.949880       4.8448       3.7871
+PreconLBFGS:  29  15:12:50    -3359.970877       4.3345       3.3886
+PreconLBFGS:  30  15:12:50    -3360.007641       3.2440       2.5378
+PreconLBFGS:  31  15:12:50    -3360.053785       0.0870       0.0532
+PreconLBFGS:  32  15:12:50    -3360.053810       0.0105       0.0059
+PreconLBFGS:  33  15:12:50    -3360.053811       0.0011       0.0006
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="3.2153860294187275 -1.0541728221406124e-07 2.3331242174283684e-09 -1.6076931060034074 2.784606005261145 1.312292530622639e-09 3.6686093634140836e-09 4.500039271845517e-09 3.409182005345954" Properties=species:S:1:pos:R:3 stress="-64.88932811575661 2.5932113377906776e-05 1.5357635703085643e-05 2.5932113377906776e-05 -64.8893516260196 1.883938866602034e-05 1.5357635703085643e-05 1.883938866602034e-05 -64.89025959262564" pbc="T T T" n_minim_iter=0
+Ti       0.00000003      -0.00000000      -0.00000000 
+Ti      -0.00000009       1.85640397       1.70459101 
+2
+Lattice="3.186929791920511 -1.044843369341932e-07 2.312476016485608e-09 -1.593464986446345 2.759962180507389 1.3006787126931993e-09 3.6361420893828023e-09 4.4602138247298914e-09 3.3790106691731996" Properties=species:S:1:pos:R:3 energy=-3360.05381073 pbc="T T T" n_minim_iter=0
+Ti       0.00000003      -0.00000000      -0.00000000 
+Ti      -0.00000009       1.83997475       1.68950534 
+trying to relax i -3
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-3-relaxed.xyz
+PreconLBFGS:   0  15:12:50    -3347.407526       0.0020      57.8002
+mu_c (0.000) < 1.0, capping at mu_c=1.0
+estimate_mu(): mu=21424.031947674222, mu_c=1.0
+PreconLBFGS:   1  15:12:50    -3357.089024       0.0013      18.2612
+PreconLBFGS:   2  15:12:50    -3357.688684      20.2285      12.2944
+PreconLBFGS:   3  15:12:50    -3358.584068      33.1468       6.0071
+PreconLBFGS:   4  15:12:50    -3358.593592      12.5870       5.9032
+PreconLBFGS:   5  15:12:50    -3358.593633      12.7669       5.9030
+PreconLBFGS:   6  15:12:50    -3358.593718      12.8723       5.9020
+PreconLBFGS:   7  15:12:50    -3358.593903      12.8665       5.9001
+PreconLBFGS:   8  15:12:50    -3358.594279      12.8573       5.8959
+PreconLBFGS:   9  15:12:50    -3358.595008      12.8387       5.8874
+PreconLBFGS:  10  15:12:50    -3358.596462      12.8026       5.8709
+PreconLBFGS:  11  15:12:50    -3358.599360      12.7302       5.8377
+PreconLBFGS:  12  15:12:50    -3358.605118      12.5851       5.7714
+PreconLBFGS:  13  15:12:50    -3358.616491      12.2933       5.6378
+PreconLBFGS:  14  15:12:50    -3358.638708      11.7028       5.3668
+PreconLBFGS:  15  15:12:50    -3358.680814      10.4891       4.8076
+PreconLBFGS:  16  15:12:50    -3358.754582       7.9120       3.6102
+PreconLBFGS:  17  15:12:50    -3358.847673       0.3040       0.1233
+PreconLBFGS:  18  15:12:50    -3358.847794       0.0948       0.0034
+PreconLBFGS:  19  15:12:50    -3358.847796       0.0905       0.0045
+PreconLBFGS:  20  15:12:50    -3358.847798       0.0814       0.0037
+PreconLBFGS:  21  15:12:50    -3358.847800       0.0814       0.0037
+PreconLBFGS:  22  15:12:50    -3358.847801       0.0811       0.0037
+PreconLBFGS:  23  15:12:50    -3358.847805       0.0811       0.0037
+PreconLBFGS:  24  15:12:50    -3358.847805       0.0811       0.0037
+PreconLBFGS:  25  15:12:50    -3358.847809       0.0811       0.0037
+PreconLBFGS:  26  15:12:50    -3358.847809       0.0811       0.0037
+WARNING: failed config in calc_E_vs_V Armijo linesearch failed after reset of Hessian, aborting
+2
+Lattice="2.8920173577957833 2.276040107472602e-12 7.142193907134749e-13 -1.4460086788959199 2.504560500090941 -6.342709028921708e-13 1.1341803924529987e-12 -5.082206545477055e-13 4.5468946551509495" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=3
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.66970700       2.27344733 
+trying to relax i 1
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_01-relaxed.xyz
+PreconLBFGS:   0  15:12:50    -3187.304457       0.0000       0.0018
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.8920173577957833 2.276040107472602e-12 7.142193907134749e-13 -1.4460086788959199 2.504560500090941 -6.342709028921708e-13 1.1341803924529987e-12 -5.082206545477055e-13 4.5468946551509495" Properties=species:S:1:pos:R:3 energy=-3187.30445667 pbc="T T T" n_minim_iter=0
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.66970700       2.27344733 
+2
+Lattice="2.9153410856609665 2.294396062333604e-12 7.199794732593606e-13 -1.4576705428284955 2.5247594409335825 -6.393862117239049e-13 1.1433274035358652e-12 -5.123193852175555e-13 4.583564744036317" Properties=species:S:1:pos:R:3 energy=-3187.30445667 pbc="T T T" n_minim_iter=0
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.68317296       2.29178237 
+trying to relax i 2
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_02-relaxed.xyz
+PreconLBFGS:   0  15:12:50    -3187.285068       0.0000       0.0076
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.9153410856609665 2.294396062333604e-12 7.199794732593606e-13 -1.4576705428284955 2.5247594409335825 -6.393862117239049e-13 1.1433274035358652e-12 -5.123193852175555e-13 4.583564744036317" Properties=species:S:1:pos:R:3 energy=-3187.28506833 pbc="T T T" n_minim_iter=0
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.68317296       2.29178237 
+2
+Lattice="2.9382974724591047 2.312462916923661e-12 7.256488363936281e-13 -1.469148736227549 2.5446402550803024 -6.444209561186254e-13 1.152330352193082e-12 -5.1635356222315e-13 4.61965729104426" Properties=species:S:1:pos:R:3 energy=-3187.28506833 pbc="T T T" n_minim_iter=0
+Ti      -0.00000000      -0.00000000       0.00000000 
+Ti       0.00000000       1.69642683       2.30982865 
+trying to relax i 3
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_03-relaxed.xyz
+PreconLBFGS:   0  15:12:50    -3187.248184       0.0000       0.0124
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:514: UserWarning: mu (-0.990) < 1.0, capping at mu=1.0
+  warnings.warn('mu (%.3f) < 1.0, capping at mu=1.0' % self.mu)
+mu_c (0.000) < 1.0, capping at mu_c=1.0
+estimate_mu(): mu=1.0, mu_c=1.0
+PreconLBFGS:   1  15:12:50    -3187.249099       0.0000       0.0015
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+2
+Lattice="2.9431195119691136 4.360910376292962e-12 5.356424602811796e-13 -1.4715597559807794 2.548816262865436 -8.762186876293674e-13 8.592245509795121e-13 -1.1121642283472554e-12 4.604531898642052" Properties=species:S:1:pos:R:3 stress="0.04840983324888365 -4.986719536121484e-12 4.363529668953501e-13 -4.986719536121484e-12 0.04840983624029197 -5.376551571318524e-13 4.363529668953501e-13 -5.376551571318524e-13 0.04617333076354292" pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000      -0.00000000 
+Ti       0.00000000       1.69921084       2.30226595 
+2
+Lattice="2.9657597825463435 4.394457159045343e-12 5.397629488254269e-13 -1.4828798912693655 2.5684233123271514 -8.829590962645171e-13 8.658342303491955e-13 -1.120719674007446e-12 4.6399527667525" Properties=species:S:1:pos:R:3 energy=-3187.24909872 pbc="T T T" n_minim_iter=0
+Ti       0.00000000      -0.00000000      -0.00000000 
+Ti       0.00000000       1.71228220       2.31997638 
+trying to relax i 4
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_04-relaxed.xyz
+PreconLBFGS:   0  15:12:50    -3187.228129       0.0000       0.1570
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:514: UserWarning: mu (-7.767) < 1.0, capping at mu=1.0
+  warnings.warn('mu (%.3f) < 1.0, capping at mu=1.0' % self.mu)
+mu_c (0.000) < 1.0, capping at mu_c=1.0
+estimate_mu(): mu=1.0, mu_c=1.0
+PreconLBFGS:   1  15:12:50    -3187.721047       0.0000       0.2390
+PreconLBFGS:   2  15:12:50    -3187.721047       0.0000       0.2390
+PreconLBFGS:   3  15:12:50    -3187.889749       0.0000       0.0382
+PreconLBFGS:   4  15:12:50    -3187.892260       0.0019       0.0001
+symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
+symmetry.check: prec 1e-06 got symmetry group number 63 , international (Hermann-Mauguin) Cmcm , Hall -C 2c 2
+2
+Lattice="3.0608568952861734 1.415334285458033e-08 5.168616337648836e-10 -1.5304284353859317 2.65076505284379 -1.6986705367230927e-10 8.087345756006146e-10 1.5987690340475043e-10 4.356140426629947" Properties=species:S:1:pos:R:3 stress="-1.5533036592711835 -6.798603065274735e-08 -3.6486171366842422e-09 -6.798603065274735e-08 -1.5532230631831017 -7.194773499551637e-10 -3.6486171366842422e-09 -7.194773499551637e-10 -1.5530456471665848" pbc="T T T" n_minim_iter=0
+Ti       0.00000000       0.00000017      -0.00000000 
+Ti       0.00000001       1.76717653       2.17807021 
+2
+Lattice="3.0838717210719886 1.4259762962160898e-08 5.207479573871314e-10 -1.5419358481866767 2.6706963655373954 -1.7114429752289197e-10 8.14815515024172e-10 1.610790305230429e-10 4.388894592031091" Properties=species:S:1:pos:R:3 energy=-3187.89226035 pbc="T T T" n_minim_iter=0
+Ti       0.00000000       0.00000017      -0.00000000 
+Ti       0.00000001       1.78046407       2.19444730 
+trying to relax i 5
+relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_05-relaxed.xyz
+PreconLBFGS:   0  15:12:50    -3190.547190       0.0039       0.7702
+mu_c (-0.000) < 1.0, capping at mu_c=1.0
+estimate_mu(): mu=8.723935905738557, mu_c=1.0
+PreconLBFGS:   1  15:12:51    -3190.829295       0.0028       0.3827
+PreconLBFGS:   2  15:12:51    -3190.834584       1.1012       0.3335
+PreconLBFGS:   3  15:12:51    -3190.844602       1.0058       0.2981
+PreconLBFGS:   4  15:12:51    -3190.861138       0.7793       0.2231
+PreconLBFGS:   5  15:12:51    -3190.869787       1.2708       0.1295
+PreconLBFGS:   6  15:12:51    -3191.573596       9.4855       1.2685
+PreconLBFGS:   7  15:12:51    -3191.573596       9.4855       1.2685
+PreconLBFGS:   8  15:12:51    -3193.896586      24.1072       3.1439
+PreconLBFGS:   9  15:12:51    -3194.428471      41.1578       2.6289
+PreconLBFGS:  10  15:12:51    -3195.918295      62.0668       2.5227
+PreconLBFGS:  11  15:12:51    -3195.987759      65.2802       2.5219
+PreconLBFGS:  12  15:12:51    -3196.056419      66.6215       2.4083
+PreconLBFGS:  13  15:12:51    -3196.056419      66.6215       2.4083
+PreconLBFGS:  14  15:12:51    -3196.194969      67.3042       2.4440
+PreconLBFGS:  15  15:12:51    -3196.468164      69.3357       2.4985
+PreconLBFGS:  16  15:12:51    -3197.020371      72.0291       2.5220
+PreconLBFGS:  17  15:12:51    -3197.716913      78.6252       1.9448
+PreconLBFGS:  18  15:12:51    -3197.716913      78.6252       1.9448
+PreconLBFGS:  19  15:12:51    -3199.093589      84.7341       1.7360
+PreconLBFGS:  20  15:12:51    -3201.220609      56.4704       1.5326
+PreconLBFGS:  21  15:12:51    -3201.308716      69.4749       1.2721
+PreconLBFGS:  22  15:12:51    -3201.498045      64.4935       1.0034
+PreconLBFGS:  23  15:12:51    -3201.676915      55.2996       0.5426
+PreconLBFGS:  24  15:12:51    -3202.087857      59.4604       0.8623
+PreconLBFGS:  25  15:12:51    -3202.782463      73.9147       1.9488
+PreconLBFGS:  26  15:12:51    -3204.059369      50.6194       1.4720
+PreconLBFGS:  27  15:12:51    -3207.253319      41.8517       1.7866
+PreconLBFGS:  28  15:12:51    -3207.253319      41.8517       1.7866
+PreconLBFGS:  29  15:12:51    -3207.562303      54.6975       1.3795
+PreconLBFGS:  30  15:12:51    -3208.296090      61.5613       2.0523
+PreconLBFGS:  31  15:12:51    -3208.741454      74.2885       1.9785
+PreconLBFGS:  32  15:12:51    -3208.810534      70.7865       1.9931
+PreconLBFGS:  33  15:12:51    -3208.837488      67.7995       1.8061
+PreconLBFGS:  34  15:12:51    -3208.891432      68.0644       1.8019
+PreconLBFGS:  35  15:12:51    -3208.960441      62.9218       1.8306
+PreconLBFGS:  36  15:12:51    -3208.960441      62.9218       1.8306
+PreconLBFGS:  37  15:12:51    -3209.097971      60.3985       1.8923
+PreconLBFGS:  38  15:12:51    -3209.383562      56.4486       2.1091
+PreconLBFGS:  39  15:12:51    -3209.826871      61.3405       2.0989
+PreconLBFGS:  40  15:12:51    -3210.276482      78.1118       2.6030
+PreconLBFGS:  41  15:12:52    -3210.309877      67.8826       2.4126
+PreconLBFGS:  42  15:12:52    -3210.376658      67.9040       2.4267
+PreconLBFGS:  43  15:12:52    -3210.510476      68.2845       2.4308
+PreconLBFGS:  44  15:12:52    -3210.777568      68.4896       2.5624
+PreconLBFGS:  45  15:12:52    -3211.404722      69.3963       2.9755
+PreconLBFGS:  46  15:12:52    -3211.404722      69.3963       2.9755
+PreconLBFGS:  47  15:12:52    -3212.314748      61.8166       3.4604
+PreconLBFGS:  48  15:12:52    -3214.232165      61.4653       4.0902
+PreconLBFGS:  49  15:12:52    -3216.479870      96.8077       4.3302
+PreconLBFGS:  50  15:12:52    -3216.567899      77.2104       4.4712
+PreconLBFGS:  51  15:12:52    -3216.739339      83.8502       4.4985
+PreconLBFGS:  52  15:12:52    -3216.883619     114.9445       4.7158
+PreconLBFGS:  53  15:12:52    -3217.170582     116.0218       4.5241
+PreconLBFGS:  54  15:12:52    -3217.783273     122.2802       4.3086
+PreconLBFGS:  55  15:12:52    -3217.783273     122.2802       4.3086
+PreconLBFGS:  56  15:12:52    -3218.848990     117.0145       3.4594
+PreconLBFGS:  57  15:12:52    -3219.753629     186.1146       6.7063
+PreconLBFGS:  58  15:12:52    -3220.007193     173.7218       7.1454
+PreconLBFGS:  59  15:12:52    -3220.032172     192.0657       6.9925
+PreconLBFGS:  60  15:12:52    -3220.080199     185.9042       7.0358
+PreconLBFGS:  61  15:12:52    -3220.180050     191.7028       6.9349
+PreconLBFGS:  62  15:12:52    -3220.385093     193.1330       6.9968
+PreconLBFGS:  63  15:12:52    -3220.953455     161.9221       5.5192
+PreconLBFGS:  64  15:12:52    -3221.128310     112.9970       3.2016
+PreconLBFGS:  65  15:12:52    -3221.128310     112.9970       3.2016
+PreconLBFGS:  66  15:12:52    -3221.355445      92.1402       1.1515
+PreconLBFGS:  67  15:12:52    -3221.399740      67.2347       1.1768
+PreconLBFGS:  68  15:12:52    -3221.427319      70.9776       1.1038
+PreconLBFGS:  69  15:12:52    -3221.446247      53.7555       1.1600
+PreconLBFGS:  70  15:12:52    -3221.456797      51.0163       1.1213
+PreconLBFGS:  71  15:12:53    -3221.478202      52.0470       1.0986
+PreconLBFGS:  72  15:12:53    -3221.521677      52.1984       1.1188
+PreconLBFGS:  73  15:12:53    -3221.521677      52.1984       1.1188
+PreconLBFGS:  74  15:12:53    -3221.565092      46.8339       0.2444
+PreconLBFGS:  75  15:12:53    -3221.571029      43.7807       0.1522
+PreconLBFGS:  76  15:12:53    -3221.581374      45.4083       0.0924
+PreconLBFGS:  77  15:12:53    -3221.597079      47.5493       0.1311
+PreconLBFGS:  78  15:12:53    -3221.628647      50.1314       0.1558
+PreconLBFGS:  79  15:12:53    -3221.691100      56.5204       0.2222
+PreconLBFGS:  80  15:12:53    -3221.820746      56.3077       0.2052
+PreconLBFGS:  81  15:12:53    -3221.820746      56.3077       0.2052
+PreconLBFGS:  82  15:12:53    -3221.832787      60.4809       0.4263
+PreconLBFGS:  83  15:12:53    -3221.839757      63.1493       0.1511
+PreconLBFGS:  84  15:12:53    -3221.844793      55.3210       0.1700
+PreconLBFGS:  85  15:12:53    -3221.854924      56.0178       0.1650
+PreconLBFGS:  86  15:12:53    -3221.874816      57.4022       0.2002
+PreconLBFGS:  87  15:12:53    -3221.910436      52.6785       0.2065
+PreconLBFGS:  88  15:12:53    -3221.982868      53.0856       0.2138
+PreconLBFGS:  89  15:12:53    -3222.499913      57.9990       0.2715
+PreconLBFGS:  90  15:12:53    -3222.499913      57.9990       0.2715
+PreconLBFGS:  91  15:12:53    -3222.506331      57.0444       0.2277
+PreconLBFGS:  92  15:12:53    -3222.512030      64.6763       0.2454
+PreconLBFGS:  93  15:12:53    -3222.522289      65.8165       0.1910
+PreconLBFGS:  94  15:12:53    -3222.540188      69.2388       0.1545
+PreconLBFGS:  95  15:12:53    -3222.575762      71.9327       0.1538
+PreconLBFGS:  96  15:12:53    -3222.647481      77.0378       0.1615
+PreconLBFGS:  97  15:12:53    -3222.793679      77.5162       0.1635
+PreconLBFGS:  98  15:12:53    -3222.793679      77.5162       0.1635
+PreconLBFGS:  99  15:12:53    -3222.799647      69.4111       0.2970
+PreconLBFGS: 100  15:12:54    -3222.805398      67.4861       0.1830
+PreconLBFGS: 101  15:12:54    -3222.814845      68.5875       0.1391
+PreconLBFGS: 102  15:12:54    -3222.833822      68.8927       0.1408
+PreconLBFGS: 103  15:12:54    -3222.870868      68.1739       0.1490
+PreconLBFGS: 104  15:12:54    -3222.932642      65.2253       0.2411
+PreconLBFGS: 105  15:12:54    -3223.058004      65.6491       0.2450
+PreconLBFGS: 106  15:12:54    -3223.058004      65.6491       0.2450
+PreconLBFGS: 107  15:12:54    -3223.068271      69.2181       0.4582
+PreconLBFGS: 108  15:12:54    -3223.080998      78.1382       0.2702
+PreconLBFGS: 109  15:12:54    -3223.099027      76.3195       0.2090
+PreconLBFGS: 110  15:12:54    -3223.128001      86.2027       0.1250
+PreconLBFGS: 111  15:12:54    -3223.185725      90.6492       0.1129
+PreconLBFGS: 112  15:12:54    -3223.302598     100.3016       0.2050
+PreconLBFGS: 113  15:12:54    -3223.541288     102.1332       0.2245
+PreconLBFGS: 114  15:12:54    -3223.541288     102.1332       0.2245
+PreconLBFGS: 115  15:12:54    -3223.568809      89.9002       0.3009
+PreconLBFGS: 116  15:12:54    -3223.577587      96.5892       0.4323
+PreconLBFGS: 117  15:12:54    -3223.592092      99.2076       0.2782
+PreconLBFGS: 118  15:12:54    -3223.620038      96.1983       0.2660
+PreconLBFGS: 119  15:12:54    -3223.675125      96.2828       0.2724
+PreconLBFGS: 120  15:12:54    -3223.787064      98.2300       0.2754
+PreconLBFGS: 121  15:12:54    -3224.015062      98.3098       0.2882
+PreconLBFGS: 122  15:12:54    -3224.015062      98.3098       0.2882
+PreconLBFGS: 123  15:12:54    -3224.024465      93.3947       0.4036
+PreconLBFGS: 124  15:12:54    -3224.040663      95.2249       0.2473
+PreconLBFGS: 125  15:12:54    -3224.070363     106.2358       0.2874
+PreconLBFGS: 126  15:12:54    -3224.128443     114.9685       0.2184
+PreconLBFGS: 127  15:12:54    -3224.249216     133.1357       0.1568
+PreconLBFGS: 128  15:12:54    -3224.337042     198.7022       1.0448
+PreconLBFGS: 129  15:12:54    -3224.515256     200.5848       1.0459
+PreconLBFGS: 130  15:12:55    -3224.515256     200.5848       1.0459
+PreconLBFGS: 131  15:12:55    -3224.603885     181.2829       1.5111
+PreconLBFGS: 132  15:12:55    -3224.746696     195.9769       0.8747
+PreconLBFGS: 133  15:12:55    -3224.940977     196.2599       0.7440
+PreconLBFGS: 134  15:12:55    -3225.118790     257.5815       0.8191
+PreconLBFGS: 135  15:12:55    -3225.471639     257.3002       0.9101
+PreconLBFGS: 136  15:12:55    -3226.084441     250.1062       1.5977
+PreconLBFGS: 137  15:12:55    -3227.342133     260.0532       2.1012
+PreconLBFGS: 138  15:12:55    -3232.573242     278.2912       2.2479
+PreconLBFGS: 139  15:12:55    -3232.573242     278.2912       2.2479
+PreconLBFGS: 140  15:12:55    -3233.841368     246.0045       4.6457
+PreconLBFGS: 141  15:12:55    -3234.614806     313.0621       4.3772
+PreconLBFGS: 142  15:12:55    -3236.256183     368.2716       5.2963
+PreconLBFGS: 143  15:12:55    -3236.790565     374.6245       6.1329
+PreconLBFGS: 144  15:12:55    -3237.609105     379.2698       6.0032
+PreconLBFGS: 145  15:12:55    -3239.269205     374.9731       5.9516
+PreconLBFGS: 146  15:12:55    -3242.458652     387.0961       7.6011
+PreconLBFGS: 147  15:12:55    -3242.458652     387.0961       7.6011
+PreconLBFGS: 148  15:12:55    -3244.118423     386.3076       5.3944
+PreconLBFGS: 149  15:12:55    -3245.727712     406.5640       2.4032
+PreconLBFGS: 150  15:12:55    -3246.006675     392.3447       1.2424
+PreconLBFGS: 151  15:12:55    -3246.504778     403.4736       1.3986
+PreconLBFGS: 152  15:12:55    -3247.492749     410.4735       1.4283
+PreconLBFGS: 153  15:12:55    -3249.467934     412.7924       1.7901
+PreconLBFGS: 154  15:12:55    -3253.412196     417.0003       2.7632
+PreconLBFGS: 155  15:12:55    -3261.206246     432.2996       4.9654
+PreconLBFGS: 156  15:12:55    -3276.512823     534.0370      13.2996
+PreconLBFGS: 157  15:12:55    -3279.074588     559.9294      15.4606
+PreconLBFGS: 158  15:12:55    -3283.455391     627.8426      15.8606
+PreconLBFGS: 159  15:12:55    -3287.125456     626.6826      13.9728
+PreconLBFGS: 160  15:12:55    -3289.185028     708.9045      15.1024
+PreconLBFGS: 161  15:12:55    -3291.690340     715.5384      12.3573
+PreconLBFGS: 162  15:12:56    -3295.267085     688.9047      13.2913
+PreconLBFGS: 163  15:12:56    -3298.959693     630.3068      16.1799
+PreconLBFGS: 164  15:12:56    -3304.015379     665.8740      16.9017
+PreconLBFGS: 165  15:12:56    -3308.692694     756.7179      14.0259
+PreconLBFGS: 166  15:12:56    -3318.724333     364.6860      10.4296
+PreconLBFGS: 167  15:12:56    -3323.904929     195.9564       9.2493
+PreconLBFGS: 168  15:12:56    -3326.273577     131.0399       4.8485
+PreconLBFGS: 169  15:12:56    -3326.643451      25.3720       0.9019
+PreconLBFGS: 170  15:12:56    -3326.687645       5.5026       0.5749
+PreconLBFGS: 171  15:12:56    -3326.694251       2.8311       0.0880
+PreconLBFGS: 172  15:12:56    -3326.694484       0.2857       0.0043
+PreconLBFGS: 173  15:12:56    -3326.694489       0.2857       0.0043
+PreconLBFGS: 174  15:12:56    -3326.694490       0.2857       0.0043
+PreconLBFGS: 175  15:12:56    -3326.694492       0.2856       0.0043
+PreconLBFGS: 176  15:12:56    -3326.694492       0.2857       0.0043
+failed Armijo linesearch failed after reset of Hessian, aborting
+calculating elastic constants
+/Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/lbfgs.py:137: UserWarning: The system is likely too small to benefit from the standard preconditioner, hence it is disabled. To re-enable preconditioning, call`PreconLBFGS` by explicitly providing the kwarg `precon`
+  'kwarg `precon`')
+PreconLBFGS:   0  15:12:56    -3187.298989       0.0394
+PreconLBFGS:   0  15:12:56    -3187.306943       0.0190
+PreconLBFGS:   0  15:12:56    -3187.309761       0.0000
+PreconLBFGS:   0  15:12:56    -3187.307944       0.0212
+PreconLBFGS:   0  15:12:56    -3187.301447       0.0442
+PreconLBFGS:   0  15:12:56    -3187.306634       0.0381
+PreconLBFGS:   0  15:12:56    -3187.304622       0.0085
+PreconLBFGS:   0  15:12:56    -3187.309761       0.0000
+PreconLBFGS:   0  15:12:56    -3187.308731       0.0223
+PreconLBFGS:   0  15:12:56    -3187.301717       0.0434
+Fitting C_11
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-4.79772564, -2.29817414, -0.23670559,  1.70709123,  3.71606108]) GPa
+Cij (gradient) / GPa    :     210.32838799757374
+Error in Cij / GPa      :     6.105806286318873
+Correlation coefficient :     0.9987382916394812
+Setting C11 (1) to 1.312767 +/- 0.038109
+
+
+Fitting C_21
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-1.7345277 , -0.96218205, -0.23670567,  0.39029187,  1.17743827]) GPa
+Cij (gradient) / GPa    :     71.76405856860193
+Error in Cij / GPa      :     1.4141515586793214
+Correlation coefficient :     0.9994180442692597
+Setting C21 (7) to 0.447916 +/- 0.008826
+
+
+Fitting C_31
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-2.82759263, -2.06223118, -1.29306221, -0.15661934,  1.50161959]) GPa
+Cij (gradient) / GPa    :     105.64036273573109
+Error in Cij / GPa      :     10.932587507386257
+Correlation coefficient :     0.9843121611561988
+Setting C31 (8) to 0.659355 +/- 0.068236
+
+
+Fitting C_61
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([5.95193747e-11, 3.06855902e-10, 1.95570919e-10, 1.03242737e-10,
+       7.14423874e-11]) GPa
+Cij (gradient) / GPa    :     -1.7976714006975131e-09
+Error in Cij / GPa      :     3.649538769481371e-09
+Correlation coefficient :     -0.27354175163512967      <----- WARNING
+Setting C61 (0) to -0.000000 +/- 0.000000
+
+
+Fitting C_44
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-6.27024092e-01, -3.16006534e-01,  1.86820699e-10,  3.50755803e-01,
+        7.15764094e-01]) GPa
+Cij (gradient) / GPa    :     33.523387101979985
+Error in Cij / GPa      :     0.7070622435167829
+Correlation coefficient :     0.9993333830719434
+Setting C44 (4) to 0.209237 +/- 0.004413
+
+
+Fitting C_33
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([ 9.16963504, -2.28006972, -1.29306221,  1.53303783,  3.33749285]) GPa
+Cij (gradient) / GPa    :     -78.51176824167803
+Error in Cij / GPa      :     159.54742343230856
+Correlation coefficient :     -0.27329281119198695      <----- WARNING
+Setting C33 (3) to -0.490032 +/- 0.995817
+
+
+Fitting C_66
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-7.92007358e-01, -5.94494660e-01,  1.95570919e-10,  6.65725981e-01,
+        1.35692279e+00]) GPa
+Cij (gradient) / GPa    :     55.58080936543956
+Error in Cij / GPa      :     5.62634241404969
+Correlation coefficient :     0.9849748399110574
+Setting C66 (6) to 0.346908 +/- 0.035117
+
+
+[[ C11  C12  C13               ]
+ [ C12  C11  C13               ]
+ [ C13  C13  C33               ]
+ [                C44          ]
+ [                     C44     ]
+ [                          C66]]
+
+ = 
+
+[[210.33  71.76 105.64   0.     0.     0.  ]
+ [ 71.76 210.33 105.64   0.     0.     0.  ]
+ [105.64 105.64 -78.51   0.     0.     0.  ]
+ [  0.     0.     0.    33.52   0.     0.  ]
+ [  0.     0.     0.     0.    33.52   0.  ]
+ [  0.     0.     0.     0.     0.    55.58]]
+C_11 = 210.33 +/- 6.11 GPa
+C_12 = 71.76 +/- 1.41 GPa
+C_13 = 105.64 +/- 10.93 GPa
+C_33 = -78.51 +/- 159.55 GPa
+C_44 = 33.52 +/- 0.71 GPa
+C_66 = 55.58 +/- 5.63 GPa
+============================================================
+Property calculation output:
+
+
+Summary of computed properties:
+{'c44': 33.523387101979985, 'B': 125.1943910765587, 'E_vs_V': [(15.262197155205497, -1680.0269053672332), (15.6638339001918, -1593.650828188313), (16.065470666863387, -1593.654880599784), (16.467107433534974, -1593.6522283355575), (16.86874420020655, -1593.6425341657582), (17.270380966878147, -1593.624549358176), (17.672017733549794, -1593.9461301772703)], 'c66': 55.58080936543956, 'c13': 105.64036273573109, 'c12': 71.76405856860193, 'c11': 210.32838799757374, 'c33': -78.51176824167803}
+============================================================

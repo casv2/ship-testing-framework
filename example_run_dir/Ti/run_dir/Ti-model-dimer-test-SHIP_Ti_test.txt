@@ -1,0 +1,9 @@
+Model dimer, Test SHIP_Ti_test
+Test run at 2019-11-06 20:05
+
+model file: ../../models/dimer/model.py
+============================================================
+Traceback (most recent call last):
+  File "../../../scripts/run-model-test.py", line 109, in <module>
+    sys.stdout.write(open(model_file).read())
+IOError: [Errno 2] No such file or directory: '../../models/dimer/model.py'
