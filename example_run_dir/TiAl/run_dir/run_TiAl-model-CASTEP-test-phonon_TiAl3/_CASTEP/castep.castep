@@ -1,0 +1,2388 @@
+ +-------------------------------------------------+
+ |                                                 |
+ |      CCC   AA    SSS  TTTTT  EEEEE  PPPP        |
+ |     C     A  A  S       T    E      P   P       |
+ |     C     AAAA   SS     T    EEE    PPPP        |
+ |     C     A  A     S    T    E      P           |
+ |      CCC  A  A  SSS     T    EEEEE  P           |
+ |                                                 |
+ +-------------------------------------------------+
+ |                                                 |
+ | Welcome to Academic Release CASTEP version 17.21|          
+ | Ab Initio Total Energy Program                  |
+ |                                                 |
+ | Authors:                                        |
+ | M. Segall, M. Probert, C. Pickard, P. Hasnip,   |
+ | S. Clark, K. Refson, J. R. Yates, M. Payne      |
+ |                                                 |
+ | Contributors:                                   |
+ | P. Lindan, P. Haynes, J. White, V. Milman,      |
+ | N. Govind, M. Gibson, P. Tulip, V. Cocula,      |
+ | B. Montanari, D. Quigley, M. Glover,            |
+ | L. Bernasconi, A. Perlov, M. Plummer,           |
+ | E. McNellis, J. Meyer, J. Gale, D. Jochym       |
+ | J. Aarons, B. Walker, R. Gillen, D. Jones       |
+ | T. Green, I. J. Bush, C. J. Armstrong,          |
+ | E. J. Higgins, E. L. Brown, M. S. McFly,        |
+ | J. Wilkins, B-C. Shih, P. J. P. Byrne           |
+ |                                                 |
+ | Copyright (c) 2000 - 2017                       |
+ |                                                 |
+ |     Distributed under the terms of an           |
+ |     Agreement between the United Kingdom        |
+ |     Car-Parrinello (UKCP) Consortium,           |
+ |     Daresbury Laboratory and Accelrys, Inc.     |
+ |                                                 |
+ | Please cite                                     |
+ |                                                 |
+ |     "First principles methods using CASTEP"     |
+ |                                                 |
+ |         Zeitschrift fuer Kristallographie       |
+ |           220(5-6) pp. 567-570 (2005)           |
+ |                                                 |
+ | S. J. Clark, M. D. Segall, C. J. Pickard,       |
+ | P. J. Hasnip, M. J. Probert, K. Refson,         |
+ | M. C. Payne                                     |
+ |                                                 |
+ |       in all publications arising from          |
+ |              your use of CASTEP                 |
+ |                                                 |
+ +-------------------------------------------------+
+
+
+ Compiled for linux_x86_64_gfortran6.0-XT on Fri, 21 Jul 2017 10:20:05 +0100
+ from code version 056e886bd5a1+ Castep172_branch Mon, 15 May 2017 14:45:35 +0100
+ Compiler: GNU Fortran 6.3.0; Optimisation: fast
+ MATHLIBS: Intel MKL(2017.0.0) (LAPACK version 3.6.0)
+ FFT Lib : fftw3 version commercial-fftw-3.3.4-sse2-avx
+ Fundamental constants values: CODATA 2010
+
+ Run started: Thu, 31 Oct 2019 11:06:01 +0000
+
+ Atomic calculation performed for Al: 1s2 2s2 2p6 3s2 3p1
+
+ Converged in 55 iterations to an ae energy of -6578.725 eV
+
+   ============================================================                
+   | Pseudopotential Report - Date of generation 31-10-2019   |                
+   ------------------------------------------------------------                
+   | Element: Al Ionic charge:  3.00 Level of theory: LDA     |                
+   | Atomic Solver: Koelling-Harmon                           |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            3s              2.000           -0.288        |                
+   |            3p              1.000           -0.102        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -0.288   2.192     qc      0         |                
+   |          2      0    0.250   2.192     qc      0         |                
+   |          3      1   -0.102   2.192     qc      0         |                
+   |          4      1    0.250   2.192     qc      0         |                
+   |          5      2    0.000   2.000     qc      0         |                
+   |          6      2    0.250   2.000     qc      0         |                
+   |         loc     3    0.000   2.192     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 1.398                       |                
+   | Partial core correction Rc = 1.398                       |                
+   ------------------------------------------------------------                
+   | "3|2.2|2.2|1.4|4|5|5|30:31:32U2U2"                       |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+
+ Atomic calculation performed for Ti: 1s2 2s2 2p6 3s2 3p6 3d2 4s2
+
+ Converged in 78 iterations to an ae energy of -23176.516 eV
+
+   ============================================================                
+   | Pseudopotential Report - Date of generation 31-10-2019   |                
+   ------------------------------------------------------------                
+   | Element: Ti Ionic charge: 12.00 Level of theory: LDA     |                
+   | Atomic Solver: Koelling-Harmon                           |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            3s              2.000           -2.288        |                
+   |            3p              6.000           -1.425        |                
+   |            4s              2.000           -0.169        |                
+   |            3d              2.000           -0.164        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -2.288   1.793     qc      0         |                
+   |          2      0   -0.169   1.793     qc      0         |                
+   |          3      0    0.250   1.793     qc      0         |                
+   |          4      1   -1.425   1.793     qc      0         |                
+   |          5      1    0.250   1.793     qc      0         |                
+   |          6      2   -0.164   1.793     qc      0         |                
+   |          7      2    0.250   1.793     qc      0         |                
+   |         loc     3    0.000   1.793     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 1.263                       |                
+   | Partial core correction Rc = 1.263                       |                
+   ------------------------------------------------------------                
+   | "3|1.8|9|10|11|30U:40:31:32(qc=5.5)"                     |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+
+ Pseudo atomic calculation performed for Al 3s2 3p1
+
+ Converged in 15 iterations to a total energy of -105.5952 eV
+
+
+ Pseudo atomic calculation performed for Ti 3s2 3p6 3d2 4s2
+
+ Converged in 31 iterations to a total energy of -1585.9998 eV
+
+ Calculation parallelised over 40 processes.
+ Data is distributed by k-point(40-way)
+
+ ************************************ Title ************************************
+ 
+
+ ***************************** General Parameters ******************************
+  
+ output verbosity                               : normal  (1)
+ write checkpoint data to                       : castep.check
+ type of calculation                            : single point energy
+ stress calculation                             : on
+ density difference calculation                 : off
+ electron localisation func (ELF) calculation   : off
+ Hirshfeld analysis                             : off
+ unlimited duration calculation
+ timing information                             : on
+ memory usage estimate                          : on
+ write final potential to formatted file        : off
+ write final density to formatted file          : off
+ write BibTeX reference list                    : on
+ write OTFG pseudopotential files               : on
+ write electrostatic potential file             : on
+ write bands file                               : on
+ checkpoint writing                             : off
+  
+ output         length unit                     : A
+ output           mass unit                     : amu
+ output           time unit                     : ps
+ output         charge unit                     : e
+ output           spin unit                     : hbar/2
+ output         energy unit                     : eV
+ output          force unit                     : eV/A
+ output       velocity unit                     : A/ps
+ output       pressure unit                     : GPa
+ output     inv_length unit                     : 1/A
+ output      frequency unit                     : cm-1
+ output force constant unit                     : eV/A**2
+ output         volume unit                     : A**3
+ output   IR intensity unit                     : (D/A)**2/amu
+ output         dipole unit                     : D
+ output         efield unit                     : eV/A/e
+ output        entropy unit                     : J/mol/K
+  
+ wavefunctions paging                           : none
+ random number generator seed                   : randomised (110601879)
+ data distribution                              : optimal for this architecture
+ optimization strategy                          : balance speed and memory
+
+ *********************** Exchange-Correlation Parameters ***********************
+  
+ using functional                               : Local Density Approximation
+ relativistic treatment                         : Koelling-Harmon
+ DFT+D: Semi-empirical dispersion correction    : off
+
+ ************************* Pseudopotential Parameters **************************
+  
+ pseudopotential representation                 : reciprocal space
+ <beta|phi> representation                      : reciprocal space
+ spin-orbit coupling                            : off
+
+ **************************** Basis Set Parameters *****************************
+  
+ plane wave basis set cut-off                   :   600.0000   eV
+ size of standard grid                          :     1.7500
+ size of   fine   gmax                          :    21.9610   1/A
+ finite basis set correction                    : automatic
+ number of sample energies                      :          3
+           sample  spacing                      :     5.0000   eV
+
+ **************************** Electronic Parameters ****************************
+  
+ number of  electrons                           :  168.0    
+ net charge of system                           :  0.000    
+ treating system as non-spin-polarized
+ number of bands                                :        101
+
+ ********************* Electronic Minimization Parameters **********************
+  
+ Method: Treating system as metallic with density mixing treatment of electrons,
+         and number of  SD  steps               :          1
+         and number of  CG  steps               :          4
+  
+ total energy / atom convergence tol.           : 0.1000E-04   eV
+ eigen-energy convergence tolerance             : 0.1000E-05   eV
+ max force / atom convergence tol.              : ignored
+ convergence tolerance window                   :          3   cycles
+ max. number of SCF cycles                      :        250
+ number of fixed-spin iterations                :         10
+ smearing scheme                                : Gaussian
+ smearing width                                 : 0.1000       eV
+ Fermi energy convergence tolerance             : 0.2721E-13   eV
+ periodic dipole correction                     : NONE
+
+ ************************** Density Mixing Parameters **************************
+  
+ density-mixing scheme                          : Pulay
+ max. length of mixing history                  :         20
+ charge density mixing amplitude                : 0.8000    
+ cut-off energy for mixing                      :  600.0       eV
+
+ *********************** Population Analysis Parameters ************************
+  
+ Population analysis with cutoff                :  3.000       A
+
+ *******************************************************************************
+  
+
+                           -------------------------------
+                                      Unit Cell
+                           -------------------------------
+        Real Lattice(A)                      Reciprocal Lattice(1/A)
+  10.1757750   0.0000000   0.0000000        0.6174650  -0.2934157   0.5779034
+   4.3674400   9.1908570   0.0000000        0.0000000   0.6836343   0.5779036
+  -7.2716070  -4.5954290   5.4361890        0.0000000   0.0000000   1.1558070
+
+                       Lattice parameters(A)       Cell Angles
+                    a =   10.175775          alpha =  135.610420
+                    b =   10.175774          beta  =  135.610416
+                    c =   10.175775          gamma =   64.583214
+
+                       Current cell volume =  508.414645       A**3
+                                   density =    2.026875   AMU/A**3
+                                           =    3.365705     g/cm^3
+
+                           -------------------------------
+                                     Cell Contents
+                           -------------------------------
+                         Total number of ions in cell =   32
+                      Total number of species in cell =    2
+                        Max number of any one species =   24
+
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            x  Element    Atom        Fractional coordinates of atoms  x
+            x            Number           u          v          w      x
+            x----------------------------------------------------------x
+            x  Al           1         0.250000   0.250000   0.000000   x 
+            x  Al           2         0.750000   0.250000   0.000000   x 
+            x  Al           3         0.250000   0.750000   0.000000   x 
+            x  Al           4         0.750000   0.750000   0.000000   x 
+            x  Al           5         0.250000   0.250000   0.500000   x 
+            x  Al           6         0.750000   0.250000   0.500000   x 
+            x  Al           7         0.250000   0.750000   0.500000   x 
+            x  Al           8         0.750000   0.750000   0.500000   x 
+            x  Al           9         0.375000   0.125000   0.250000   x 
+            x  Al          10         0.875000   0.125000   0.250000   x 
+            x  Al          11         0.375000   0.625000   0.250000   x 
+            x  Al          12         0.875000   0.625000   0.250000   x 
+            x  Al          13         0.375000   0.125000   0.750000   x 
+            x  Al          14         0.875000   0.125000   0.750000   x 
+            x  Al          15         0.375000   0.625000   0.750000   x 
+            x  Al          16         0.875000   0.625000   0.750000   x 
+            x  Al          17         0.125000   0.375000   0.250000   x 
+            x  Al          18         0.625000   0.375000   0.250000   x 
+            x  Al          19         0.125000   0.875000   0.250000   x 
+            x  Al          20         0.625000   0.875000   0.250000   x 
+            x  Al          21         0.125000   0.375000   0.750000   x 
+            x  Al          22         0.625000   0.375000   0.750000   x 
+            x  Al          23         0.125000   0.875000   0.750000   x 
+            x  Al          24         0.625000   0.875000   0.750000   x 
+            x  Ti           1         0.000983   0.000000   0.000000   x 
+            x  Ti           2         0.500000   0.000000   0.000000   x 
+            x  Ti           3        -0.000000   0.500000   0.000000   x 
+            x  Ti           4         0.500000   0.500000   0.000000   x 
+            x  Ti           5        -0.000000   0.000000   0.500000   x 
+            x  Ti           6         0.500000   0.000000   0.500000   x 
+            x  Ti           7        -0.000000   0.500000   0.500000   x 
+            x  Ti           8         0.500000   0.500000   0.500000   x 
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+                         No user defined ionic velocities
+
+                           -------------------------------
+                                   Details of Species
+                           -------------------------------
+
+                               Mass of species in AMU
+                                    Al   26.9815400
+                                    Ti   47.8670000
+
+                          Electric Quadrupole Moment (Barn)
+                                    Al    0.1466000 Isotope 27
+                                    Ti    0.3020000 Isotope 47
+
+                          Files used for pseudopotentials:
+                                    Al 3|2.2|2.2|1.4|4|5|5|30:31:32U2U2
+                                    Ti 3|1.8|9|10|11|30U:40:31:32(qc=5.5)
+
+                           -------------------------------
+                              k-Points For BZ Sampling
+                           -------------------------------
+                       MP grid size for SCF calculation is  4  4  5
+                            with an offset of   0.000  0.000  0.000
+                       Number of kpoints used =            40
+
+                           -------------------------------
+                               Symmetry and Constraints
+                           -------------------------------
+
+                      Maximum deviation from symmetry =  0.00000         ANG
+
+                      Number of symmetry operations   =           1
+                      Number of ionic constraints     =           3
+                      Point group of crystal =     1: C1, 1, 1
+                      Space group of crystal =     8: Cm, C -2y
+
+             Set iprint > 1 for details on symmetry rotations/translations
+
+                         Centre of mass is constrained
+             Set iprint > 1 for details of linear ionic constraints
+
+                         Number of cell constraints= 0
+                         Cell constraints are:  1 2 3 4 5 6
+
+                         External pressure/stress (GPa)
+                          0.00000   0.00000   0.00000
+                                    0.00000   0.00000
+                                              0.00000
+  
++---------------- MEMORY AND SCRATCH DISK ESTIMATES PER PROCESS --------------+
+|                                                     Memory          Disk    |
+| Baseline code, static data and system overhead      171.0 MB         0.0 MB |
+| BLAS internal memory storage                          0.0 MB         0.0 MB |
+| Model and support data                              291.8 MB      1042.7 MB |
+| Electronic energy minimisation requirements         215.1 MB         0.0 MB |
+| Force calculation requirements                       54.1 MB         0.0 MB |
+| Stress calculation requirements                      59.8 MB         0.0 MB |
+|                                               ----------------------------- |
+| Approx. total storage required per process          677.9 MB      1042.7 MB |
+|                                                                             |
+| Requirements will fluctuate during execution and may exceed these estimates |
++-----------------------------------------------------------------------------+
+Calculating finite basis set correction with  3 cut-off energies.
+Calculating total energy with cut-off of  590.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -1.09240668E+004  0.00000000E+000                        34.91  <-- SCF
+      1  -1.48935639E+004  8.98854176E+000   1.24046783E+002      73.48  <-- SCF
+      2  -1.53717826E+004  6.23975118E+000   1.49443358E+001     101.66  <-- SCF
+      3  -1.53979257E+004  6.07281347E+000   8.16970633E-001     132.79  <-- SCF
+      4  -1.53972888E+004  6.03938959E+000  -1.99021462E-002     180.19  <-- SCF
+      5  -1.53974238E+004  6.18034860E+000   4.21783972E-003     224.40  <-- SCF
+      6  -1.53972399E+004  6.08762957E+000  -5.74694372E-003     261.53  <-- SCF
+      7  -1.53972151E+004  6.05842706E+000  -7.75476537E-004     299.57  <-- SCF
+      8  -1.53972095E+004  6.07433256E+000  -1.72774064E-004     343.03  <-- SCF
+      9  -1.53972092E+004  6.07448398E+000  -1.15493588E-005     376.96  <-- SCF
+     10  -1.53972091E+004  6.07361383E+000  -4.86722900E-007     406.50  <-- SCF
+     11  -1.53972091E+004  6.07345166E+000  -6.44256121E-007     435.53  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -15397.14538346     eV
+Final free energy (E-TS)    =  -15397.20912145     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -15397.17725245     eV
+ 
+Calculating total energy with cut-off of  595.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -1.53971454E+004  0.00000000E+000                       463.77  <-- SCF
+      1  -1.53972093E+004  6.07231716E+000   1.99803495E-003     493.13  <-- SCF
+      2  -1.53972093E+004  6.07231706E+000   1.35430778E-007     521.72  <-- SCF
+      3  -1.53972103E+004  6.07577259E+000   2.97702260E-005     556.77  <-- SCF
+      4  -1.53972093E+004  6.07441127E+000  -3.13637743E-005     591.51  <-- SCF
+      5  -1.53972093E+004  6.07344254E+000  -4.25823530E-007     620.20  <-- SCF
+      6  -1.53972093E+004  6.07327522E+000   6.95956065E-008     648.19  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -15397.14550888     eV
+Final free energy (E-TS)    =  -15397.20925710     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -15397.17738299     eV
+ 
+Calculating total energy with cut-off of  600.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -1.53971455E+004  0.00000000E+000                       676.45  <-- SCF
+      1  -1.53972095E+004  6.07278093E+000   1.99885905E-003     705.60  <-- SCF
+      2  -1.53972095E+004  6.07278085E+000   1.48091915E-007     733.53  <-- SCF
+      3  -1.53972113E+004  6.07483679E+000   5.77095679E-005     769.62  <-- SCF
+      4  -1.53972094E+004  6.07409635E+000  -6.06653409E-005     805.40  <-- SCF
+      5  -1.53972094E+004  6.07335526E+000   4.73265940E-008     834.75  <-- SCF
+      6  -1.53972094E+004  6.07321812E+000   8.46599697E-008     862.83  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -15397.14562940     eV
+Final free energy (E-TS)    =  -15397.20938082     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -15397.17750511     eV
+ 
+ For future reference: finite basis dEtot/dlog(Ecut) =      -0.015542eV
+ Total energy corrected for finite basis set =  -15397.209382 eV
+
+ ******************* Unconstrained Forces *******************
+ *                                                          *
+ *               Cartesian components (eV/A)                *
+ * -------------------------------------------------------- *
+ *                         x            y            z      *
+ *                                                          *
+ * Al              1      0.00029      0.00012     -0.00013 *
+ * Al              2      0.00781     -0.01133      0.00034 *
+ * Al              3      0.00781     -0.01137     -0.00033 *
+ * Al              4      0.00047     -0.00012      0.00017 *
+ * Al              5      0.00076     -0.00022     -0.00015 *
+ * Al              6     -0.00150     -0.00137      0.00013 *
+ * Al              7     -0.00165     -0.00110     -0.00012 *
+ * Al              8      0.00110     -0.00082      0.00013 *
+ * Al              9      0.00752      0.00187      0.00185 *
+ * Al             10      0.00724      0.00174     -0.00167 *
+ * Al             11      0.00024      0.00167      0.00091 *
+ * Al             12      0.00047      0.00166     -0.00090 *
+ * Al             13      0.00100      0.00103      0.00003 *
+ * Al             14      0.00358      0.00370     -0.00177 *
+ * Al             15      0.00114      0.00105     -0.00016 *
+ * Al             16      0.00352      0.00360      0.00191 *
+ * Al             17      0.00435      0.00178      0.00194 *
+ * Al             18      0.00279     -0.00101      0.00012 *
+ * Al             19      0.00424      0.00165     -0.00204 *
+ * Al             20      0.00287     -0.00103     -0.00002 *
+ * Al             21      0.00159     -0.00012     -0.00118 *
+ * Al             22      0.00186     -0.00006      0.00127 *
+ * Al             23      0.00865     -0.00042     -0.00221 *
+ * Al             24      0.00840     -0.00046      0.00194 *
+ * Ti              1     -0.09820      0.00078      0.00012 *
+ * Ti              2      0.00720      0.00013      0.00005 *
+ * Ti              3      0.00309      0.00209      0.00004 *
+ * Ti              4      0.00120     -0.00021     -0.00004 *
+ * Ti              5      0.00474      0.00183     -0.00205 *
+ * Ti              6      0.00132      0.00158     -0.00205 *
+ * Ti              7      0.00139      0.00153      0.00194 *
+ * Ti              8      0.00470      0.00183      0.00195 *
+ *                                                          *
+ ************************************************************
+
+ ******************** Constrained Forces ********************
+ *                                                          *
+ *               Cartesian components (eV/A)                *
+ * -------------------------------------------------------- *
+ *                         x            y            z      *
+ *                                                          *
+ * Al              1      0.00029      0.00012     -0.00013 *
+ * Al              2      0.00781     -0.01133      0.00034 *
+ * Al              3      0.00781     -0.01137     -0.00033 *
+ * Al              4      0.00047     -0.00012      0.00017 *
+ * Al              5      0.00076     -0.00022     -0.00015 *
+ * Al              6     -0.00150     -0.00137      0.00013 *
+ * Al              7     -0.00165     -0.00110     -0.00012 *
+ * Al              8      0.00110     -0.00082      0.00013 *
+ * Al              9      0.00752      0.00187      0.00185 *
+ * Al             10      0.00724      0.00174     -0.00167 *
+ * Al             11      0.00024      0.00167      0.00091 *
+ * Al             12      0.00047      0.00166     -0.00090 *
+ * Al             13      0.00100      0.00103      0.00003 *
+ * Al             14      0.00358      0.00370     -0.00177 *
+ * Al             15      0.00114      0.00105     -0.00016 *
+ * Al             16      0.00352      0.00360      0.00191 *
+ * Al             17      0.00435      0.00178      0.00194 *
+ * Al             18      0.00279     -0.00101      0.00012 *
+ * Al             19      0.00424      0.00165     -0.00204 *
+ * Al             20      0.00287     -0.00103     -0.00002 *
+ * Al             21      0.00159     -0.00012     -0.00118 *
+ * Al             22      0.00186     -0.00006      0.00127 *
+ * Al             23      0.00865     -0.00042     -0.00221 *
+ * Al             24      0.00840     -0.00046      0.00194 *
+ * Ti              1     -0.09820      0.00078      0.00012 *
+ * Ti              2      0.00720      0.00013      0.00005 *
+ * Ti              3      0.00309      0.00209      0.00004 *
+ * Ti              4      0.00120     -0.00021     -0.00004 *
+ * Ti              5      0.00474      0.00183     -0.00205 *
+ * Ti              6      0.00132      0.00158     -0.00205 *
+ * Ti              7      0.00139      0.00153      0.00194 *
+ * Ti              8      0.00470      0.00183      0.00195 *
+ *                                                          *
+ ************************************************************
+
+ ***************** Stress Tensor *****************
+ *                                               *
+ *          Cartesian components (GPa)           *
+ * --------------------------------------------- *
+ *             x             y             z     *
+ *                                               *
+ *  x      4.837784     -0.275149      0.068115  *
+ *  y     -0.275149      5.099723      0.043010  *
+ *  z      0.068115      0.043010      5.453908  *
+ *                                               *
+ *  Pressure:   -5.1305                          *
+ *                                               *
+ *************************************************
+
+ Pseudo atomic calculation performed for Al 3s2 3p1
+
+ Converged in 15 iterations to a total energy of -105.5952 eV
+
+
+ Pseudo atomic calculation performed for Ti 3s2 3p6 3d2 4s2
+
+ Converged in 31 iterations to a total energy of -1585.9998 eV
+
+Charge spilling parameter for spin component 1 = 0.49%
+
+     Atomic Populations (Mulliken)
+     -----------------------------
+Species          Ion     s      p      d      f     Total  Charge (e)
+=====================================================================
+  Al              1     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              2     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              3     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              4     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              5     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              6     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              7     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              8     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              9     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             10     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             11     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             12     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             13     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             14     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             15     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             16     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             17     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             18     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             19     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             20     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             21     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             22     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             23     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             24     1.01   2.06   0.00   0.00   3.07    -0.07
+  Ti              1     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              2     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              3     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              4     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              5     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              6     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              7     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              8     2.22   6.72   3.02   0.00  11.96     0.04
+=====================================================================
+
+                 Bond                   Population      Length (A)
+======================================================================
+             Al 3  -- Ti 1                   0.31        2.71276
+             Al 9  -- Al 20                  0.37        2.71809
+             Al 13 -- Al 24                  0.37        2.71809
+             Al 8  -- Ti 6                   0.31        2.71809
+             Al 14 -- Al 22                  0.38        2.71809
+             Al 6  -- Ti 8                   0.31        2.71809
+             Al 1  -- Ti 2                   0.31        2.71809
+             Al 11 -- Al 19                  0.38        2.71809
+             Al 15 -- Al 20                  0.38        2.71809
+             Al 12 -- Al 22                  0.38        2.71809
+             Al 11 -- Al 21                  0.38        2.71809
+             Al 5  -- Ti 4                   0.31        2.71809
+             Al 4  -- Ti 8                   0.31        2.71809
+             Al 3  -- Ti 7                   0.31        2.71809
+             Al 16 -- Al 19                  0.38        2.71809
+             Al 13 -- Al 18                  0.38        2.71809
+             Al 7  -- Ti 2                   0.31        2.71809
+             Al 6  -- Ti 3                   0.31        2.71809
+             Al 2  -- Ti 6                   0.31        2.71809
+             Al 14 -- Al 17                  0.38        2.71809
+             Al 10 -- Al 24                  0.38        2.71809
+             Al 9  -- Al 23                  0.38        2.71809
+             Al 1  -- Ti 5                   0.31        2.71809
+             Al 14 -- Al 23                  0.37        2.71809
+             Al 4  -- Ti 2                   0.31        2.71809
+             Al 10 -- Al 19                  0.38        2.71809
+             Al 10 -- Al 18                  0.38        2.71809
+             Al 7  -- Ti 5                   0.31        2.71809
+             Al 16 -- Al 21                  0.37        2.71809
+             Al 6  -- Ti 5                   0.31        2.71809
+             Al 15 -- Al 22                  0.37        2.71809
+             Al 12 -- Al 20                  0.38        2.71809
+             Al 5  -- Ti 7                   0.31        2.71809
+             Al 5  -- Ti 6                   0.31        2.71809
+             Al 13 -- Al 21                  0.38        2.71809
+             Al 9  -- Al 17                  0.38        2.71809
+             Al 4  -- Ti 3                   0.31        2.71809
+             Al 3  -- Ti 4                   0.31        2.71809
+             Al 8  -- Ti 4                   0.31        2.71809
+             Al 7  -- Ti 3                   0.31        2.71809
+             Al 6  -- Ti 2                   0.31        2.71809
+             Al 4  -- Ti 5                   0.31        2.71809
+             Al 2  -- Ti 7                   0.31        2.71809
+             Al 1  -- Ti 8                   0.31        2.71809
+             Al 16 -- Al 18                  0.38        2.71810
+             Al 15 -- Al 17                  0.38        2.71810
+             Al 14 -- Al 20                  0.38        2.71810
+             Al 13 -- Al 19                  0.38        2.71810
+             Al 12 -- Al 23                  0.38        2.71810
+             Al 11 -- Al 24                  0.38        2.71810
+             Al 10 -- Al 21                  0.38        2.71810
+             Al 9  -- Al 22                  0.38        2.71810
+             Al 3  -- Ti 6                   0.31        2.71810
+             Al 8  -- Ti 7                   0.31        2.71810
+             Al 16 -- Al 24                  0.38        2.71810
+             Al 12 -- Al 17                  0.37        2.71810
+             Al 11 -- Al 18                  0.37        2.71810
+             Al 7  -- Ti 8                   0.31        2.71810
+             Al 2  -- Ti 4                   0.31        2.71810
+             Al 1  -- Ti 3                   0.31        2.71810
+             Al 15 -- Al 23                  0.38        2.71810
+             Al 8  -- Ti 1                   0.31        2.71811
+             Al 5  -- Ti 1                   0.31        2.71811
+             Al 2  -- Ti 1                   0.31        2.72345
+             Al 23 -- Ti 1                   0.18        2.87539
+             Al 9  -- Ti 1                   0.18        2.87539
+             Al 17 -- Ti 1                   0.18        2.88044
+             Al 14 -- Ti 1                   0.18        2.88044
+             Al 2  -- Al 24                  0.11        2.88421
+             Al 1  -- Al 23                  0.11        2.88421
+             Al 16 -- Ti 3                   0.18        2.88421
+             Al 21 -- Ti 3                   0.18        2.88421
+             Al 16 -- Ti 8                   0.18        2.88421
+             Al 4  -- Al 16                  0.11        2.88421
+             Al 14 -- Ti 6                   0.18        2.88421
+             Al 9  -- Ti 2                   0.18        2.88421
+             Al 11 -- Ti 3                   0.18        2.88421
+             Al 7  -- Al 24                  0.11        2.88421
+             Al 3  -- Al 19                  0.11        2.88421
+             Al 1  -- Al 18                  0.11        2.88421
+             Al 6  -- Al 22                  0.11        2.88421
+             Al 1  -- Al 13                  0.11        2.88421
+             Al 2  -- Al 14                  0.11        2.88421
+             Al 24 -- Ti 2                   0.18        2.88421
+             Al 15 -- Ti 4                   0.18        2.88421
+             Al 8  -- Al 14                  0.11        2.88421
+             Al 7  -- Al 13                  0.11        2.88421
+             Al 23 -- Ti 5                   0.18        2.88421
+             Al 21 -- Ti 5                   0.18        2.88421
+             Al 6  -- Al 16                  0.11        2.88421
+             Al 5  -- Al 15                  0.11        2.88421
+             Al 4  -- Al 10                  0.11        2.88421
+             Al 22 -- Ti 6                   0.18        2.88421
+             Al 20 -- Ti 2                   0.18        2.88421
+             Al 20 -- Ti 4                   0.18        2.88421
+             Al 18 -- Ti 2                   0.18        2.88421
+             Al 15 -- Ti 2                   0.18        2.88421
+             Al 19 -- Ti 3                   0.18        2.88421
+             Al 13 -- Ti 4                   0.18        2.88421
+             Al 6  -- Al 14                  0.11        2.88421
+             Al 1  -- Al 9                   0.11        2.88421
+             Al 22 -- Ti 8                   0.18        2.88421
+             Al 4  -- Al 22                  0.11        2.88421
+             Al 21 -- Ti 7                   0.18        2.88421
+             Al 5  -- Al 13                  0.11        2.88421
+             Al 4  -- Al 12                  0.11        2.88421
+             Al 3  -- Al 21                  0.11        2.88421
+             Al 3  -- Al 11                  0.11        2.88421
+             Al 2  -- Al 10                  0.11        2.88421
+             Al 7  -- Al 11                  0.11        2.88421
+             Al 20 -- Ti 6                   0.18        2.88421
+             Al 18 -- Ti 8                   0.18        2.88421
+             Al 6  -- Al 9                   0.11        2.88421
+             Al 24 -- Ti 6                   0.18        2.88421
+             Al 3  -- Al 9                   0.11        2.88421
+             Al 14 -- Ti 3                   0.18        2.88421
+             Al 1  -- Al 21                  0.11        2.88421
+             Al 4  -- Al 24                  0.11        2.88421
+             Al 24 -- Ti 8                   0.18        2.88421
+             Al 1  -- Al 11                  0.11        2.88421
+             Al 5  -- Al 19                  0.11        2.88421
+             Al 8  -- Al 20                  0.11        2.88421
+             Al 6  -- Al 20                  0.11        2.88421
+             Al 5  -- Al 17                  0.11        2.88421
+             Al 12 -- Ti 5                   0.18        2.88421
+             Al 10 -- Ti 5                   0.18        2.88421
+             Al 9  -- Ti 6                   0.18        2.88421
+             Al 7  -- Al 19                  0.11        2.88421
+             Al 6  -- Al 18                  0.11        2.88421
+             Al 10 -- Ti 7                   0.18        2.88421
+             Al 9  -- Ti 8                   0.18        2.88421
+             Al 8  -- Al 23                  0.11        2.88421
+             Al 6  -- Al 21                  0.11        2.88421
+             Al 5  -- Al 22                  0.11        2.88421
+             Al 3  -- Al 20                  0.11        2.88421
+             Al 3  -- Al 15                  0.11        2.88421
+             Al 2  -- Al 17                  0.11        2.88421
+             Al 12 -- Ti 4                   0.18        2.88421
+             Al 22 -- Ti 4                   0.18        2.88421
+             Al 15 -- Ti 7                   0.18        2.88421
+             Al 13 -- Ti 5                   0.18        2.88421
+             Al 10 -- Ti 2                   0.18        2.88421
+             Al 4  -- Al 20                  0.11        2.88421
+             Al 22 -- Ti 3                   0.18        2.88421
+             Al 21 -- Ti 4                   0.18        2.88421
+             Al 14 -- Ti 5                   0.18        2.88421
+             Al 12 -- Ti 3                   0.18        2.88421
+             Al 11 -- Ti 4                   0.18        2.88421
+             Al 4  -- Al 15                  0.11        2.88421
+             Al 3  -- Al 16                  0.11        2.88421
+             Al 2  -- Al 18                  0.11        2.88421
+             Al 1  -- Al 17                  0.11        2.88421
+             Al 7  -- Al 23                  0.11        2.88421
+             Al 4  -- Al 19                  0.11        2.88421
+             Al 16 -- Ti 7                   0.18        2.88421
+             Al 15 -- Ti 8                   0.18        2.88421
+             Al 13 -- Ti 6                   0.18        2.88421
+             Al 8  -- Al 24                  0.11        2.88421
+             Al 5  -- Al 21                  0.11        2.88421
+             Al 23 -- Ti 2                   0.18        2.88421
+             Al 2  -- Al 13                  0.11        2.88421
+             Al 13 -- Ti 2                   0.18        2.88421
+             Al 2  -- Al 22                  0.11        2.88421
+             Al 3  -- Al 23                  0.11        2.88421
+             Al 2  -- Al 12                  0.11        2.88421
+             Al 23 -- Ti 7                   0.18        2.88421
+             Al 18 -- Ti 4                   0.18        2.88421
+             Al 17 -- Ti 3                   0.18        2.88421
+             Al 7  -- Al 15                  0.11        2.88421
+             Al 8  -- Al 16                  0.11        2.88421
+             Al 11 -- Ti 6                   0.18        2.88421
+             Al 11 -- Ti 8                   0.18        2.88421
+             Al 8  -- Al 12                  0.11        2.88421
+             Al 6  -- Al 10                  0.11        2.88421
+             Al 17 -- Ti 7                   0.18        2.88421
+             Al 5  -- Al 9                   0.11        2.88421
+             Al 7  -- Al 12                  0.11        2.88421
+             Al 20 -- Ti 5                   0.18        2.88421
+             Al 19 -- Ti 6                   0.18        2.88421
+             Al 19 -- Ti 5                   0.18        2.88421
+             Al 18 -- Ti 7                   0.18        2.88421
+             Al 17 -- Ti 8                   0.18        2.88421
+             Al 8  -- Al 11                  0.11        2.88421
+             Al 5  -- Al 10                  0.11        2.88421
+             Al 12 -- Ti 7                   0.18        2.88421
+             Al 8  -- Al 18                  0.11        2.88421
+             Al 7  -- Al 17                  0.11        2.88421
+             Al 1  -- Al 14                  0.11        2.88421
+             Al 19 -- Ti 1                   0.18        2.88801
+             Al 16 -- Ti 1                   0.18        2.88801
+             Al 10 -- Ti 1                   0.18        2.89303
+             Al 24 -- Ti 1                   0.18        2.89303
+======================================================================
+
+ 
+ A BibTeX formatted list of references used in this run has been written to 
+ castep.bib
+ 
+Initialisation time =     14.21 s
+Calculation time    =   1564.95 s
+Finalisation time   =      0.15 s
+Total time          =   1579.31 s
+Peak Memory Use     = 2185412 kB
+  
+Overall parallel efficiency rating: Excellent (98%)                             
+  
+Data was distributed by:-
+k-point (40-way); efficiency rating: Excellent (98%)                            
+ +-------------------------------------------------+
+ |                                                 |
+ |      CCC   AA    SSS  TTTTT  EEEEE  PPPP        |
+ |     C     A  A  S       T    E      P   P       |
+ |     C     AAAA   SS     T    EEE    PPPP        |
+ |     C     A  A     S    T    E      P           |
+ |      CCC  A  A  SSS     T    EEEEE  P           |
+ |                                                 |
+ +-------------------------------------------------+
+ |                                                 |
+ | Welcome to Academic Release CASTEP version 17.21|          
+ | Ab Initio Total Energy Program                  |
+ |                                                 |
+ | Authors:                                        |
+ | M. Segall, M. Probert, C. Pickard, P. Hasnip,   |
+ | S. Clark, K. Refson, J. R. Yates, M. Payne      |
+ |                                                 |
+ | Contributors:                                   |
+ | P. Lindan, P. Haynes, J. White, V. Milman,      |
+ | N. Govind, M. Gibson, P. Tulip, V. Cocula,      |
+ | B. Montanari, D. Quigley, M. Glover,            |
+ | L. Bernasconi, A. Perlov, M. Plummer,           |
+ | E. McNellis, J. Meyer, J. Gale, D. Jochym       |
+ | J. Aarons, B. Walker, R. Gillen, D. Jones       |
+ | T. Green, I. J. Bush, C. J. Armstrong,          |
+ | E. J. Higgins, E. L. Brown, M. S. McFly,        |
+ | J. Wilkins, B-C. Shih, P. J. P. Byrne           |
+ |                                                 |
+ | Copyright (c) 2000 - 2017                       |
+ |                                                 |
+ |     Distributed under the terms of an           |
+ |     Agreement between the United Kingdom        |
+ |     Car-Parrinello (UKCP) Consortium,           |
+ |     Daresbury Laboratory and Accelrys, Inc.     |
+ |                                                 |
+ | Please cite                                     |
+ |                                                 |
+ |     "First principles methods using CASTEP"     |
+ |                                                 |
+ |         Zeitschrift fuer Kristallographie       |
+ |           220(5-6) pp. 567-570 (2005)           |
+ |                                                 |
+ | S. J. Clark, M. D. Segall, C. J. Pickard,       |
+ | P. J. Hasnip, M. J. Probert, K. Refson,         |
+ | M. C. Payne                                     |
+ |                                                 |
+ |       in all publications arising from          |
+ |              your use of CASTEP                 |
+ |                                                 |
+ +-------------------------------------------------+
+
+
+ Compiled for linux_x86_64_gfortran6.0-XT on Fri, 21 Jul 2017 10:20:05 +0100
+ from code version 056e886bd5a1+ Castep172_branch Mon, 15 May 2017 14:45:35 +0100
+ Compiler: GNU Fortran 6.3.0; Optimisation: fast
+ MATHLIBS: Intel MKL(2017.0.0) (LAPACK version 3.6.0)
+ FFT Lib : fftw3 version commercial-fftw-3.3.4-sse2-avx
+ Fundamental constants values: CODATA 2010
+
+ Run started: Thu, 31 Oct 2019 11:32:27 +0000
+
+ Atomic calculation performed for Al: 1s2 2s2 2p6 3s2 3p1
+
+ Converged in 55 iterations to an ae energy of -6578.725 eV
+
+   ============================================================                
+   | Pseudopotential Report - Date of generation 31-10-2019   |                
+   ------------------------------------------------------------                
+   | Element: Al Ionic charge:  3.00 Level of theory: LDA     |                
+   | Atomic Solver: Koelling-Harmon                           |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            3s              2.000           -0.288        |                
+   |            3p              1.000           -0.102        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -0.288   2.192     qc      0         |                
+   |          2      0    0.250   2.192     qc      0         |                
+   |          3      1   -0.102   2.192     qc      0         |                
+   |          4      1    0.250   2.192     qc      0         |                
+   |          5      2    0.000   2.000     qc      0         |                
+   |          6      2    0.250   2.000     qc      0         |                
+   |         loc     3    0.000   2.192     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 1.398                       |                
+   | Partial core correction Rc = 1.398                       |                
+   ------------------------------------------------------------                
+   | "3|2.2|2.2|1.4|4|5|5|30:31:32U2U2"                       |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+
+ Atomic calculation performed for Ti: 1s2 2s2 2p6 3s2 3p6 3d2 4s2
+
+ Converged in 78 iterations to an ae energy of -23176.516 eV
+
+   ============================================================                
+   | Pseudopotential Report - Date of generation 31-10-2019   |                
+   ------------------------------------------------------------                
+   | Element: Ti Ionic charge: 12.00 Level of theory: LDA     |                
+   | Atomic Solver: Koelling-Harmon                           |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            3s              2.000           -2.288        |                
+   |            3p              6.000           -1.425        |                
+   |            4s              2.000           -0.169        |                
+   |            3d              2.000           -0.164        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -2.288   1.793     qc      0         |                
+   |          2      0   -0.169   1.793     qc      0         |                
+   |          3      0    0.250   1.793     qc      0         |                
+   |          4      1   -1.425   1.793     qc      0         |                
+   |          5      1    0.250   1.793     qc      0         |                
+   |          6      2   -0.164   1.793     qc      0         |                
+   |          7      2    0.250   1.793     qc      0         |                
+   |         loc     3    0.000   1.793     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 1.263                       |                
+   | Partial core correction Rc = 1.263                       |                
+   ------------------------------------------------------------                
+   | "3|1.8|9|10|11|30U:40:31:32(qc=5.5)"                     |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+
+ Pseudo atomic calculation performed for Al 3s2 3p1
+
+ Converged in 15 iterations to a total energy of -105.5952 eV
+
+
+ Pseudo atomic calculation performed for Ti 3s2 3p6 3d2 4s2
+
+ Converged in 31 iterations to a total energy of -1585.9998 eV
+
+ Calculation parallelised over 40 processes.
+ Data is distributed by k-point(40-way)
+
+ ************************************ Title ************************************
+ 
+
+ ***************************** General Parameters ******************************
+  
+ output verbosity                               : normal  (1)
+ write checkpoint data to                       : castep.check
+ type of calculation                            : single point energy
+ stress calculation                             : on
+ density difference calculation                 : off
+ electron localisation func (ELF) calculation   : off
+ Hirshfeld analysis                             : off
+ unlimited duration calculation
+ timing information                             : on
+ memory usage estimate                          : on
+ write final potential to formatted file        : off
+ write final density to formatted file          : off
+ write BibTeX reference list                    : on
+ write OTFG pseudopotential files               : on
+ write electrostatic potential file             : on
+ write bands file                               : on
+ checkpoint writing                             : off
+  
+ output         length unit                     : A
+ output           mass unit                     : amu
+ output           time unit                     : ps
+ output         charge unit                     : e
+ output           spin unit                     : hbar/2
+ output         energy unit                     : eV
+ output          force unit                     : eV/A
+ output       velocity unit                     : A/ps
+ output       pressure unit                     : GPa
+ output     inv_length unit                     : 1/A
+ output      frequency unit                     : cm-1
+ output force constant unit                     : eV/A**2
+ output         volume unit                     : A**3
+ output   IR intensity unit                     : (D/A)**2/amu
+ output         dipole unit                     : D
+ output         efield unit                     : eV/A/e
+ output        entropy unit                     : J/mol/K
+  
+ wavefunctions paging                           : none
+ random number generator seed                   : randomised (113227440)
+ data distribution                              : optimal for this architecture
+ optimization strategy                          : maximize speed(+++)
+
+ *********************** Exchange-Correlation Parameters ***********************
+  
+ using functional                               : Local Density Approximation
+ relativistic treatment                         : Koelling-Harmon
+ DFT+D: Semi-empirical dispersion correction    : off
+
+ ************************* Pseudopotential Parameters **************************
+  
+ pseudopotential representation                 : reciprocal space
+ <beta|phi> representation                      : reciprocal space
+ spin-orbit coupling                            : off
+
+ **************************** Basis Set Parameters *****************************
+  
+ plane wave basis set cut-off                   :   600.0000   eV
+ size of standard grid                          :     1.7500
+ size of   fine   gmax                          :    21.9610   1/A
+ finite basis set correction                    : automatic
+ number of sample energies                      :          3
+           sample  spacing                      :     5.0000   eV
+
+ **************************** Electronic Parameters ****************************
+  
+ number of  electrons                           :  168.0    
+ net charge of system                           :  0.000    
+ treating system as non-spin-polarized
+ number of bands                                :        101
+
+ ********************* Electronic Minimization Parameters **********************
+  
+ Method: Treating system as metallic with density mixing treatment of electrons,
+         and number of  SD  steps               :          1
+         and number of  CG  steps               :          4
+  
+ total energy / atom convergence tol.           : 0.1000E-04   eV
+ eigen-energy convergence tolerance             : 0.1000E-05   eV
+ max force / atom convergence tol.              : ignored
+ convergence tolerance window                   :          3   cycles
+ max. number of SCF cycles                      :        250
+ number of fixed-spin iterations                :         10
+ smearing scheme                                : Gaussian
+ smearing width                                 : 0.1000       eV
+ Fermi energy convergence tolerance             : 0.2721E-13   eV
+ periodic dipole correction                     : NONE
+
+ ************************** Density Mixing Parameters **************************
+  
+ density-mixing scheme                          : Pulay
+ max. length of mixing history                  :         20
+ charge density mixing amplitude                : 0.8000    
+ cut-off energy for mixing                      :  600.0       eV
+
+ *********************** Population Analysis Parameters ************************
+  
+ Population analysis with cutoff                :  3.000       A
+
+ *******************************************************************************
+  
+
+                           -------------------------------
+                                      Unit Cell
+                           -------------------------------
+        Real Lattice(A)                      Reciprocal Lattice(1/A)
+  10.1757750   0.0000000   0.0000000        0.6174650  -0.2934157   0.5779034
+   4.3674400   9.1908570   0.0000000        0.0000000   0.6836343   0.5779036
+  -7.2716070  -4.5954290   5.4361890        0.0000000   0.0000000   1.1558070
+
+                       Lattice parameters(A)       Cell Angles
+                    a =   10.175775          alpha =  135.610420
+                    b =   10.175774          beta  =  135.610416
+                    c =   10.175775          gamma =   64.583214
+
+                       Current cell volume =  508.414645       A**3
+                                   density =    2.026875   AMU/A**3
+                                           =    3.365705     g/cm^3
+
+                           -------------------------------
+                                     Cell Contents
+                           -------------------------------
+                         Total number of ions in cell =   32
+                      Total number of species in cell =    2
+                        Max number of any one species =   24
+
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            x  Element    Atom        Fractional coordinates of atoms  x
+            x            Number           u          v          w      x
+            x----------------------------------------------------------x
+            x  Al           1         0.250983   0.250000   0.000000   x 
+            x  Al           2         0.750000   0.250000   0.000000   x 
+            x  Al           3         0.250000   0.750000   0.000000   x 
+            x  Al           4         0.750000   0.750000   0.000000   x 
+            x  Al           5         0.250000   0.250000   0.500000   x 
+            x  Al           6         0.750000   0.250000   0.500000   x 
+            x  Al           7         0.250000   0.750000   0.500000   x 
+            x  Al           8         0.750000   0.750000   0.500000   x 
+            x  Al           9         0.375000   0.125000   0.250000   x 
+            x  Al          10         0.875000   0.125000   0.250000   x 
+            x  Al          11         0.375000   0.625000   0.250000   x 
+            x  Al          12         0.875000   0.625000   0.250000   x 
+            x  Al          13         0.375000   0.125000   0.750000   x 
+            x  Al          14         0.875000   0.125000   0.750000   x 
+            x  Al          15         0.375000   0.625000   0.750000   x 
+            x  Al          16         0.875000   0.625000   0.750000   x 
+            x  Al          17         0.125000   0.375000   0.250000   x 
+            x  Al          18         0.625000   0.375000   0.250000   x 
+            x  Al          19         0.125000   0.875000   0.250000   x 
+            x  Al          20         0.625000   0.875000   0.250000   x 
+            x  Al          21         0.125000   0.375000   0.750000   x 
+            x  Al          22         0.625000   0.375000   0.750000   x 
+            x  Al          23         0.125000   0.875000   0.750000   x 
+            x  Al          24         0.625000   0.875000   0.750000   x 
+            x  Ti           1         0.000000   0.000000   0.000000   x 
+            x  Ti           2         0.500000   0.000000   0.000000   x 
+            x  Ti           3        -0.000000   0.500000   0.000000   x 
+            x  Ti           4         0.500000   0.500000   0.000000   x 
+            x  Ti           5        -0.000000   0.000000   0.500000   x 
+            x  Ti           6         0.500000   0.000000   0.500000   x 
+            x  Ti           7        -0.000000   0.500000   0.500000   x 
+            x  Ti           8         0.500000   0.500000   0.500000   x 
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+                         No user defined ionic velocities
+
+                           -------------------------------
+                                   Details of Species
+                           -------------------------------
+
+                               Mass of species in AMU
+                                    Al   26.9815400
+                                    Ti   47.8670000
+
+                          Electric Quadrupole Moment (Barn)
+                                    Al    0.1466000 Isotope 27
+                                    Ti    0.3020000 Isotope 47
+
+                          Files used for pseudopotentials:
+                                    Al 3|2.2|2.2|1.4|4|5|5|30:31:32U2U2
+                                    Ti 3|1.8|9|10|11|30U:40:31:32(qc=5.5)
+
+                           -------------------------------
+                              k-Points For BZ Sampling
+                           -------------------------------
+                       MP grid size for SCF calculation is  4  4  5
+                            with an offset of   0.000  0.000  0.000
+                       Number of kpoints used =            40
+
+                           -------------------------------
+                               Symmetry and Constraints
+                           -------------------------------
+
+                      Maximum deviation from symmetry =  0.00000         ANG
+
+                      Number of symmetry operations   =           1
+                      Number of ionic constraints     =           3
+                      Point group of crystal =     1: C1, 1, 1
+                      Space group of crystal =     8: Cm, C -2y
+
+             Set iprint > 1 for details on symmetry rotations/translations
+
+                         Centre of mass is constrained
+             Set iprint > 1 for details of linear ionic constraints
+
+                         Number of cell constraints= 0
+                         Cell constraints are:  1 2 3 4 5 6
+
+                         External pressure/stress (GPa)
+                          0.00000   0.00000   0.00000
+                                    0.00000   0.00000
+                                              0.00000
+  
++---------------- MEMORY AND SCRATCH DISK ESTIMATES PER PROCESS --------------+
+|                                                     Memory          Disk    |
+| Baseline code, static data and system overhead      171.0 MB         0.0 MB |
+| BLAS internal memory storage                          0.0 MB         0.0 MB |
+| Model and support data                             1331.5 MB         0.0 MB |
+| Electronic energy minimisation requirements         215.1 MB         0.0 MB |
+| Force calculation requirements                       54.1 MB         0.0 MB |
+| Stress calculation requirements                      59.8 MB         0.0 MB |
+|                                               ----------------------------- |
+| Approx. total storage required per process         1717.7 MB         0.0 MB |
+|                                                                             |
+| Requirements will fluctuate during execution and may exceed these estimates |
++-----------------------------------------------------------------------------+
+Calculating finite basis set correction with  3 cut-off energies.
+Calculating total energy with cut-off of  590.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -1.09250935E+004  0.00000000E+000                        34.88  <-- SCF
+      1  -1.48948020E+004  8.99803805E+000   1.24053390E+002      65.63  <-- SCF
+      2  -1.53717935E+004  6.25196817E+000   1.49059844E+001      86.01  <-- SCF
+      3  -1.53979330E+004  6.07585248E+000   8.16857419E-001     109.32  <-- SCF
+      4  -1.53972914E+004  6.03704430E+000  -2.00479164E-002     148.72  <-- SCF
+      5  -1.53974019E+004  6.18467996E+000   3.45239264E-003     186.78  <-- SCF
+      6  -1.53972270E+004  6.07570535E+000  -5.46475967E-003     224.45  <-- SCF
+      7  -1.53972184E+004  6.05923787E+000  -2.71003059E-004     262.53  <-- SCF
+      8  -1.53972104E+004  6.07347503E+000  -2.49745491E-004     299.18  <-- SCF
+      9  -1.53972094E+004  6.07423486E+000  -2.95641165E-005     333.35  <-- SCF
+     10  -1.53972094E+004  6.07361430E+000  -3.81824464E-007     362.43  <-- SCF
+     11  -1.53972094E+004  6.07350113E+000  -9.47500556E-008     391.45  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -15397.14566507     eV
+Final free energy (E-TS)    =  -15397.20939880     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -15397.17753193     eV
+ 
+Calculating total energy with cut-off of  595.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -1.53971456E+004  0.00000000E+000                       419.71  <-- SCF
+      1  -1.53972098E+004  6.07241459E+000   2.00484836E-003     442.81  <-- SCF
+      2  -1.53972098E+004  6.07241451E+000   1.93710275E-007     471.61  <-- SCF
+      3  -1.53972157E+004  6.07586945E+000   1.83169022E-004     507.96  <-- SCF
+      4  -1.53972095E+004  6.07453943E+000  -1.92232258E-004     544.49  <-- SCF
+      5  -1.53972095E+004  6.07329774E+000   2.48350084E-007     574.59  <-- SCF
+      6  -1.53972095E+004  6.07310850E+000   2.38536389E-007     603.25  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -15397.14577370     eV
+Final free energy (E-TS)    =  -15397.20953012     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -15397.17765191     eV
+ 
+Calculating total energy with cut-off of  600.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -1.53971457E+004  0.00000000E+000                       631.51  <-- SCF
+      1  -1.53972100E+004  6.07322301E+000   2.00785194E-003     654.60  <-- SCF
+      2  -1.53972100E+004  6.07322291E+000   2.09728717E-007     683.07  <-- SCF
+      3  -1.53972178E+004  6.07421489E+000   2.42154086E-004     719.31  <-- SCF
+      4  -1.53972096E+004  6.07383418E+000  -2.54265114E-004     755.65  <-- SCF
+      5  -1.53972097E+004  6.07354535E+000   1.02435360E-006     786.67  <-- SCF
+      6  -1.53972097E+004  6.07322122E+000   9.10400842E-009     815.14  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -15397.14590326     eV
+Final free energy (E-TS)    =  -15397.20965339     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -15397.17777832     eV
+ 
+ For future reference: finite basis dEtot/dlog(Ecut) =      -0.015255eV
+ Total energy corrected for finite basis set =  -15397.209654 eV
+
+ ******************* Unconstrained Forces *******************
+ *                                                          *
+ *               Cartesian components (eV/A)                *
+ * -------------------------------------------------------- *
+ *                         x            y            z      *
+ *                                                          *
+ * Al              1     -0.05010      0.01780      0.00013 *
+ * Al              2      0.00120      0.00032      0.00018 *
+ * Al              3      0.00079      0.00050     -0.00014 *
+ * Al              4      0.00004      0.00060     -0.00011 *
+ * Al              5      0.00047      0.00114     -0.00024 *
+ * Al              6     -0.00028     -0.00176      0.00162 *
+ * Al              7     -0.00018     -0.00188     -0.00162 *
+ * Al              8      0.00064      0.00096      0.00025 *
+ * Al              9     -0.00021      0.00456     -0.00302 *
+ * Al             10     -0.00054      0.00085     -0.00007 *
+ * Al             11     -0.00004      0.00445      0.00301 *
+ * Al             12     -0.00088      0.00063      0.00006 *
+ * Al             13      0.00790      0.00033     -0.00488 *
+ * Al             14      0.00748      0.00007      0.00484 *
+ * Al             15     -0.00145      0.00055     -0.00032 *
+ * Al             16     -0.00124      0.00070      0.00024 *
+ * Al             17      0.00873     -0.00182     -0.00472 *
+ * Al             18      0.00924     -0.00168      0.00500 *
+ * Al             19     -0.00001     -0.00120     -0.00036 *
+ * Al             20     -0.00013     -0.00148      0.00022 *
+ * Al             21      0.00132      0.00267     -0.00303 *
+ * Al             22      0.00048     -0.00117     -0.00003 *
+ * Al             23      0.00102      0.00241      0.00303 *
+ * Al             24      0.00066     -0.00130      0.00007 *
+ * Ti              1      0.00038     -0.00002     -0.00004 *
+ * Ti              2      0.00785     -0.01148     -0.00001 *
+ * Ti              3      0.00775     -0.01123      0.00000 *
+ * Ti              4      0.00037     -0.00000      0.00002 *
+ * Ti              5      0.00094     -0.00052      0.00000 *
+ * Ti              6     -0.00160     -0.00123     -0.00002 *
+ * Ti              7     -0.00157     -0.00125     -0.00001 *
+ * Ti              8      0.00094     -0.00052     -0.00004 *
+ *                                                          *
+ ************************************************************
+
+ ******************** Constrained Forces ********************
+ *                                                          *
+ *               Cartesian components (eV/A)                *
+ * -------------------------------------------------------- *
+ *                         x            y            z      *
+ *                                                          *
+ * Al              1     -0.05010      0.01780      0.00013 *
+ * Al              2      0.00120      0.00032      0.00018 *
+ * Al              3      0.00079      0.00050     -0.00014 *
+ * Al              4      0.00004      0.00060     -0.00011 *
+ * Al              5      0.00047      0.00114     -0.00024 *
+ * Al              6     -0.00028     -0.00176      0.00162 *
+ * Al              7     -0.00018     -0.00188     -0.00162 *
+ * Al              8      0.00064      0.00096      0.00025 *
+ * Al              9     -0.00021      0.00456     -0.00302 *
+ * Al             10     -0.00054      0.00085     -0.00007 *
+ * Al             11     -0.00004      0.00445      0.00301 *
+ * Al             12     -0.00088      0.00063      0.00006 *
+ * Al             13      0.00790      0.00033     -0.00488 *
+ * Al             14      0.00748      0.00007      0.00484 *
+ * Al             15     -0.00145      0.00055     -0.00032 *
+ * Al             16     -0.00124      0.00070      0.00024 *
+ * Al             17      0.00873     -0.00182     -0.00472 *
+ * Al             18      0.00924     -0.00168      0.00500 *
+ * Al             19     -0.00001     -0.00120     -0.00036 *
+ * Al             20     -0.00013     -0.00148      0.00022 *
+ * Al             21      0.00132      0.00267     -0.00303 *
+ * Al             22      0.00048     -0.00117     -0.00003 *
+ * Al             23      0.00102      0.00241      0.00303 *
+ * Al             24      0.00066     -0.00130      0.00007 *
+ * Ti              1      0.00038     -0.00002     -0.00004 *
+ * Ti              2      0.00785     -0.01148     -0.00001 *
+ * Ti              3      0.00775     -0.01123      0.00000 *
+ * Ti              4      0.00037     -0.00000      0.00002 *
+ * Ti              5      0.00094     -0.00052      0.00000 *
+ * Ti              6     -0.00160     -0.00123     -0.00002 *
+ * Ti              7     -0.00157     -0.00125     -0.00001 *
+ * Ti              8      0.00094     -0.00052     -0.00004 *
+ *                                                          *
+ ************************************************************
+
+ ***************** Stress Tensor *****************
+ *                                               *
+ *          Cartesian components (GPa)           *
+ * --------------------------------------------- *
+ *             x             y             z     *
+ *                                               *
+ *  x      4.829062     -0.275257      0.068029  *
+ *  y     -0.275257      5.091124      0.043041  *
+ *  z      0.068029      0.043041      5.445243  *
+ *                                               *
+ *  Pressure:   -5.1218                          *
+ *                                               *
+ *************************************************
+
+ Pseudo atomic calculation performed for Al 3s2 3p1
+
+ Converged in 15 iterations to a total energy of -105.5952 eV
+
+
+ Pseudo atomic calculation performed for Ti 3s2 3p6 3d2 4s2
+
+ Converged in 31 iterations to a total energy of -1585.9998 eV
+
+Charge spilling parameter for spin component 1 = 0.49%
+
+     Atomic Populations (Mulliken)
+     -----------------------------
+Species          Ion     s      p      d      f     Total  Charge (e)
+=====================================================================
+  Al              1     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              2     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              3     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              4     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              5     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              6     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              7     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              8     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              9     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             10     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             11     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             12     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             13     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             14     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             15     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             16     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             17     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             18     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             19     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             20     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             21     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             22     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             23     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             24     1.01   2.06   0.00   0.00   3.07    -0.07
+  Ti              1     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              2     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              3     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              4     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              5     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              6     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              7     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              8     2.22   6.72   3.02   0.00  11.96     0.04
+=====================================================================
+
+                 Bond                   Population      Length (A)
+======================================================================
+             Al 1  -- Ti 2                   0.31        2.71276
+             Al 9  -- Al 20                  0.37        2.71809
+             Al 13 -- Al 24                  0.37        2.71809
+             Al 3  -- Ti 1                   0.31        2.71809
+             Al 8  -- Ti 6                   0.31        2.71809
+             Al 14 -- Al 22                  0.38        2.71809
+             Al 6  -- Ti 8                   0.31        2.71809
+             Al 11 -- Al 19                  0.38        2.71809
+             Al 15 -- Al 20                  0.38        2.71809
+             Al 12 -- Al 22                  0.38        2.71809
+             Al 11 -- Al 21                  0.38        2.71809
+             Al 5  -- Ti 4                   0.31        2.71809
+             Al 4  -- Ti 8                   0.31        2.71809
+             Al 3  -- Ti 7                   0.31        2.71809
+             Al 16 -- Al 19                  0.38        2.71809
+             Al 13 -- Al 18                  0.38        2.71809
+             Al 7  -- Ti 2                   0.31        2.71809
+             Al 6  -- Ti 3                   0.31        2.71809
+             Al 2  -- Ti 6                   0.31        2.71809
+             Al 14 -- Al 17                  0.38        2.71809
+             Al 10 -- Al 24                  0.38        2.71809
+             Al 9  -- Al 23                  0.38        2.71809
+             Al 8  -- Ti 1                   0.31        2.71809
+             Al 14 -- Al 23                  0.38        2.71809
+             Al 4  -- Ti 2                   0.31        2.71809
+             Al 10 -- Al 19                  0.37        2.71809
+             Al 10 -- Al 18                  0.38        2.71809
+             Al 7  -- Ti 5                   0.31        2.71809
+             Al 2  -- Ti 1                   0.31        2.71809
+             Al 16 -- Al 21                  0.37        2.71809
+             Al 6  -- Ti 5                   0.31        2.71809
+             Al 15 -- Al 22                  0.37        2.71809
+             Al 12 -- Al 20                  0.38        2.71809
+             Al 5  -- Ti 7                   0.31        2.71809
+             Al 5  -- Ti 6                   0.31        2.71809
+             Al 13 -- Al 21                  0.38        2.71809
+             Al 9  -- Al 17                  0.38        2.71809
+             Al 4  -- Ti 3                   0.31        2.71809
+             Al 3  -- Ti 4                   0.31        2.71809
+             Al 8  -- Ti 4                   0.31        2.71809
+             Al 7  -- Ti 3                   0.31        2.71809
+             Al 6  -- Ti 2                   0.31        2.71809
+             Al 5  -- Ti 1                   0.31        2.71809
+             Al 4  -- Ti 5                   0.31        2.71809
+             Al 2  -- Ti 7                   0.31        2.71809
+             Al 16 -- Al 18                  0.38        2.71810
+             Al 15 -- Al 17                  0.38        2.71810
+             Al 14 -- Al 20                  0.38        2.71810
+             Al 13 -- Al 19                  0.38        2.71810
+             Al 12 -- Al 23                  0.38        2.71810
+             Al 11 -- Al 24                  0.38        2.71810
+             Al 10 -- Al 21                  0.38        2.71810
+             Al 9  -- Al 22                  0.38        2.71810
+             Al 3  -- Ti 6                   0.31        2.71810
+             Al 8  -- Ti 7                   0.31        2.71810
+             Al 16 -- Al 24                  0.38        2.71810
+             Al 12 -- Al 17                  0.37        2.71810
+             Al 11 -- Al 18                  0.37        2.71810
+             Al 7  -- Ti 8                   0.31        2.71810
+             Al 2  -- Ti 4                   0.31        2.71810
+             Al 15 -- Al 23                  0.38        2.71810
+             Al 1  -- Ti 5                   0.31        2.71811
+             Al 1  -- Ti 8                   0.31        2.71811
+             Al 1  -- Ti 3                   0.31        2.72345
+             Al 1  -- Al 18                  0.12        2.87539
+             Al 1  -- Al 13                  0.11        2.87539
+             Al 1  -- Al 21                  0.11        2.88044
+             Al 1  -- Al 11                  0.11        2.88044
+             Al 2  -- Al 24                  0.11        2.88421
+             Al 16 -- Ti 3                   0.18        2.88421
+             Al 21 -- Ti 3                   0.18        2.88421
+             Al 16 -- Ti 8                   0.18        2.88421
+             Al 4  -- Al 16                  0.11        2.88421
+             Al 14 -- Ti 6                   0.18        2.88421
+             Al 9  -- Ti 2                   0.18        2.88421
+             Al 11 -- Ti 3                   0.18        2.88421
+             Al 7  -- Al 24                  0.11        2.88421
+             Al 3  -- Al 19                  0.11        2.88421
+             Al 6  -- Al 22                  0.11        2.88421
+             Al 2  -- Al 14                  0.11        2.88421
+             Al 24 -- Ti 2                   0.18        2.88421
+             Al 23 -- Ti 1                   0.18        2.88421
+             Al 15 -- Ti 4                   0.18        2.88421
+             Al 8  -- Al 14                  0.11        2.88421
+             Al 7  -- Al 13                  0.11        2.88421
+             Al 23 -- Ti 5                   0.18        2.88421
+             Al 21 -- Ti 5                   0.18        2.88421
+             Al 6  -- Al 16                  0.11        2.88421
+             Al 5  -- Al 15                  0.11        2.88421
+             Al 4  -- Al 10                  0.11        2.88421
+             Al 22 -- Ti 6                   0.18        2.88421
+             Al 20 -- Ti 2                   0.18        2.88421
+             Al 19 -- Ti 1                   0.18        2.88421
+             Al 17 -- Ti 1                   0.18        2.88421
+             Al 20 -- Ti 4                   0.18        2.88421
+             Al 18 -- Ti 2                   0.18        2.88421
+             Al 15 -- Ti 2                   0.18        2.88421
+             Al 19 -- Ti 3                   0.18        2.88421
+             Al 13 -- Ti 4                   0.18        2.88421
+             Al 6  -- Al 14                  0.11        2.88421
+             Al 22 -- Ti 8                   0.18        2.88421
+             Al 4  -- Al 22                  0.11        2.88421
+             Al 21 -- Ti 7                   0.18        2.88421
+             Al 5  -- Al 13                  0.11        2.88421
+             Al 4  -- Al 12                  0.11        2.88421
+             Al 3  -- Al 21                  0.11        2.88421
+             Al 3  -- Al 11                  0.11        2.88421
+             Al 2  -- Al 10                  0.11        2.88421
+             Al 7  -- Al 11                  0.11        2.88421
+             Al 20 -- Ti 6                   0.18        2.88421
+             Al 18 -- Ti 8                   0.18        2.88421
+             Al 6  -- Al 9                   0.11        2.88421
+             Al 24 -- Ti 6                   0.18        2.88421
+             Al 3  -- Al 9                   0.11        2.88421
+             Al 16 -- Ti 1                   0.18        2.88421
+             Al 14 -- Ti 3                   0.18        2.88421
+             Al 14 -- Ti 1                   0.18        2.88421
+             Al 4  -- Al 24                  0.11        2.88421
+             Al 24 -- Ti 8                   0.18        2.88421
+             Al 5  -- Al 19                  0.11        2.88421
+             Al 8  -- Al 20                  0.11        2.88421
+             Al 6  -- Al 20                  0.11        2.88421
+             Al 5  -- Al 17                  0.11        2.88421
+             Al 12 -- Ti 5                   0.18        2.88421
+             Al 10 -- Ti 5                   0.18        2.88421
+             Al 9  -- Ti 6                   0.18        2.88421
+             Al 7  -- Al 19                  0.11        2.88421
+             Al 6  -- Al 18                  0.11        2.88421
+             Al 10 -- Ti 7                   0.18        2.88421
+             Al 9  -- Ti 8                   0.18        2.88421
+             Al 8  -- Al 23                  0.11        2.88421
+             Al 6  -- Al 21                  0.11        2.88421
+             Al 5  -- Al 22                  0.11        2.88421
+             Al 3  -- Al 20                  0.11        2.88421
+             Al 3  -- Al 15                  0.11        2.88421
+             Al 2  -- Al 17                  0.11        2.88421
+             Al 12 -- Ti 4                   0.18        2.88421
+             Al 22 -- Ti 4                   0.18        2.88421
+             Al 15 -- Ti 7                   0.18        2.88421
+             Al 13 -- Ti 5                   0.18        2.88421
+             Al 10 -- Ti 2                   0.18        2.88421
+             Al 4  -- Al 20                  0.11        2.88421
+             Al 22 -- Ti 3                   0.18        2.88421
+             Al 21 -- Ti 4                   0.18        2.88421
+             Al 14 -- Ti 5                   0.18        2.88421
+             Al 12 -- Ti 3                   0.18        2.88421
+             Al 11 -- Ti 4                   0.18        2.88421
+             Al 10 -- Ti 1                   0.18        2.88421
+             Al 4  -- Al 15                  0.11        2.88421
+             Al 3  -- Al 16                  0.11        2.88421
+             Al 2  -- Al 18                  0.11        2.88421
+             Al 9  -- Ti 1                   0.18        2.88421
+             Al 7  -- Al 23                  0.11        2.88421
+             Al 4  -- Al 19                  0.11        2.88421
+             Al 16 -- Ti 7                   0.18        2.88421
+             Al 15 -- Ti 8                   0.18        2.88421
+             Al 13 -- Ti 6                   0.18        2.88421
+             Al 8  -- Al 24                  0.11        2.88421
+             Al 5  -- Al 21                  0.11        2.88421
+             Al 23 -- Ti 2                   0.18        2.88421
+             Al 2  -- Al 13                  0.11        2.88421
+             Al 13 -- Ti 2                   0.18        2.88421
+             Al 2  -- Al 22                  0.11        2.88421
+             Al 3  -- Al 23                  0.11        2.88421
+             Al 2  -- Al 12                  0.11        2.88421
+             Al 23 -- Ti 7                   0.18        2.88421
+             Al 18 -- Ti 4                   0.18        2.88421
+             Al 17 -- Ti 3                   0.18        2.88421
+             Al 7  -- Al 15                  0.11        2.88421
+             Al 8  -- Al 16                  0.11        2.88421
+             Al 11 -- Ti 6                   0.18        2.88421
+             Al 11 -- Ti 8                   0.18        2.88421
+             Al 8  -- Al 12                  0.11        2.88421
+             Al 6  -- Al 10                  0.11        2.88421
+             Al 17 -- Ti 7                   0.18        2.88421
+             Al 5  -- Al 9                   0.11        2.88421
+             Al 7  -- Al 12                  0.11        2.88421
+             Al 20 -- Ti 5                   0.18        2.88421
+             Al 19 -- Ti 6                   0.18        2.88421
+             Al 19 -- Ti 5                   0.18        2.88421
+             Al 18 -- Ti 7                   0.18        2.88421
+             Al 17 -- Ti 8                   0.18        2.88421
+             Al 8  -- Al 11                  0.11        2.88421
+             Al 5  -- Al 10                  0.11        2.88421
+             Al 12 -- Ti 7                   0.18        2.88421
+             Al 8  -- Al 18                  0.11        2.88421
+             Al 7  -- Al 17                  0.11        2.88421
+             Al 24 -- Ti 1                   0.18        2.88421
+             Al 1  -- Al 23                  0.11        2.88801
+             Al 1  -- Al 9                   0.11        2.88801
+             Al 1  -- Al 17                  0.11        2.89303
+             Al 1  -- Al 14                  0.11        2.89303
+======================================================================
+
+ 
+ A BibTeX formatted list of references used in this run has been written to 
+ castep.bib
+ 
+Initialisation time =     14.18 s
+Calculation time    =   1516.81 s
+Finalisation time   =      0.15 s
+Total time          =   1531.14 s
+Peak Memory Use     = 2303116 kB
+  
+Overall parallel efficiency rating: Excellent (98%)                             
+  
+Data was distributed by:-
+k-point (40-way); efficiency rating: Excellent (98%)                            
+ +-------------------------------------------------+
+ |                                                 |
+ |      CCC   AA    SSS  TTTTT  EEEEE  PPPP        |
+ |     C     A  A  S       T    E      P   P       |
+ |     C     AAAA   SS     T    EEE    PPPP        |
+ |     C     A  A     S    T    E      P           |
+ |      CCC  A  A  SSS     T    EEEEE  P           |
+ |                                                 |
+ +-------------------------------------------------+
+ |                                                 |
+ | Welcome to Academic Release CASTEP version 17.21|          
+ | Ab Initio Total Energy Program                  |
+ |                                                 |
+ | Authors:                                        |
+ | M. Segall, M. Probert, C. Pickard, P. Hasnip,   |
+ | S. Clark, K. Refson, J. R. Yates, M. Payne      |
+ |                                                 |
+ | Contributors:                                   |
+ | P. Lindan, P. Haynes, J. White, V. Milman,      |
+ | N. Govind, M. Gibson, P. Tulip, V. Cocula,      |
+ | B. Montanari, D. Quigley, M. Glover,            |
+ | L. Bernasconi, A. Perlov, M. Plummer,           |
+ | E. McNellis, J. Meyer, J. Gale, D. Jochym       |
+ | J. Aarons, B. Walker, R. Gillen, D. Jones       |
+ | T. Green, I. J. Bush, C. J. Armstrong,          |
+ | E. J. Higgins, E. L. Brown, M. S. McFly,        |
+ | J. Wilkins, B-C. Shih, P. J. P. Byrne           |
+ |                                                 |
+ | Copyright (c) 2000 - 2017                       |
+ |                                                 |
+ |     Distributed under the terms of an           |
+ |     Agreement between the United Kingdom        |
+ |     Car-Parrinello (UKCP) Consortium,           |
+ |     Daresbury Laboratory and Accelrys, Inc.     |
+ |                                                 |
+ | Please cite                                     |
+ |                                                 |
+ |     "First principles methods using CASTEP"     |
+ |                                                 |
+ |         Zeitschrift fuer Kristallographie       |
+ |           220(5-6) pp. 567-570 (2005)           |
+ |                                                 |
+ | S. J. Clark, M. D. Segall, C. J. Pickard,       |
+ | P. J. Hasnip, M. J. Probert, K. Refson,         |
+ | M. C. Payne                                     |
+ |                                                 |
+ |       in all publications arising from          |
+ |              your use of CASTEP                 |
+ |                                                 |
+ +-------------------------------------------------+
+
+
+ Compiled for linux_x86_64_gfortran6.0-XT on Fri, 21 Jul 2017 10:20:05 +0100
+ from code version 056e886bd5a1+ Castep172_branch Mon, 15 May 2017 14:45:35 +0100
+ Compiler: GNU Fortran 6.3.0; Optimisation: fast
+ MATHLIBS: Intel MKL(2017.0.0) (LAPACK version 3.6.0)
+ FFT Lib : fftw3 version commercial-fftw-3.3.4-sse2-avx
+ Fundamental constants values: CODATA 2010
+
+ Run started: Thu, 31 Oct 2019 11:58:06 +0000
+
+ Atomic calculation performed for Al: 1s2 2s2 2p6 3s2 3p1
+
+ Converged in 55 iterations to an ae energy of -6578.725 eV
+
+   ============================================================                
+   | Pseudopotential Report - Date of generation 31-10-2019   |                
+   ------------------------------------------------------------                
+   | Element: Al Ionic charge:  3.00 Level of theory: LDA     |                
+   | Atomic Solver: Koelling-Harmon                           |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            3s              2.000           -0.288        |                
+   |            3p              1.000           -0.102        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -0.288   2.192     qc      0         |                
+   |          2      0    0.250   2.192     qc      0         |                
+   |          3      1   -0.102   2.192     qc      0         |                
+   |          4      1    0.250   2.192     qc      0         |                
+   |          5      2    0.000   2.000     qc      0         |                
+   |          6      2    0.250   2.000     qc      0         |                
+   |         loc     3    0.000   2.192     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 1.398                       |                
+   | Partial core correction Rc = 1.398                       |                
+   ------------------------------------------------------------                
+   | "3|2.2|2.2|1.4|4|5|5|30:31:32U2U2"                       |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+
+ Atomic calculation performed for Ti: 1s2 2s2 2p6 3s2 3p6 3d2 4s2
+
+ Converged in 78 iterations to an ae energy of -23176.516 eV
+
+   ============================================================                
+   | Pseudopotential Report - Date of generation 31-10-2019   |                
+   ------------------------------------------------------------                
+   | Element: Ti Ionic charge: 12.00 Level of theory: LDA     |                
+   | Atomic Solver: Koelling-Harmon                           |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            3s              2.000           -2.288        |                
+   |            3p              6.000           -1.425        |                
+   |            4s              2.000           -0.169        |                
+   |            3d              2.000           -0.164        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -2.288   1.793     qc      0         |                
+   |          2      0   -0.169   1.793     qc      0         |                
+   |          3      0    0.250   1.793     qc      0         |                
+   |          4      1   -1.425   1.793     qc      0         |                
+   |          5      1    0.250   1.793     qc      0         |                
+   |          6      2   -0.164   1.793     qc      0         |                
+   |          7      2    0.250   1.793     qc      0         |                
+   |         loc     3    0.000   1.793     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 1.263                       |                
+   | Partial core correction Rc = 1.263                       |                
+   ------------------------------------------------------------                
+   | "3|1.8|9|10|11|30U:40:31:32(qc=5.5)"                     |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+
+ Pseudo atomic calculation performed for Al 3s2 3p1
+
+ Converged in 15 iterations to a total energy of -105.5952 eV
+
+
+ Pseudo atomic calculation performed for Ti 3s2 3p6 3d2 4s2
+
+ Converged in 31 iterations to a total energy of -1585.9998 eV
+
+ Calculation parallelised over 40 processes.
+ Data is distributed by k-point(40-way)
+
+ ************************************ Title ************************************
+ 
+
+ ***************************** General Parameters ******************************
+  
+ output verbosity                               : normal  (1)
+ write checkpoint data to                       : castep.check
+ type of calculation                            : single point energy
+ stress calculation                             : on
+ density difference calculation                 : off
+ electron localisation func (ELF) calculation   : off
+ Hirshfeld analysis                             : off
+ unlimited duration calculation
+ timing information                             : on
+ memory usage estimate                          : on
+ write final potential to formatted file        : off
+ write final density to formatted file          : off
+ write BibTeX reference list                    : on
+ write OTFG pseudopotential files               : on
+ write electrostatic potential file             : on
+ write bands file                               : on
+ checkpoint writing                             : off
+  
+ output         length unit                     : A
+ output           mass unit                     : amu
+ output           time unit                     : ps
+ output         charge unit                     : e
+ output           spin unit                     : hbar/2
+ output         energy unit                     : eV
+ output          force unit                     : eV/A
+ output       velocity unit                     : A/ps
+ output       pressure unit                     : GPa
+ output     inv_length unit                     : 1/A
+ output      frequency unit                     : cm-1
+ output force constant unit                     : eV/A**2
+ output         volume unit                     : A**3
+ output   IR intensity unit                     : (D/A)**2/amu
+ output         dipole unit                     : D
+ output         efield unit                     : eV/A/e
+ output        entropy unit                     : J/mol/K
+  
+ wavefunctions paging                           : none
+ random number generator seed                   : randomised (115806508)
+ data distribution                              : optimal for this architecture
+ optimization strategy                          : maximize speed(+++)
+
+ *********************** Exchange-Correlation Parameters ***********************
+  
+ using functional                               : Local Density Approximation
+ relativistic treatment                         : Koelling-Harmon
+ DFT+D: Semi-empirical dispersion correction    : off
+
+ ************************* Pseudopotential Parameters **************************
+  
+ pseudopotential representation                 : reciprocal space
+ <beta|phi> representation                      : reciprocal space
+ spin-orbit coupling                            : off
+
+ **************************** Basis Set Parameters *****************************
+  
+ plane wave basis set cut-off                   :   600.0000   eV
+ size of standard grid                          :     1.7500
+ size of   fine   gmax                          :    21.9610   1/A
+ finite basis set correction                    : automatic
+ number of sample energies                      :          3
+           sample  spacing                      :     5.0000   eV
+
+ **************************** Electronic Parameters ****************************
+  
+ number of  electrons                           :  168.0    
+ net charge of system                           :  0.000    
+ treating system as non-spin-polarized
+ number of bands                                :        101
+
+ ********************* Electronic Minimization Parameters **********************
+  
+ Method: Treating system as metallic with density mixing treatment of electrons,
+         and number of  SD  steps               :          1
+         and number of  CG  steps               :          4
+  
+ total energy / atom convergence tol.           : 0.1000E-04   eV
+ eigen-energy convergence tolerance             : 0.1000E-05   eV
+ max force / atom convergence tol.              : ignored
+ convergence tolerance window                   :          3   cycles
+ max. number of SCF cycles                      :        250
+ number of fixed-spin iterations                :         10
+ smearing scheme                                : Gaussian
+ smearing width                                 : 0.1000       eV
+ Fermi energy convergence tolerance             : 0.2721E-13   eV
+ periodic dipole correction                     : NONE
+
+ ************************** Density Mixing Parameters **************************
+  
+ density-mixing scheme                          : Pulay
+ max. length of mixing history                  :         20
+ charge density mixing amplitude                : 0.8000    
+ cut-off energy for mixing                      :  600.0       eV
+
+ *********************** Population Analysis Parameters ************************
+  
+ Population analysis with cutoff                :  3.000       A
+
+ *******************************************************************************
+  
+
+                           -------------------------------
+                                      Unit Cell
+                           -------------------------------
+        Real Lattice(A)                      Reciprocal Lattice(1/A)
+  10.1757750   0.0000000   0.0000000        0.6174650  -0.2934157   0.5779034
+   4.3674400   9.1908570   0.0000000        0.0000000   0.6836343   0.5779036
+  -7.2716070  -4.5954290   5.4361890        0.0000000   0.0000000   1.1558070
+
+                       Lattice parameters(A)       Cell Angles
+                    a =   10.175775          alpha =  135.610420
+                    b =   10.175774          beta  =  135.610416
+                    c =   10.175775          gamma =   64.583214
+
+                       Current cell volume =  508.414645       A**3
+                                   density =    2.026875   AMU/A**3
+                                           =    3.365705     g/cm^3
+
+                           -------------------------------
+                                     Cell Contents
+                           -------------------------------
+                         Total number of ions in cell =   32
+                      Total number of species in cell =    2
+                        Max number of any one species =   24
+
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            x  Element    Atom        Fractional coordinates of atoms  x
+            x            Number           u          v          w      x
+            x----------------------------------------------------------x
+            x  Al           1         0.250000   0.250000   0.000000   x 
+            x  Al           2         0.750000   0.250000   0.000000   x 
+            x  Al           3         0.250000   0.750000   0.000000   x 
+            x  Al           4         0.750000   0.750000   0.000000   x 
+            x  Al           5         0.250000   0.250000   0.500000   x 
+            x  Al           6         0.750000   0.250000   0.500000   x 
+            x  Al           7         0.250000   0.750000   0.500000   x 
+            x  Al           8         0.750000   0.750000   0.500000   x 
+            x  Al           9         0.375983   0.125000   0.250000   x 
+            x  Al          10         0.875000   0.125000   0.250000   x 
+            x  Al          11         0.375000   0.625000   0.250000   x 
+            x  Al          12         0.875000   0.625000   0.250000   x 
+            x  Al          13         0.375000   0.125000   0.750000   x 
+            x  Al          14         0.875000   0.125000   0.750000   x 
+            x  Al          15         0.375000   0.625000   0.750000   x 
+            x  Al          16         0.875000   0.625000   0.750000   x 
+            x  Al          17         0.125000   0.375000   0.250000   x 
+            x  Al          18         0.625000   0.375000   0.250000   x 
+            x  Al          19         0.125000   0.875000   0.250000   x 
+            x  Al          20         0.625000   0.875000   0.250000   x 
+            x  Al          21         0.125000   0.375000   0.750000   x 
+            x  Al          22         0.625000   0.375000   0.750000   x 
+            x  Al          23         0.125000   0.875000   0.750000   x 
+            x  Al          24         0.625000   0.875000   0.750000   x 
+            x  Ti           1         0.000000   0.000000   0.000000   x 
+            x  Ti           2         0.500000   0.000000   0.000000   x 
+            x  Ti           3        -0.000000   0.500000   0.000000   x 
+            x  Ti           4         0.500000   0.500000   0.000000   x 
+            x  Ti           5        -0.000000   0.000000   0.500000   x 
+            x  Ti           6         0.500000   0.000000   0.500000   x 
+            x  Ti           7        -0.000000   0.500000   0.500000   x 
+            x  Ti           8         0.500000   0.500000   0.500000   x 
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+                         No user defined ionic velocities
+
+                           -------------------------------
+                                   Details of Species
+                           -------------------------------
+
+                               Mass of species in AMU
+                                    Al   26.9815400
+                                    Ti   47.8670000
+
+                          Electric Quadrupole Moment (Barn)
+                                    Al    0.1466000 Isotope 27
+                                    Ti    0.3020000 Isotope 47
+
+                          Files used for pseudopotentials:
+                                    Al 3|2.2|2.2|1.4|4|5|5|30:31:32U2U2
+                                    Ti 3|1.8|9|10|11|30U:40:31:32(qc=5.5)
+
+                           -------------------------------
+                              k-Points For BZ Sampling
+                           -------------------------------
+                       MP grid size for SCF calculation is  4  4  5
+                            with an offset of   0.000  0.000  0.000
+                       Number of kpoints used =            40
+
+                           -------------------------------
+                               Symmetry and Constraints
+                           -------------------------------
+
+                      Maximum deviation from symmetry =  0.00000         ANG
+
+                      Number of symmetry operations   =           1
+                      Number of ionic constraints     =           3
+                      Point group of crystal =     1: C1, 1, 1
+                      Space group of crystal =     1: P1, P 1
+
+             Set iprint > 1 for details on symmetry rotations/translations
+
+                         Centre of mass is constrained
+             Set iprint > 1 for details of linear ionic constraints
+
+                         Number of cell constraints= 0
+                         Cell constraints are:  1 2 3 4 5 6
+
+                         External pressure/stress (GPa)
+                          0.00000   0.00000   0.00000
+                                    0.00000   0.00000
+                                              0.00000
+  
++---------------- MEMORY AND SCRATCH DISK ESTIMATES PER PROCESS --------------+
+|                                                     Memory          Disk    |
+| Baseline code, static data and system overhead      171.0 MB         0.0 MB |
+| BLAS internal memory storage                          0.0 MB         0.0 MB |
+| Model and support data                             1331.5 MB         0.0 MB |
+| Electronic energy minimisation requirements         215.1 MB         0.0 MB |
+| Force calculation requirements                       54.1 MB         0.0 MB |
+| Stress calculation requirements                      59.8 MB         0.0 MB |
+|                                               ----------------------------- |
+| Approx. total storage required per process         1717.7 MB         0.0 MB |
+|                                                                             |
+| Requirements will fluctuate during execution and may exceed these estimates |
++-----------------------------------------------------------------------------+
+Calculating finite basis set correction with  3 cut-off energies.
+Calculating total energy with cut-off of  590.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -1.09239084E+004  0.00000000E+000                        34.83  <-- SCF
+      1  -1.48924783E+004  8.96216170E+000   1.24017807E+002      65.41  <-- SCF
+      2  -1.53716235E+004  6.24774262E+000   1.49732872E+001      85.73  <-- SCF
+      3  -1.53979338E+004  6.07580576E+000   8.22198873E-001     109.12  <-- SCF
+      4  -1.53972915E+004  6.03819142E+000  -2.00723296E-002     148.55  <-- SCF
+      5  -1.53974626E+004  6.18136824E+000   5.34689223E-003     187.09  <-- SCF
+      6  -1.53972448E+004  6.09425566E+000  -6.80546878E-003     224.97  <-- SCF
+      7  -1.53972146E+004  6.05871163E+000  -9.46026514E-004     263.35  <-- SCF
+      8  -1.53972111E+004  6.07341128E+000  -1.08915172E-004     300.62  <-- SCF
+      9  -1.53972093E+004  6.07450009E+000  -5.39571781E-005     335.28  <-- SCF
+     10  -1.53972094E+004  6.07365047E+000   1.27512112E-006     365.67  <-- SCF
+     11  -1.53972093E+004  6.07344357E+000  -1.62090938E-006     394.87  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -15397.14557767     eV
+Final free energy (E-TS)    =  -15397.20932986     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -15397.17745377     eV
+ 
+Calculating total energy with cut-off of  595.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -1.53971456E+004  0.00000000E+000                       423.14  <-- SCF
+      1  -1.53972096E+004  6.07241040E+000   2.00064974E-003     445.44  <-- SCF
+      2  -1.53972096E+004  6.07241031E+000   1.65520738E-007     474.28  <-- SCF
+      3  -1.53972118E+004  6.07570920E+000   6.98425706E-005     510.11  <-- SCF
+      4  -1.53972095E+004  6.07438383E+000  -7.36742916E-005     545.55  <-- SCF
+      5  -1.53972095E+004  6.07349027E+000  -2.47515978E-007     575.08  <-- SCF
+      6  -1.53972095E+004  6.07318370E+000   6.97992025E-008     603.24  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -15397.14569949     eV
+Final free energy (E-TS)    =  -15397.20946665     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -15397.17758307     eV
+ 
+Calculating total energy with cut-off of  600.000 eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -1.53971457E+004  0.00000000E+000                       631.52  <-- SCF
+      1  -1.53972097E+004  6.07299317E+000   2.00055749E-003     652.78  <-- SCF
+      2  -1.53972097E+004  6.07299310E+000   1.82163405E-007     680.47  <-- SCF
+      3  -1.53972121E+004  6.07436942E+000   7.33839795E-005     716.79  <-- SCF
+      4  -1.53972096E+004  6.07388381E+000  -7.74210782E-005     752.64  <-- SCF
+      5  -1.53972096E+004  6.07344132E+000   1.27622688E-007     782.16  <-- SCF
+      6  -1.53972096E+004  6.07313741E+000   5.31391339E-008     810.28  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -15397.14582185     eV
+Final free energy (E-TS)    =  -15397.20959157     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -15397.17770671     eV
+ 
+ For future reference: finite basis dEtot/dlog(Ecut) =      -0.015682eV
+ Total energy corrected for finite basis set =  -15397.209592 eV
+
+ ******************* Unconstrained Forces *******************
+ *                                                          *
+ *               Cartesian components (eV/A)                *
+ * -------------------------------------------------------- *
+ *                         x            y            z      *
+ *                                                          *
+ * Al              1      0.00059      0.00300     -0.00232 *
+ * Al              2     -0.00006     -0.00079     -0.00058 *
+ * Al              3      0.00054      0.00307      0.00266 *
+ * Al              4     -0.00016     -0.00073      0.00021 *
+ * Al              5      0.00835     -0.00031     -0.00430 *
+ * Al              6      0.00845      0.00005      0.00434 *
+ * Al              7     -0.00067     -0.00017     -0.00055 *
+ * Al              8     -0.00089      0.00018      0.00068 *
+ * Al              9     -0.06254      0.00481      0.00026 *
+ * Al             10     -0.00020      0.00109      0.00001 *
+ * Al             11     -0.00048      0.00110      0.00025 *
+ * Al             12      0.00039      0.00143      0.00001 *
+ * Al             13     -0.00030      0.00135     -0.00024 *
+ * Al             14     -0.00020     -0.00007      0.00086 *
+ * Al             15      0.00029      0.00007     -0.00099 *
+ * Al             16     -0.00069      0.00140      0.00009 *
+ * Al             17      0.00687     -0.01060      0.00057 *
+ * Al             18      0.00113     -0.00043      0.00013 *
+ * Al             19      0.00161     -0.00033      0.00004 *
+ * Al             20      0.00657     -0.01071     -0.00048 *
+ * Al             21      0.00128     -0.00105     -0.00004 *
+ * Al             22     -0.00080      0.00054     -0.00030 *
+ * Al             23      0.00038     -0.00014      0.00007 *
+ * Al             24      0.00075     -0.00107     -0.00023 *
+ * Ti              1      0.00776      0.00078      0.00166 *
+ * Ti              2      0.00818      0.00076     -0.00192 *
+ * Ti              3      0.00105      0.00043      0.00083 *
+ * Ti              4      0.00102      0.00042     -0.00079 *
+ * Ti              5      0.00196      0.00035      0.00024 *
+ * Ti              6      0.00389      0.00255     -0.00180 *
+ * Ti              7      0.00197      0.00038     -0.00022 *
+ * Ti              8      0.00395      0.00265      0.00185 *
+ *                                                          *
+ ************************************************************
+
+ ******************** Constrained Forces ********************
+ *                                                          *
+ *               Cartesian components (eV/A)                *
+ * -------------------------------------------------------- *
+ *                         x            y            z      *
+ *                                                          *
+ * Al              1      0.00059      0.00300     -0.00232 *
+ * Al              2     -0.00006     -0.00079     -0.00058 *
+ * Al              3      0.00054      0.00307      0.00266 *
+ * Al              4     -0.00016     -0.00073      0.00021 *
+ * Al              5      0.00835     -0.00031     -0.00430 *
+ * Al              6      0.00845      0.00005      0.00434 *
+ * Al              7     -0.00067     -0.00017     -0.00055 *
+ * Al              8     -0.00089      0.00018      0.00068 *
+ * Al              9     -0.06254      0.00481      0.00026 *
+ * Al             10     -0.00020      0.00109      0.00001 *
+ * Al             11     -0.00048      0.00110      0.00025 *
+ * Al             12      0.00039      0.00143      0.00001 *
+ * Al             13     -0.00030      0.00135     -0.00024 *
+ * Al             14     -0.00020     -0.00007      0.00086 *
+ * Al             15      0.00029      0.00007     -0.00099 *
+ * Al             16     -0.00069      0.00140      0.00009 *
+ * Al             17      0.00687     -0.01060      0.00057 *
+ * Al             18      0.00113     -0.00043      0.00013 *
+ * Al             19      0.00161     -0.00033      0.00004 *
+ * Al             20      0.00657     -0.01071     -0.00048 *
+ * Al             21      0.00128     -0.00105     -0.00004 *
+ * Al             22     -0.00080      0.00054     -0.00030 *
+ * Al             23      0.00038     -0.00014      0.00007 *
+ * Al             24      0.00075     -0.00107     -0.00023 *
+ * Ti              1      0.00776      0.00078      0.00166 *
+ * Ti              2      0.00818      0.00076     -0.00192 *
+ * Ti              3      0.00105      0.00043      0.00083 *
+ * Ti              4      0.00102      0.00042     -0.00079 *
+ * Ti              5      0.00196      0.00035      0.00024 *
+ * Ti              6      0.00389      0.00255     -0.00180 *
+ * Ti              7      0.00197      0.00038     -0.00022 *
+ * Ti              8      0.00395      0.00265      0.00185 *
+ *                                                          *
+ ************************************************************
+
+ ***************** Stress Tensor *****************
+ *                                               *
+ *          Cartesian components (GPa)           *
+ * --------------------------------------------- *
+ *             x             y             z     *
+ *                                               *
+ *  x      4.827091     -0.275551      0.064200  *
+ *  y     -0.275551      5.089790      0.043194  *
+ *  z      0.064200      0.043194      5.443940  *
+ *                                               *
+ *  Pressure:   -5.1203                          *
+ *                                               *
+ *************************************************
+
+ Pseudo atomic calculation performed for Al 3s2 3p1
+
+ Converged in 15 iterations to a total energy of -105.5952 eV
+
+
+ Pseudo atomic calculation performed for Ti 3s2 3p6 3d2 4s2
+
+ Converged in 31 iterations to a total energy of -1585.9998 eV
+
+Charge spilling parameter for spin component 1 = 0.49%
+
+     Atomic Populations (Mulliken)
+     -----------------------------
+Species          Ion     s      p      d      f     Total  Charge (e)
+=====================================================================
+  Al              1     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              2     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              3     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              4     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              5     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              6     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              7     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              8     1.05   1.85   0.00   0.00   2.90     0.10
+  Al              9     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             10     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             11     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             12     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             13     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             14     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             15     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             16     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             17     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             18     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             19     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             20     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             21     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             22     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             23     1.01   2.06   0.00   0.00   3.07    -0.07
+  Al             24     1.01   2.06   0.00   0.00   3.07    -0.07
+  Ti              1     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              2     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              3     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              4     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              5     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              6     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              7     2.22   6.72   3.02   0.00  11.96     0.04
+  Ti              8     2.22   6.72   3.02   0.00  11.96     0.04
+=====================================================================
+
+                 Bond                   Population      Length (A)
+======================================================================
+             Al 9  -- Al 20                  0.38        2.71276
+             Al 13 -- Al 24                  0.37        2.71809
+             Al 3  -- Ti 1                   0.31        2.71809
+             Al 8  -- Ti 6                   0.31        2.71809
+             Al 14 -- Al 22                  0.38        2.71809
+             Al 6  -- Ti 8                   0.31        2.71809
+             Al 1  -- Ti 2                   0.31        2.71809
+             Al 11 -- Al 19                  0.38        2.71809
+             Al 15 -- Al 20                  0.38        2.71809
+             Al 12 -- Al 22                  0.38        2.71809
+             Al 11 -- Al 21                  0.38        2.71809
+             Al 5  -- Ti 4                   0.31        2.71809
+             Al 4  -- Ti 8                   0.31        2.71809
+             Al 3  -- Ti 7                   0.31        2.71809
+             Al 16 -- Al 19                  0.38        2.71809
+             Al 13 -- Al 18                  0.38        2.71809
+             Al 7  -- Ti 2                   0.31        2.71809
+             Al 6  -- Ti 3                   0.31        2.71809
+             Al 2  -- Ti 6                   0.31        2.71809
+             Al 14 -- Al 17                  0.38        2.71809
+             Al 10 -- Al 24                  0.38        2.71809
+             Al 8  -- Ti 1                   0.31        2.71809
+             Al 1  -- Ti 5                   0.31        2.71809
+             Al 14 -- Al 23                  0.38        2.71809
+             Al 4  -- Ti 2                   0.31        2.71809
+             Al 10 -- Al 19                  0.37        2.71809
+             Al 10 -- Al 18                  0.38        2.71809
+             Al 7  -- Ti 5                   0.31        2.71809
+             Al 2  -- Ti 1                   0.31        2.71809
+             Al 16 -- Al 21                  0.37        2.71809
+             Al 6  -- Ti 5                   0.31        2.71809
+             Al 15 -- Al 22                  0.37        2.71809
+             Al 12 -- Al 20                  0.38        2.71809
+             Al 5  -- Ti 7                   0.31        2.71809
+             Al 5  -- Ti 6                   0.31        2.71809
+             Al 13 -- Al 21                  0.38        2.71809
+             Al 4  -- Ti 3                   0.31        2.71809
+             Al 3  -- Ti 4                   0.31        2.71809
+             Al 8  -- Ti 4                   0.31        2.71809
+             Al 7  -- Ti 3                   0.31        2.71809
+             Al 6  -- Ti 2                   0.31        2.71809
+             Al 5  -- Ti 1                   0.31        2.71809
+             Al 4  -- Ti 5                   0.31        2.71809
+             Al 2  -- Ti 7                   0.31        2.71809
+             Al 1  -- Ti 8                   0.31        2.71809
+             Al 16 -- Al 18                  0.38        2.71810
+             Al 15 -- Al 17                  0.38        2.71810
+             Al 14 -- Al 20                  0.38        2.71810
+             Al 13 -- Al 19                  0.38        2.71810
+             Al 12 -- Al 23                  0.38        2.71810
+             Al 11 -- Al 24                  0.38        2.71810
+             Al 10 -- Al 21                  0.38        2.71810
+             Al 3  -- Ti 6                   0.31        2.71810
+             Al 8  -- Ti 7                   0.31        2.71810
+             Al 16 -- Al 24                  0.38        2.71810
+             Al 12 -- Al 17                  0.37        2.71810
+             Al 11 -- Al 18                  0.37        2.71810
+             Al 7  -- Ti 8                   0.31        2.71810
+             Al 2  -- Ti 4                   0.31        2.71810
+             Al 1  -- Ti 3                   0.31        2.71810
+             Al 15 -- Al 23                  0.38        2.71810
+             Al 9  -- Al 23                  0.38        2.71811
+             Al 9  -- Al 22                  0.38        2.71811
+             Al 9  -- Al 17                  0.37        2.72345
+             Al 9  -- Ti 2                   0.18        2.87539
+             Al 6  -- Al 9                   0.11        2.87539
+             Al 1  -- Al 9                   0.11        2.88044
+             Al 9  -- Ti 8                   0.18        2.88044
+             Al 2  -- Al 24                  0.11        2.88421
+             Al 1  -- Al 23                  0.11        2.88421
+             Al 16 -- Ti 3                   0.18        2.88421
+             Al 21 -- Ti 3                   0.18        2.88421
+             Al 16 -- Ti 8                   0.18        2.88421
+             Al 4  -- Al 16                  0.11        2.88421
+             Al 14 -- Ti 6                   0.18        2.88421
+             Al 11 -- Ti 3                   0.18        2.88421
+             Al 7  -- Al 24                  0.11        2.88421
+             Al 3  -- Al 19                  0.11        2.88421
+             Al 1  -- Al 18                  0.11        2.88421
+             Al 6  -- Al 22                  0.11        2.88421
+             Al 1  -- Al 13                  0.11        2.88421
+             Al 2  -- Al 14                  0.11        2.88421
+             Al 24 -- Ti 2                   0.18        2.88421
+             Al 23 -- Ti 1                   0.18        2.88421
+             Al 15 -- Ti 4                   0.18        2.88421
+             Al 8  -- Al 14                  0.11        2.88421
+             Al 7  -- Al 13                  0.11        2.88421
+             Al 23 -- Ti 5                   0.18        2.88421
+             Al 21 -- Ti 5                   0.18        2.88421
+             Al 6  -- Al 16                  0.11        2.88421
+             Al 5  -- Al 15                  0.11        2.88421
+             Al 4  -- Al 10                  0.11        2.88421
+             Al 22 -- Ti 6                   0.18        2.88421
+             Al 20 -- Ti 2                   0.18        2.88421
+             Al 19 -- Ti 1                   0.18        2.88421
+             Al 17 -- Ti 1                   0.18        2.88421
+             Al 20 -- Ti 4                   0.18        2.88421
+             Al 18 -- Ti 2                   0.18        2.88421
+             Al 15 -- Ti 2                   0.18        2.88421
+             Al 19 -- Ti 3                   0.18        2.88421
+             Al 13 -- Ti 4                   0.18        2.88421
+             Al 6  -- Al 14                  0.11        2.88421
+             Al 22 -- Ti 8                   0.18        2.88421
+             Al 4  -- Al 22                  0.11        2.88421
+             Al 21 -- Ti 7                   0.18        2.88421
+             Al 5  -- Al 13                  0.11        2.88421
+             Al 4  -- Al 12                  0.11        2.88421
+             Al 3  -- Al 21                  0.11        2.88421
+             Al 3  -- Al 11                  0.11        2.88421
+             Al 2  -- Al 10                  0.11        2.88421
+             Al 7  -- Al 11                  0.11        2.88421
+             Al 20 -- Ti 6                   0.18        2.88421
+             Al 18 -- Ti 8                   0.18        2.88421
+             Al 24 -- Ti 6                   0.18        2.88421
+             Al 16 -- Ti 1                   0.18        2.88421
+             Al 14 -- Ti 3                   0.18        2.88421
+             Al 1  -- Al 21                  0.11        2.88421
+             Al 14 -- Ti 1                   0.18        2.88421
+             Al 4  -- Al 24                  0.11        2.88421
+             Al 24 -- Ti 8                   0.18        2.88421
+             Al 1  -- Al 11                  0.11        2.88421
+             Al 5  -- Al 19                  0.11        2.88421
+             Al 8  -- Al 20                  0.11        2.88421
+             Al 6  -- Al 20                  0.11        2.88421
+             Al 5  -- Al 17                  0.11        2.88421
+             Al 12 -- Ti 5                   0.18        2.88421
+             Al 10 -- Ti 5                   0.18        2.88421
+             Al 7  -- Al 19                  0.11        2.88421
+             Al 6  -- Al 18                  0.11        2.88421
+             Al 10 -- Ti 7                   0.18        2.88421
+             Al 8  -- Al 23                  0.11        2.88421
+             Al 6  -- Al 21                  0.11        2.88421
+             Al 5  -- Al 22                  0.11        2.88421
+             Al 3  -- Al 20                  0.11        2.88421
+             Al 3  -- Al 15                  0.11        2.88421
+             Al 2  -- Al 17                  0.11        2.88421
+             Al 12 -- Ti 4                   0.18        2.88421
+             Al 22 -- Ti 4                   0.18        2.88421
+             Al 15 -- Ti 7                   0.18        2.88421
+             Al 13 -- Ti 5                   0.18        2.88421
+             Al 10 -- Ti 2                   0.18        2.88421
+             Al 4  -- Al 20                  0.11        2.88421
+             Al 22 -- Ti 3                   0.18        2.88421
+             Al 21 -- Ti 4                   0.18        2.88421
+             Al 14 -- Ti 5                   0.18        2.88421
+             Al 12 -- Ti 3                   0.18        2.88421
+             Al 11 -- Ti 4                   0.18        2.88421
+             Al 10 -- Ti 1                   0.18        2.88421
+             Al 4  -- Al 15                  0.11        2.88421
+             Al 3  -- Al 16                  0.11        2.88421
+             Al 2  -- Al 18                  0.11        2.88421
+             Al 1  -- Al 17                  0.11        2.88421
+             Al 7  -- Al 23                  0.11        2.88421
+             Al 4  -- Al 19                  0.11        2.88421
+             Al 16 -- Ti 7                   0.18        2.88421
+             Al 15 -- Ti 8                   0.18        2.88421
+             Al 13 -- Ti 6                   0.18        2.88421
+             Al 8  -- Al 24                  0.11        2.88421
+             Al 5  -- Al 21                  0.11        2.88421
+             Al 23 -- Ti 2                   0.18        2.88421
+             Al 2  -- Al 13                  0.11        2.88421
+             Al 13 -- Ti 2                   0.18        2.88421
+             Al 2  -- Al 22                  0.11        2.88421
+             Al 3  -- Al 23                  0.11        2.88421
+             Al 2  -- Al 12                  0.11        2.88421
+             Al 23 -- Ti 7                   0.18        2.88421
+             Al 18 -- Ti 4                   0.18        2.88421
+             Al 17 -- Ti 3                   0.18        2.88421
+             Al 7  -- Al 15                  0.11        2.88421
+             Al 8  -- Al 16                  0.11        2.88421
+             Al 11 -- Ti 6                   0.18        2.88421
+             Al 11 -- Ti 8                   0.18        2.88421
+             Al 8  -- Al 12                  0.11        2.88421
+             Al 6  -- Al 10                  0.11        2.88421
+             Al 17 -- Ti 7                   0.18        2.88421
+             Al 7  -- Al 12                  0.11        2.88421
+             Al 20 -- Ti 5                   0.18        2.88421
+             Al 19 -- Ti 6                   0.18        2.88421
+             Al 19 -- Ti 5                   0.18        2.88421
+             Al 18 -- Ti 7                   0.18        2.88421
+             Al 17 -- Ti 8                   0.18        2.88421
+             Al 8  -- Al 11                  0.11        2.88421
+             Al 5  -- Al 10                  0.11        2.88421
+             Al 12 -- Ti 7                   0.18        2.88421
+             Al 8  -- Al 18                  0.11        2.88421
+             Al 7  -- Al 17                  0.11        2.88421
+             Al 24 -- Ti 1                   0.18        2.88421
+             Al 1  -- Al 14                  0.11        2.88421
+             Al 3  -- Al 9                   0.11        2.88801
+             Al 9  -- Ti 6                   0.18        2.88801
+             Al 9  -- Ti 1                   0.18        2.89303
+             Al 5  -- Al 9                   0.11        2.89303
+======================================================================
+
+ 
+ A BibTeX formatted list of references used in this run has been written to 
+ castep.bib
+ 
+Initialisation time =     14.16 s
+Calculation time    =   1512.37 s
+Finalisation time   =      0.18 s
+Total time          =   1526.70 s
+Peak Memory Use     = 2264312 kB
+  
+Overall parallel efficiency rating: Excellent (98%)                             
+  
+Data was distributed by:-
+k-point (40-way); efficiency rating: Excellent (98%)                            
