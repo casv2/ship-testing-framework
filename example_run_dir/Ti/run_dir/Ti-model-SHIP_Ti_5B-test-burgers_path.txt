@@ -1,5 +1,5 @@
 Model SHIP_Ti_5B, Test burgers_path
-Test run at 2019-11-11 11:09
+Test run at 2019-11-11 22:50
 
 model file: ../../models/SHIP_Ti_5B/model.py
 ============================================================

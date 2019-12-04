@@ -1,5 +1,5 @@
 Model SHIP_Ti_5B, Test bulk_Ti_hcp
-Test run at 2019-11-11 11:09
+Test run at 2019-11-11 22:50
 
 model file: ../../models/SHIP_Ti_5B/model.py
 ============================================================
@@ -24,14 +24,14 @@ properties = lattice.do_lattice(os.path.abspath(os.path.dirname(__file__)), 'tet
 ============================================================
 relax bulk
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-bulk-relaxed.xyz
-PreconLBFGS:   0  11:10:05    -3187.207822       0.0000       0.0655
+PreconLBFGS:   0  22:53:53    -3187.207822       0.0000       0.0655
 /Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:473: UserWarning: Cell length L[0] == 0. Setting H[0,0] = 0.
   (i, i, i))
 /Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:514: UserWarning: mu (0.241) < 1.0, capping at mu=1.0
   warnings.warn('mu (%.3f) < 1.0, capping at mu=1.0' % self.mu)
 estimate_mu(): mu=1.0, mu_c=53.38058042076163
-PreconLBFGS:   1  11:10:12    -3187.281182       0.0000       0.0385
-PreconLBFGS:   2  11:10:15    -3187.301740       0.0000       0.0043
+PreconLBFGS:   1  22:54:00    -3187.281182       0.0000       0.0385
+PreconLBFGS:   2  22:54:05    -3187.301740       0.0000       0.0043
 symmetry.check: prec 0.01 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 final relaxed bulk
@@ -46,7 +46,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti      -0.00000000       1.66053337       2.27648586 
 trying to relax i 0
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_00-relaxed.xyz
-PreconLBFGS:   0  11:10:17    -3187.301740       0.0000       0.0009
+PreconLBFGS:   0  22:54:09    -3187.301740       0.0000       0.0009
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -59,7 +59,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti      -0.00000000       1.64657864       2.25735483 
 trying to relax i -1
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-1-relaxed.xyz
-PreconLBFGS:   0  11:10:20    -3187.295429       0.0000       0.0018
+PreconLBFGS:   0  22:54:12    -3187.295429       0.0000       0.0018
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -72,7 +72,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti      -0.00000000       1.63238329       2.23789390 
 trying to relax i -2
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-2-relaxed.xyz
-PreconLBFGS:   0  11:10:22    -3187.268785       0.0000       0.0015
+PreconLBFGS:   0  22:54:15    -3187.268785       0.0000       0.0015
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -85,7 +85,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.61793667       2.21808849 
 trying to relax i -3
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-3-relaxed.xyz
-PreconLBFGS:   0  11:10:24    -3187.221318       0.0000       0.0007
+PreconLBFGS:   0  22:54:18    -3187.221318       0.0000       0.0007
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -98,7 +98,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.60322734       2.19792294 
 trying to relax i -4
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-4-relaxed.xyz
-PreconLBFGS:   0  11:10:27    -3187.153823       0.0000       0.0035
+PreconLBFGS:   0  22:54:20    -3187.153823       0.0000       0.0035
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -111,7 +111,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.58824303       2.17738040 
 trying to relax i -5
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-5-relaxed.xyz
-PreconLBFGS:   0  11:10:29    -3187.068267       0.0000       0.0058
+PreconLBFGS:   0  22:54:23    -3187.068267       0.0000       0.0058
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -124,7 +124,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.57297051       2.15644275 
 trying to relax i -6
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-6-relaxed.xyz
-PreconLBFGS:   0  11:10:32    -3186.966617       0.0000       0.0064
+PreconLBFGS:   0  22:54:25    -3186.966617       0.0000       0.0064
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -137,7 +137,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.55739553       2.13509043 
 trying to relax i -7
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-7-relaxed.xyz
-PreconLBFGS:   0  11:10:34    -3186.847600       0.0000       0.0037
+PreconLBFGS:   0  22:54:28    -3186.847600       0.0000       0.0037
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -150,7 +150,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.54150263       2.11330227 
 trying to relax i -8
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-8-relaxed.xyz
-PreconLBFGS:   0  11:10:37    -3186.702178       0.0000       0.0026
+PreconLBFGS:   0  22:54:31    -3186.702178       0.0000       0.0026
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -163,12 +163,12 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.52527508       2.09105533 
 trying to relax i -9
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-9-relaxed.xyz
-PreconLBFGS:   0  11:10:39    -3186.510843       0.0000       0.0109
+PreconLBFGS:   0  22:54:33    -3186.510843       0.0000       0.0109
 /Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:514: UserWarning: mu (0.265) < 1.0, capping at mu=1.0
   warnings.warn('mu (%.3f) < 1.0, capping at mu=1.0' % self.mu)
 mu_c (0.000) < 1.0, capping at mu_c=1.0
 estimate_mu(): mu=1.0, mu_c=1.0
-PreconLBFGS:   1  11:10:47    -3186.513339       0.0000       0.0001
+PreconLBFGS:   1  22:54:42    -3186.513339       0.0000       0.0001
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -181,7 +181,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti      -0.00000000       1.49959202       2.09351074 
 trying to relax i -10
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_-10-relaxed.xyz
-PreconLBFGS:   0  11:10:50    -3186.248312       0.0000       0.0022
+PreconLBFGS:   0  22:54:45    -3186.248312       0.0000       0.0022
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -194,7 +194,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.67425740       2.29530065 
 trying to relax i 1
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_01-relaxed.xyz
-PreconLBFGS:   0  11:10:52    -3187.290185       0.0000       0.0007
+PreconLBFGS:   0  22:54:47    -3187.290185       0.0000       0.0007
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -207,7 +207,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.68776006       2.31381194 
 trying to relax i 2
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_02-relaxed.xyz
-PreconLBFGS:   0  11:10:54    -3187.262988       0.0000       0.0016
+PreconLBFGS:   0  22:54:49    -3187.262988       0.0000       0.0016
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -220,7 +220,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.70105006       2.33203168 
 trying to relax i 3
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_03-relaxed.xyz
-PreconLBFGS:   0  11:10:56    -3187.222515       0.0000       0.0030
+PreconLBFGS:   0  22:54:51    -3187.222515       0.0000       0.0030
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -233,7 +233,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.71413557       2.34997109 
 trying to relax i 4
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_04-relaxed.xyz
-PreconLBFGS:   0  11:10:58    -3187.171193       0.0000       0.0049
+PreconLBFGS:   0  22:54:53    -3187.171193       0.0000       0.0049
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -246,7 +246,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.72702430       2.36764071 
 trying to relax i 5
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_05-relaxed.xyz
-PreconLBFGS:   0  11:11:00    -3187.110834       0.0000       0.0074
+PreconLBFGS:   0  22:54:55    -3187.110834       0.0000       0.0074
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -259,12 +259,12 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti       0.00000000       1.73972346       2.38505046 
 trying to relax i 6
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_06-relaxed.xyz
-PreconLBFGS:   0  11:11:02    -3187.042727       0.0000       0.0101
+PreconLBFGS:   0  22:54:57    -3187.042727       0.0000       0.0101
 /Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:514: UserWarning: mu (0.165) < 1.0, capping at mu=1.0
   warnings.warn('mu (%.3f) < 1.0, capping at mu=1.0' % self.mu)
 mu_c (-0.000) < 1.0, capping at mu_c=1.0
 estimate_mu(): mu=1.0, mu_c=1.0
-PreconLBFGS:   1  11:11:08    -3187.047693       0.0000       0.0001
+PreconLBFGS:   1  22:55:02    -3187.047693       0.0000       0.0001
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -277,7 +277,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti      -0.00000000       1.76706292       2.36207678 
 trying to relax i 7
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_07-relaxed.xyz
-PreconLBFGS:   0  11:11:10    -3186.974225       0.0000       0.0012
+PreconLBFGS:   0  22:55:04    -3186.974225       0.0000       0.0012
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -290,7 +290,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti      -0.00000000       1.77950743       2.37871167 
 trying to relax i 8
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_08-relaxed.xyz
-PreconLBFGS:   0  11:11:11    -3186.893267       0.0000       0.0017
+PreconLBFGS:   0  22:55:05    -3186.893267       0.0000       0.0017
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -303,7 +303,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti      -0.00000000       1.79178029       2.39511710 
 trying to relax i 9
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_09-relaxed.xyz
-PreconLBFGS:   0  11:11:12    -3186.805888       0.0000       0.0014
+PreconLBFGS:   0  22:55:06    -3186.805888       0.0000       0.0014
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -316,7 +316,7 @@ Ti      -0.00000000      -0.00000000       0.00000000
 Ti      -0.00000000       1.80388728       2.41130081 
 trying to relax i 10
 relax_config failed to read base run config from  Ti-model-None-test-bulk_Ti_hcp-E_vs_V_10-relaxed.xyz
-PreconLBFGS:   0  11:11:14    -3186.713612       0.0000       0.0007
+PreconLBFGS:   0  22:55:07    -3186.713612       0.0000       0.0007
 symmetry.check: prec 0.0001 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 symmetry.check: prec 1e-06 got symmetry group number 194 , international (Hermann-Mauguin) P6_3/mmc , Hall -P 6c 2c
 2
@@ -326,19 +326,19 @@ Ti      -0.00000000       1.80388728       2.41130081
 calculating elastic constants
 /Users/Cas/anaconda2/lib/python2.7/site-packages/ase/optimize/precon/lbfgs.py:137: UserWarning: The system is likely too small to benefit from the standard preconditioner, hence it is disabled. To re-enable preconditioning, call`PreconLBFGS` by explicitly providing the kwarg `precon`
   'kwarg `precon`')
-PreconLBFGS:   0  11:11:15    -3187.294149       0.0496
-PreconLBFGS:   0  11:11:16    -3187.300587       0.0251
-PreconLBFGS:   0  11:11:18    -3187.301740       0.0000
-PreconLBFGS:   0  11:11:20    -3187.297952       0.0255
-PreconLBFGS:   0  11:11:21    -3187.289289       0.0507
-PreconLBFGS:   1  11:11:22    -3187.289361       0.0484
-PreconLBFGS:   0  11:11:24    -3187.292300       0.0541
-PreconLBFGS:   1  11:11:25    -3187.292382       0.0518
-PreconLBFGS:   2  11:11:26    -3187.292538       0.0473
-PreconLBFGS:   0  11:11:28    -3187.299860       0.0262
-PreconLBFGS:   0  11:11:30    -3187.301740       0.0000
-PreconLBFGS:   0  11:11:32    -3187.297992       0.0244
-PreconLBFGS:   0  11:11:33    -3187.288784       0.0470
+PreconLBFGS:   0  22:55:09    -3187.294149       0.0496
+PreconLBFGS:   0  22:55:10    -3187.300587       0.0251
+PreconLBFGS:   0  22:55:12    -3187.301740       0.0000
+PreconLBFGS:   0  22:55:14    -3187.297952       0.0255
+PreconLBFGS:   0  22:55:16    -3187.289289       0.0507
+PreconLBFGS:   1  22:55:17    -3187.289361       0.0484
+PreconLBFGS:   0  22:55:19    -3187.292300       0.0541
+PreconLBFGS:   1  22:55:20    -3187.292382       0.0518
+PreconLBFGS:   2  22:55:22    -3187.292538       0.0473
+PreconLBFGS:   0  22:55:24    -3187.299860       0.0262
+PreconLBFGS:   0  22:55:26    -3187.301740       0.0000
+PreconLBFGS:   0  22:55:28    -3187.297992       0.0244
+PreconLBFGS:   0  22:55:31    -3187.288784       0.0470
 Fitting C_11
 Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
 Stress array([-3.72169497, -1.4454231 ,  0.68331633,  2.62990626,  4.52768433]) GPa
