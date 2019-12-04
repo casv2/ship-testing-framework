@@ -1,5 +1,5 @@
 Model CASTEP, Test bulk_Ti_bcc
-Test run at 2019-09-19 20:46
+Test run at 2019-10-31 13:06
 
 model file: ../../models/CASTEP/model.py
 ============================================================
@@ -52,8 +52,8 @@ aprun -n 48 castep.mpi
 relax bulk
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-bulk-relaxed.xyz
 castep call stdout:
-Application 37169347 resources: utime ~721s, stime ~29s, Rss ~304516, inblocks ~136793, outblocks ~304937
-PreconLBFGS:   0  20:46:52    -3187.136964       0.0000       0.0004
+Application 37671536 resources: utime ~799s, stime ~28s, Rss ~304524, inblocks ~136837, outblocks ~304939
+PreconLBFGS:   0  13:06:26    -3187.136964       0.0000       0.0003
 symmetry.check: prec 0.01 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 final relaxed bulk
@@ -68,7 +68,7 @@ Ti       0.00000000       0.00000000       0.00000000
 Ti       1.58286541       1.58286541       1.58286541 
 trying to relax i 0
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_00-relaxed.xyz
-PreconLBFGS:   0  20:46:52    -3187.136964       0.0000       0.0000
+PreconLBFGS:   0  13:06:26    -3187.136964       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -82,8 +82,8 @@ Ti       1.56956339       1.56956339       1.56956339
 trying to relax i -1
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-1-relaxed.xyz
 castep call stdout:
-Application 37169349 resources: utime ~698s, stime ~28s, Rss ~304396, inblocks ~136816, outblocks ~304937
-PreconLBFGS:   0  20:47:14    -3187.129735       0.0000       0.0000
+Application 37671540 resources: utime ~825s, stime ~28s, Rss ~304396, inblocks ~136855, outblocks ~304939
+PreconLBFGS:   0  13:06:48    -3187.129735       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -97,8 +97,8 @@ Ti       1.55603200       1.55603200       1.55603200
 trying to relax i -2
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-2-relaxed.xyz
 castep call stdout:
-Application 37169354 resources: utime ~762s, stime ~29s, Rss ~304396, inblocks ~136802, outblocks ~305010
-PreconLBFGS:   0  20:47:36    -3187.107851       0.0000       0.0000
+Application 37671545 resources: utime ~892s, stime ~28s, Rss ~304396, inblocks ~136860, outblocks ~305007
+PreconLBFGS:   0  13:07:15    -3187.107851       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -112,8 +112,8 @@ Ti       1.54226108       1.54226108       1.54226108
 trying to relax i -3
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-3-relaxed.xyz
 castep call stdout:
-Application 37169357 resources: utime ~760s, stime ~29s, Rss ~304400, inblocks ~136778, outblocks ~305008
-PreconLBFGS:   0  20:48:00    -3187.064677       0.0000       0.0000
+Application 37671559 resources: utime ~781s, stime ~28s, Rss ~304396, inblocks ~136819, outblocks ~305008
+PreconLBFGS:   0  13:07:38    -3187.064677       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -127,8 +127,8 @@ Ti       1.52823975       1.52823975       1.52823975
 trying to relax i -4
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-4-relaxed.xyz
 castep call stdout:
-Application 37169361 resources: utime ~801s, stime ~29s, Rss ~304400, inblocks ~136780, outblocks ~305007
-PreconLBFGS:   0  20:48:24    -3187.001434       0.0000       0.0000
+Application 37671566 resources: utime ~849s, stime ~28s, Rss ~304396, inblocks ~136832, outblocks ~305008
+PreconLBFGS:   0  13:08:02    -3187.001434       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -142,8 +142,8 @@ Ti       1.51395630       1.51395630       1.51395630
 trying to relax i -5
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-5-relaxed.xyz
 castep call stdout:
-Application 37169366 resources: utime ~800s, stime ~31s, Rss ~304396, inblocks ~136803, outblocks ~305009
-PreconLBFGS:   0  20:48:47    -3186.915647       0.0000       0.0000
+Application 37671584 resources: utime ~874s, stime ~28s, Rss ~304396, inblocks ~136825, outblocks ~305009
+PreconLBFGS:   0  13:08:29    -3186.915647       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -157,8 +157,8 @@ Ti       1.49939812       1.49939812       1.49939812
 trying to relax i -6
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-6-relaxed.xyz
 castep call stdout:
-Application 37169369 resources: utime ~744s, stime ~30s, Rss ~304396, inblocks ~136775, outblocks ~305007
-PreconLBFGS:   0  20:49:10    -3186.805334       0.0000       0.0000
+Application 37671604 resources: utime ~865s, stime ~29s, Rss ~304400, inblocks ~136839, outblocks ~305008
+PreconLBFGS:   0  13:08:54    -3186.805334       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -172,8 +172,8 @@ Ti       1.48455162       1.48455162       1.48455162
 trying to relax i -7
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-7-relaxed.xyz
 castep call stdout:
-Application 37169373 resources: utime ~770s, stime ~29s, Rss ~304396, inblocks ~136789, outblocks ~305009
-PreconLBFGS:   0  20:49:33    -3186.667695       0.0000       0.0000
+Application 37671620 resources: utime ~892s, stime ~28s, Rss ~304400, inblocks ~136816, outblocks ~305009
+PreconLBFGS:   0  13:09:20    -3186.667695       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -187,8 +187,8 @@ Ti       1.46940208       1.46940208       1.46940208
 trying to relax i -8
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-8-relaxed.xyz
 castep call stdout:
-Application 37169375 resources: utime ~763s, stime ~30s, Rss ~304400, inblocks ~136796, outblocks ~305009
-PreconLBFGS:   0  20:49:56    -3186.499599       0.0000       0.0000
+Application 37671637 resources: utime ~866s, stime ~28s, Rss ~304400, inblocks ~136845, outblocks ~305008
+PreconLBFGS:   0  13:09:45    -3186.499599       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -202,8 +202,8 @@ Ti       1.45393354       1.45393354       1.45393354
 trying to relax i -9
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-9-relaxed.xyz
 castep call stdout:
-Application 37169378 resources: utime ~780s, stime ~31s, Rss ~304396, inblocks ~136805, outblocks ~305009
-PreconLBFGS:   0  20:50:19    -3186.297502       0.0000       0.0000
+Application 37671660 resources: utime ~811s, stime ~29s, Rss ~304396, inblocks ~136856, outblocks ~305007
+PreconLBFGS:   0  13:10:10    -3186.297502       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -217,8 +217,8 @@ Ti       1.43812866       1.43812866       1.43812866
 trying to relax i -10
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_-10-relaxed.xyz
 castep call stdout:
-Application 37169380 resources: utime ~729s, stime ~31s, Rss ~304396, inblocks ~136827, outblocks ~305008
-PreconLBFGS:   0  20:50:43    -3186.056760       0.0000       0.0000
+Application 37671672 resources: utime ~813s, stime ~29s, Rss ~304396, inblocks ~136885, outblocks ~305009
+PreconLBFGS:   0  13:10:35    -3186.056759       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -232,8 +232,8 @@ Ti       1.59594753       1.59594753       1.59594753
 trying to relax i 1
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_01-relaxed.xyz
 castep call stdout:
-Application 37169383 resources: utime ~723s, stime ~29s, Rss ~304392, inblocks ~136789, outblocks ~304938
-PreconLBFGS:   0  20:51:05    -3187.129974       0.0000       0.0000
+Application 37671685 resources: utime ~730s, stime ~28s, Rss ~304392, inblocks ~136821, outblocks ~304938
+PreconLBFGS:   0  13:10:58    -3187.129974       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -247,8 +247,8 @@ Ti       1.60881863       1.60881863       1.60881863
 trying to relax i 2
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_02-relaxed.xyz
 castep call stdout:
-Application 37169387 resources: utime ~707s, stime ~29s, Rss ~304404, inblocks ~136770, outblocks ~304937
-PreconLBFGS:   0  20:51:27    -3187.109501       0.0000       0.0000
+Application 37671702 resources: utime ~785s, stime ~27s, Rss ~304404, inblocks ~136807, outblocks ~304938
+PreconLBFGS:   0  13:11:20    -3187.109501       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -262,8 +262,8 @@ Ti       1.62148702       1.62148702       1.62148702
 trying to relax i 3
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_03-relaxed.xyz
 castep call stdout:
-Application 37169391 resources: utime ~728s, stime ~30s, Rss ~304392, inblocks ~136764, outblocks ~304939
-PreconLBFGS:   0  20:51:50    -3187.077604       0.0000       0.0000
+Application 37671713 resources: utime ~796s, stime ~28s, Rss ~304396, inblocks ~136804, outblocks ~304938
+PreconLBFGS:   0  13:11:45    -3187.077605       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -277,8 +277,8 @@ Ti       1.63396049       1.63396049       1.63396049
 trying to relax i 4
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_04-relaxed.xyz
 castep call stdout:
-Application 37169394 resources: utime ~746s, stime ~29s, Rss ~304392, inblocks ~136768, outblocks ~304939
-PreconLBFGS:   0  20:52:12    -3187.034441       0.0000       0.0000
+Application 37671720 resources: utime ~725s, stime ~28s, Rss ~304392, inblocks ~136805, outblocks ~304938
+PreconLBFGS:   0  13:12:07    -3187.034441       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -292,8 +292,8 @@ Ti       1.64624636       1.64624636       1.64624636
 trying to relax i 5
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_05-relaxed.xyz
 castep call stdout:
-Application 37169398 resources: utime ~722s, stime ~29s, Rss ~304388, inblocks ~136762, outblocks ~304938
-PreconLBFGS:   0  20:52:34    -3186.981575       0.0000       0.0000
+Application 37671727 resources: utime ~791s, stime ~28s, Rss ~304400, inblocks ~136814, outblocks ~304938
+PreconLBFGS:   0  13:12:31    -3186.981576       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -307,8 +307,8 @@ Ti       1.65835155       1.65835155       1.65835155
 trying to relax i 6
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_06-relaxed.xyz
 castep call stdout:
-Application 37169404 resources: utime ~768s, stime ~31s, Rss ~304396, inblocks ~136762, outblocks ~304938
-PreconLBFGS:   0  20:52:57    -3186.919990       0.0000       0.0000
+Application 37671730 resources: utime ~865s, stime ~29s, Rss ~304392, inblocks ~136807, outblocks ~304938
+PreconLBFGS:   0  13:12:56    -3186.919990       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -322,8 +322,8 @@ Ti       1.67028255       1.67028255       1.67028255
 trying to relax i 7
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_07-relaxed.xyz
 castep call stdout:
-Application 37169408 resources: utime ~727s, stime ~29s, Rss ~304396, inblocks ~136778, outblocks ~304938
-PreconLBFGS:   0  20:53:19    -3186.850772       0.0000       0.0000
+Application 37671735 resources: utime ~847s, stime ~28s, Rss ~304396, inblocks ~136801, outblocks ~304937
+PreconLBFGS:   0  13:13:22    -3186.850772       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -337,8 +337,8 @@ Ti       1.68204549       1.68204549       1.68204549
 trying to relax i 8
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_08-relaxed.xyz
 castep call stdout:
-Application 37169413 resources: utime ~752s, stime ~29s, Rss ~304400, inblocks ~136773, outblocks ~304938
-PreconLBFGS:   0  20:53:41    -3186.774442       0.0000       0.0000
+Application 37671754 resources: utime ~899s, stime ~28s, Rss ~304400, inblocks ~136826, outblocks ~304939
+PreconLBFGS:   0  13:13:48    -3186.774442       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -352,8 +352,8 @@ Ti       1.69364617       1.69364617       1.69364617
 trying to relax i 9
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_09-relaxed.xyz
 castep call stdout:
-Application 37169415 resources: utime ~760s, stime ~30s, Rss ~304392, inblocks ~136782, outblocks ~304938
-PreconLBFGS:   0  20:54:04    -3186.691815       0.0000       0.0000
+Application 37671765 resources: utime ~876s, stime ~28s, Rss ~304388, inblocks ~136826, outblocks ~304938
+PreconLBFGS:   0  13:14:16    -3186.691815       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -367,8 +367,8 @@ Ti       1.70509007       1.70509007       1.70509007
 trying to relax i 10
 relax_config failed to read base run config from  TiAl-model-None-test-bulk_Ti_bcc-E_vs_V_10-relaxed.xyz
 castep call stdout:
-Application 37169421 resources: utime ~730s, stime ~29s, Rss ~304400, inblocks ~136779, outblocks ~304937
-PreconLBFGS:   0  20:54:26    -3186.604218       0.0000       0.0000
+Application 37671772 resources: utime ~855s, stime ~29s, Rss ~304400, inblocks ~136843, outblocks ~304937
+PreconLBFGS:   0  13:14:40    -3186.604218       0.0000       0.0000
 symmetry.check: prec 0.0001 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 symmetry.check: prec 1e-06 got symmetry group number 229 , international (Hermann-Mauguin) Im-3m , Hall -I 4 2 3
 2
@@ -379,55 +379,55 @@ calculating elastic constants
 /work/e89/e89/casv2/miniconda2/lib/python2.7/site-packages/ase/optimize/precon/lbfgs.py:137: UserWarning: The system is likely too small to benefit from the standard preconditioner, hence it is disabled. To re-enable preconditioning, call`PreconLBFGS` by explicitly providing the kwarg `precon`
   'kwarg `precon`')
 castep call stdout:
-Application 37169424 resources: utime ~701s, stime ~29s, Rss ~304396, inblocks ~136780, outblocks ~304957
-PreconLBFGS:   0  20:54:48    -3187.123886       0.0000
+Application 37671787 resources: utime ~804s, stime ~29s, Rss ~304404, inblocks ~136816, outblocks ~304958
+PreconLBFGS:   0  13:15:06    -3187.123886       0.0000
 castep call stdout:
-Application 37169427 resources: utime ~698s, stime ~30s, Rss ~304384, inblocks ~136786, outblocks ~304938
-PreconLBFGS:   0  20:55:09    -3187.124891       0.0000
+Application 37671791 resources: utime ~813s, stime ~28s, Rss ~304392, inblocks ~136833, outblocks ~304938
+PreconLBFGS:   0  13:15:30    -3187.124891       0.0000
 castep call stdout:
-Application 37169431 resources: utime ~696s, stime ~30s, Rss ~304404, inblocks ~136768, outblocks ~304939
-PreconLBFGS:   0  20:55:30    -3187.125535       0.0000
+Application 37671797 resources: utime ~756s, stime ~28s, Rss ~304392, inblocks ~136809, outblocks ~304939
+PreconLBFGS:   0  13:15:55    -3187.125535       0.0000
 castep call stdout:
-Application 37169435 resources: utime ~728s, stime ~30s, Rss ~304380, inblocks ~136768, outblocks ~304937
-PreconLBFGS:   0  20:55:52    -3187.124064       0.0000
+Application 37671805 resources: utime ~819s, stime ~28s, Rss ~304388, inblocks ~136798, outblocks ~304937
+PreconLBFGS:   0  13:16:19    -3187.124064       0.0000
 castep call stdout:
-Application 37169442 resources: utime ~724s, stime ~29s, Rss ~304384, inblocks ~136783, outblocks ~304951
-PreconLBFGS:   0  20:56:14    -3187.120054       0.0000
+Application 37671817 resources: utime ~870s, stime ~28s, Rss ~304388, inblocks ~136809, outblocks ~304950
+PreconLBFGS:   0  13:16:45    -3187.120054       0.0000
 Fitting C_11
 Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
-Stress array([-2.779959, -1.003693,  0.05776 ,  1.104587,  2.136339]) GPa
-Cij (gradient) / GPa    :     119.40875999999989
-Error in Cij / GPa      :     8.514189960515033
-Correlation coefficient :     0.9924599894315894
-Setting C11 (1) to 0.745291 +/- 0.053141
+Stress array([-2.7814  , -1.004206,  0.055489,  1.10475 ,  2.136514]) GPa
+Cij (gradient) / GPa    :     119.4478399999999
+Error in Cij / GPa      :     8.510334550133711
+Correlation coefficient :     0.9924716125189847
+Setting C11 (1) to 0.745535 +/- 0.053117
 
 
 Fitting C_21
 Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
-Stress array([-2.344491, -1.227097,  0.057779,  1.238991,  2.336693]) GPa
-Cij (gradient) / GPa    :     118.28455999999989
-Error in Cij / GPa      :     1.7295034106544251
-Correlation coefficient :     0.9996794696621143
-Setting C21 (7) to 0.738274 +/- 0.010795
+Stress array([-2.346045, -1.227619,  0.055513,  1.239175,  2.336873]) GPa
+Cij (gradient) / GPa    :     118.3262999999999
+Error in Cij / GPa      :     1.7130536961035896
+Correlation coefficient :     0.9996857567963041
+Setting C21 (7) to 0.738535 +/- 0.010692
 
 
 Fitting C_31
 Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
-Stress array([-2.344508, -1.227094,  0.057767,  1.238987,  2.336716]) GPa
-Cij (gradient) / GPa    :     118.2852899999999
-Error in Cij / GPa      :     1.7291195972803282
-Correlation coefficient :     0.9996796157955427
-Updating C31 (7) with value 0.738279 +/- 0.010792
+Stress array([-2.34605 , -1.227618,  0.055508,  1.239136,  2.336861]) GPa
+Cij (gradient) / GPa    :     118.32575999999987
+Error in Cij / GPa      :     1.7127512967543082
+Correlation coefficient :     0.9996858648128923
+Updating C31 (7) with value 0.738531 +/- 0.010690
 
 
 Fitting C_44
 Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
-Stress array([-9.64610e-01, -2.04539e-01,  3.00000e-06,  2.07188e-01,
-        4.46420e-01]) GPa
-Cij (gradient) / GPa    :     32.33787
-Error in Cij / GPa      :     6.2083979776938705
-Correlation coefficient :     0.9489121873814261
-Setting C44 (4) to 0.201837 +/- 0.038750
+Stress array([-9.64588e-01, -2.04513e-01,  4.00000e-06,  2.07146e-01,
+        4.46413e-01]) GPa
+Cij (gradient) / GPa    :     32.33661
+Error in Cij / GPa      :     6.208525767928597
+Correlation coefficient :     0.9489065610946275
+Setting C44 (4) to 0.201829 +/- 0.038751
 
 
 [[ C11  C12  C12               ]
@@ -439,19 +439,19 @@ Setting C44 (4) to 0.201837 +/- 0.038750
 
  = 
 
-[[119.41 118.28 118.28   0.     0.     0.  ]
- [118.28 119.41 118.28   0.     0.     0.  ]
- [118.28 118.28 119.41   0.     0.     0.  ]
+[[119.45 118.33 118.33   0.     0.     0.  ]
+ [118.33 119.45 118.33   0.     0.     0.  ]
+ [118.33 118.33 119.45   0.     0.     0.  ]
  [  0.     0.     0.    32.34   0.     0.  ]
  [  0.     0.     0.     0.    32.34   0.  ]
  [  0.     0.     0.     0.     0.    32.34]]
-C_11 = 119.41 +/- 8.51 GPa
-C_12 = 118.28 +/- 1.73 GPa
+C_11 = 119.45 +/- 8.51 GPa
+C_12 = 118.33 +/- 1.71 GPa
 C_44 = 32.34 +/- 6.21 GPa
 ============================================================
 Property calculation output:
 
 
 Summary of computed properties:
-{'c44': 32.33787, 'c12': 118.2849249999999, 'c11': 119.40875999999989, 'B': 118.65953666666655, 'E_vs_V': [(11.897431653677238, -1593.0261052105), (12.294012708799817, -1593.146180038), (12.690593763922392, -1593.246799736), (13.087174819044966, -1593.33053811), (13.483755874167532, -1593.3991917905), (13.880336929290115, -1593.454131845), (14.276917984412696, -1593.4967005425), (14.673499039535265, -1593.527982282), (15.07008009465784, -1593.549286871), (15.466661149780407, -1593.5596777705), (15.86324220490299, -1593.5627673015), (16.25982326002556, -1593.558884741), (16.656404315148134, -1593.548374845), (17.052985370270715, -1593.532237432), (17.449566425393304, -1593.510524238), (17.846147480515853, -1593.4839965365), (18.24272853563844, -1593.453131866), (18.639309590761012, -1593.4184621775), (19.035890645883576, -1593.38024069), (19.43247170100616, -1593.338867604), (19.829052756128746, -1593.294998018)]}
+{'c44': 32.33661, 'c12': 118.32602999999989, 'c11': 119.4478399999999, 'B': 118.69996666666657, 'E_vs_V': [(11.897431653677238, -1593.0261048805), (12.294012708799817, -1593.146180041), (12.690593763922392, -1593.24679973), (13.087174819044966, -1593.3305380765), (13.483755874167532, -1593.39919188), (13.880336929290115, -1593.4541318605), (14.276917984412696, -1593.4967003135), (14.673499039535265, -1593.527982347), (15.07008009465784, -1593.5492869135), (15.466661149780407, -1593.5596777805), (15.86324220490299, -1593.5627672995), (16.25982326002556, -1593.558884723), (16.656404315148134, -1593.5483750015), (17.052985370270715, -1593.5322377855), (17.449566425393304, -1593.5105241955), (17.846147480515853, -1593.4839969015), (18.24272853563844, -1593.4531317405), (18.639309590761012, -1593.4184621055), (19.035890645883576, -1593.3802406975), (19.43247170100616, -1593.3388671985), (19.829052756128746, -1593.2949980155)]}
 ============================================================

@@ -1,5 +1,5 @@
 Model CASTEP, Test phonon_TiAl3
-Test run at 2019-10-31 11:05
+Test run at 2019-10-31 13:10
 
 model file: ../../models/CASTEP/model.py
 ============================================================
@@ -185,18 +185,34 @@ phonon.write_yaml_band_structure(filename="data.yaml")
 ============================================================
 aprun -n 48 castep.mpi
 [Phonopy] Atomic displacements:
-[Phonopy] 0 [0.01, 0.0, 0.0]
-[Phonopy] 8 [0.01, 0.0, 0.0]
-[Phonopy] 16 [0.01, 0.0, 0.0]
+[Phonopy] 0 [0.009999996557859636, 7.994649827583846e-06, 2.219993153949185e-06]
+[Phonopy] 0 [-0.007151198050346806, -0.00451933384414916, 0.005332540487407856]
+[Phonopy] 8 [0.009999996557859636, 7.994649827583846e-06, 2.219993153949185e-06]
+[Phonopy] 8 [-0.007151198050346806, -0.00451933384414916, 0.005332540487407856]
+[Phonopy] 16 [0.009999996557859636, 7.994649827583846e-06, 2.219993153949185e-06]
+[Phonopy] 16 [-0.009999996557859636, -7.994649827583846e-06, -2.219993153949185e-06]
+[Phonopy] 16 [-0.007151198050346806, -0.00451933384414916, 0.005332540487407856]
 castep call stdout:
-Application 37669407 resources: utime ~75480s, stime ~302s, Rss ~1887728, inblocks ~140705, outblocks ~319725
-[Phonopy] Drift force:   -0.00001   -0.00000    0.00002
+Application 37671670 resources: utime ~74333s, stime ~301s, Rss ~1864248, inblocks ~140930, outblocks ~319696
+[Phonopy] Drift force:    0.00001   -0.00001    0.00002
 castep call stdout:
-Application 37670292 resources: utime ~73147s, stime ~325s, Rss ~1999168, inblocks ~141212, outblocks ~319722
-[Phonopy] Drift force:   -0.00003    0.00000    0.00001
+Application 37672171 resources: utime ~71676s, stime ~327s, Rss ~1975052, inblocks ~141130, outblocks ~319720
+[Phonopy] Drift force:   -0.00002   -0.00002    0.00001
 castep call stdout:
-Application 37670669 resources: utime ~72930s, stime ~328s, Rss ~1999140, inblocks ~141222, outblocks ~319722
-[Phonopy] Drift force:   -0.00001    0.00001    0.00000
+Application 37672555 resources: utime ~71955s, stime ~323s, Rss ~1971904, inblocks ~141684, outblocks ~319727
+[Phonopy] Drift force:    0.00004   -0.00000    0.00001
+castep call stdout:
+Application 37672913 resources: utime ~72190s, stime ~320s, Rss ~1971812, inblocks ~141357, outblocks ~319721
+[Phonopy] Drift force:    0.00002   -0.00001    0.00002
+castep call stdout:
+Application 37673277 resources: utime ~71573s, stime ~326s, Rss ~1975088, inblocks ~141602, outblocks ~319729
+[Phonopy] Drift force:    0.00001    0.00001   -0.00000
+castep call stdout:
+Application 37673561 resources: utime ~72172s, stime ~325s, Rss ~1971908, inblocks ~141496, outblocks ~319726
+[Phonopy] Drift force:   -0.00001    0.00001    0.00001
+castep call stdout:
+Application 37673816 resources: utime ~72175s, stime ~321s, Rss ~1975060, inblocks ~141331, outblocks ~319726
+[Phonopy] Drift force:   -0.00001    0.00001    0.00001
 ============================================================
 Property calculation output:
 

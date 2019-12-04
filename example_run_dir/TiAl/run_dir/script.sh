@@ -8,4 +8,4 @@
 #$ -cwd
 
 export JULIA_NUM_THREADS=1
-python ../../../scripts/run-model-test.py SHIP_v1 Zmethod_TiAl -s TiAl -f
+python ../../../scripts/run-model-test.py CASTEP bulk_Ni -s TiAl -f

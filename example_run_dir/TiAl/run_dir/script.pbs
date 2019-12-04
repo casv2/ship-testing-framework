@@ -4,7 +4,7 @@
 
 # Select 128 nodes (maximum of 3072 cores)
 #PBS -l select=2
-#PBS -l walltime=24:00:00
+#PBS -l walltime=01:00:00
 
 # Make sure you change this to your budget code
 #PBS -A e89-came
@@ -30,4 +30,4 @@ export CASTEP_TMPDIR=$PBS_O_WORKDIR
 # Change the name of the input file to match your own job
 
 #source /work/e89/e89/casv2/virtualenv/venv/bin/activate
-python ../../../scripts/run-model-test.py CASTEP bulk_Ti_hcp -s TiAl -f
+python ../../../scripts/run-model-test.py CASTEP TiAl_trans -s TiAl -f

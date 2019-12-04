@@ -1,5 +1,5 @@
 Model CASTEP, Test phonon_TiAl
-Test run at 2019-10-31 11:05
+Test run at 2019-10-31 13:09
 
 model file: ../../models/CASTEP/model.py
 ============================================================
@@ -185,8 +185,18 @@ phonon.write_yaml_band_structure(filename="data.yaml")
 ============================================================
 aprun -n 48 castep.mpi
 [Phonopy] Atomic displacements:
-[Phonopy] 0 [0.0057058506440294055, 0.0, 0.00821238506330708]
-[Phonopy] 27 [0.0057058506440294055, 0.0, 0.00821238506330708]
+[Phonopy] 0 [0.005698977436222317, 0.0, 0.008217156210114842]
+[Phonopy] 27 [0.005698977436222317, 0.0, 0.008217156210114842]
 castep call stdout:
-Application 37669408 resources: utime ~156389s, stime ~486s, Rss ~1161040, inblocks ~145955, outblocks ~328477
-[Phonopy] Drift force:   -0.00001    0.00002   -0.00001
+Application 37671663 resources: utime ~236049s, stime ~3263s, Rss ~1559760, inblocks ~145321, outblocks ~328887
+[Phonopy] Drift force:   -0.00001    0.00000   -0.00002
+castep call stdout:
+Application 37673007 resources: utime ~221426s, stime ~3383s, Rss ~1655116, inblocks ~145438, outblocks ~328909
+[Phonopy] Drift force:    0.00001   -0.00006   -0.00000
+============================================================
+Property calculation output:
+
+Traceback (most recent call last):
+  File "../../../scripts/run-model-test.py", line 138, in <module>
+    json.dump(test.properties, json_file)
+AttributeError: 'module' object has no attribute 'properties'
