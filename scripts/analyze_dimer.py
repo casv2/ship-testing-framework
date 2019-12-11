@@ -28,8 +28,8 @@ print args, models, tests, default_analysis_settings
 #     if model.startswith("CASTEP"):
 #         del models[i]
 ##del models[2] #delete CASTEP
-del models[0]
-del models[0]
+#del models[0]
+#del models[0]
 
 data = {}
 struct_data = {}
@@ -73,9 +73,15 @@ for test in tests:
         R = data[model_name][test]["dimer_distance"]
         if model_name != ref_model_name:
             n+=1
-            plot(R, np.array(E) - E[-1], linestyle=ref_linestyles[0], color=struct_colors[n], label=model_name)
+            try:
+                plot(R, np.array(E) - E[-1], linestyle=ref_linestyles[0], color=struct_colors[n], label=model_name)
+            except:
+                pass
         else:
-            plot(R, np.array(E) - E[-1], linestyle=ref_linestyles[0], color=struct_colors[0], label=model_name)
+            try:
+                plot(R, np.array(E) - E[-1], linestyle=ref_linestyles[0], color=struct_colors[0], label=model_name)
+            except:
+                pass
 
         title("Ti-Ti, Ti-Al, Al-Al dimers")
         xlabel(r"Dimer distance ($\AA$)")

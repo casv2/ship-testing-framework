@@ -56,7 +56,7 @@ def run(calc, phonon):
 
         at.set_calculator(calc)
 
-        energy = at.get_potential_energy(force_consistent=True)
+        energy = at.get_potential_energy()
         forces = at.get_forces()
         stress = at.get_stress(voigt=False)
 
