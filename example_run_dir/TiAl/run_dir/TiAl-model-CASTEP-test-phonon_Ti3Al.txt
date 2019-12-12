@@ -288,3 +288,49 @@ Application 38284885 resources: utime ~95591s, stime ~339s, Rss ~1167384, inbloc
 castep call stdout:
 Application 38285291 resources: utime ~95747s, stime ~350s, Rss ~1162132, inblocks ~145357, outblocks ~317728
 [Phonopy] Drift force:   -0.00006   -0.00001    0.00001
+castep call stdout:
+Application 38285524 resources: utime ~96819s, stime ~351s, Rss ~1162248, inblocks ~145224, outblocks ~317729
+[Phonopy] Drift force:   -0.00004    0.00002   -0.00000
+castep call stdout:
+Application 38285725 resources: utime ~93569s, stime ~340s, Rss ~1157312, inblocks ~145722, outblocks ~317731
+[Phonopy] Drift force:   -0.00000    0.00002    0.00002
+castep call stdout:
+Application 38286015 resources: utime ~94832s, stime ~344s, Rss ~1161856, inblocks ~145044, outblocks ~317725
+[Phonopy] Drift force:   -0.00001   -0.00001    0.00001
+castep call stdout:
+Application 38286358 resources: utime ~94962s, stime ~346s, Rss ~1157320, inblocks ~145301, outblocks ~317729
+[Phonopy] Drift force:   -0.00004   -0.00001   -0.00002
+castep call stdout:
+Application 38287029 resources: utime ~95736s, stime ~348s, Rss ~1167468, inblocks ~145240, outblocks ~317728
+[Phonopy] Drift force:   -0.00004   -0.00001   -0.00002
+castep call stdout:
+Application 38287646 resources: utime ~96652s, stime ~351s, Rss ~1157284, inblocks ~145404, outblocks ~317731
+[Phonopy] Drift force:   -0.00000   -0.00000    0.00004
+castep call stdout:
+Application 38288325 resources: utime ~96052s, stime ~346s, Rss ~1162388, inblocks ~145546, outblocks ~317730
+[Phonopy] Drift force:   -0.00003   -0.00004   -0.00001
+castep call stdout:
+Application 38289075 resources: utime ~96304s, stime ~345s, Rss ~1167460, inblocks ~145238, outblocks ~317729
+[Phonopy] Drift force:   -0.00002   -0.00001   -0.00002
+castep call stdout:
+Application 38289727 resources: utime ~95963s, stime ~346s, Rss ~1167492, inblocks ~145559, outblocks ~317729
+[Phonopy] Drift force:   -0.00001   -0.00002    0.00001
+castep call stdout:
+Application 38290428 resources: utime ~94745s, stime ~338s, Rss ~1167416, inblocks ~145172, outblocks ~317726
+[Phonopy] Drift force:   -0.00003    0.00002    0.00001
+castep call stdout:
+Application 38291162 resources: utime ~97656s, stime ~347s, Rss ~1167300, inblocks ~145399, outblocks ~317732
+[Phonopy] Drift force:    0.00001   -0.00002    0.00005
+castep call stdout:
+Application 38291857 resources: utime ~98487s, stime ~355s, Rss ~1161856, inblocks ~144974, outblocks ~317727
+[Phonopy] Drift force:    0.00001    0.00001   -0.00001
+castep call stdout:
+Application 38292454 resources: utime ~94800s, stime ~351s, Rss ~1167348, inblocks ~145334, outblocks ~317732
+[Phonopy] Drift force:   -0.00004    0.00002   -0.00005
+============================================================
+Property calculation output:
+
+Traceback (most recent call last):
+  File "../../../scripts/run-model-test.py", line 138, in <module>
+    json.dump(test.properties, json_file)
+AttributeError: 'module' object has no attribute 'properties'
