@@ -11,7 +11,7 @@ print element
 (args, models, phonon_tests, default_analysis_settings) = analyze_start('phonon_*')
 
 print models
-phonon_tests = ["phonon_TiAl", "phonon_Ti3Al", "phonon_TiAl3"]
+phonon_tests = ["phonon_Ti_bcc", "phonon_Ti_hcp", "phonon_Al", "phonon_TiAl", "phonon_Ti3Al", "phonon_TiAl3"]
 
 def create_phonon_pdf(phonon_test):
     names = []
@@ -32,3 +32,5 @@ def create_phonon_pdf(phonon_test):
 
 for phonon_test in phonon_tests:
     create_phonon_pdf(phonon_test)
+
+os.system("pdfjoin --paper a4paper --rotateoversize false phonon_*.pdf")

@@ -14,12 +14,12 @@ for model in readdir(model_dir)
     cd(fit_dir)
     @show readdir(fit_dir)
 
-    if startswith(model, "SHIP")
+    if startswith(model, "PoSH")
         fit_file = glob("*.json")[1]
         @show fit_file
         fit_path = joinpath(fit_dir, fit_file)
         @show fit_path
-        IPAnalysis.Plotting.IP_pdf(model, fit_file, fit_path, cur_work)
         cd(cur_work)
+        IPAnalysis.Plotting.IP_pdf(fit_path, model)
     end
 end
