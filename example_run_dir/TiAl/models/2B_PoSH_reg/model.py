@@ -9,4 +9,4 @@ calculator = pyjulip.PoSH(pot_name)
 
 no_checkpoint = True
 
-name = 'SHIP'
+name = "PoSH"
