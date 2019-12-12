@@ -1,0 +1,18 @@
+--------------------------------------------------------------------------------
+*** casv2   Job: 6752699.sdb   started: 11/12/19 23:27:34   host: mom5 ***
+*** casv2   Job: 6752699.sdb   started: 11/12/19 23:27:34   host: mom5 ***
+*** casv2   Job: 6752699.sdb   started: 11/12/19 23:27:34   host: mom5 ***
+*** casv2   Job: 6752699.sdb   started: 11/12/19 23:27:34   host: mom5 ***
+
+--------------------------------------------------------------------------------
+share_dir /fs3/e89/e89/casv2/ship-testing-framework/scripts/../share
+--------------------------------------------------------------------------------
+
+Resources requested: ncpus=48,place=free,walltime=24:00:00
+Resources allocated: cpupercent=4,cput=00:00:16,mem=120944kb,ncpus=48,vmem=779996kb,walltime=02:08:27
+
+*** casv2   Job: 6752699.sdb   ended: 12/12/19 01:35:59   queue: standard ***
+*** casv2   Job: 6752699.sdb   ended: 12/12/19 01:35:59   queue: standard ***
+*** casv2   Job: 6752699.sdb   ended: 12/12/19 01:35:59   queue: standard ***
+*** casv2   Job: 6752699.sdb   ended: 12/12/19 01:35:59   queue: standard ***
+--------------------------------------------------------------------------------

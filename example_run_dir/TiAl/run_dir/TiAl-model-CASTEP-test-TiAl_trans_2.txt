@@ -1,0 +1,203 @@
+Model CASTEP, Test TiAl_trans_2
+Test run at 2019-12-11 23:17
+
+model file: ../../models/CASTEP/model.py
+============================================================
+import os
+from distutils import spawn
+
+#from matscipy.socketcalc import CastepClient, SocketCalculator
+from ase.calculators.castep import Castep
+
+model_abs_dir = os.path.abspath(os.path.dirname(__file__))
+
+mpirun = "aprun"
+mpirun_args = "-n 48"
+castep = "castep.mpi"
+
+os.environ['CASTEP_COMMAND'] = '{0} {1} {2}'.format(mpirun, mpirun_args, castep)
+
+print os.environ['CASTEP_COMMAND']
+
+name = 'CASTEP'
+Castep.name = name
+Castep.todict = lambda self: {}
+
+no_checkpoint = True
+
+def start(test_name):
+        global calculator
+	calculator = Castep(directory="./_CASTEP",
+			cut_off_energy=500, #700
+                        max_scf_cycles=250,
+                        calculate_stress=True,
+                        finite_basis_corr='automatic',
+                        smearing_width='0.1', #0.1
+                        #elec_energy_tol='0.0000001',
+                        #elec_energy_tol='0.0000001',
+                        #elec_method='edft',
+                        #nextra_bands='13',
+                        mixing_scheme='Pulay',
+                        kpoints_mp_spacing='0.04', #0.015
+                        #perc_extra_bands=150,
+                        write_checkpoint='none')
+
+#                        cut_off_energy=600, #700
+#                        max_scf_cycles=250,
+#                        calculate_stress=True,
+#                        finite_basis_corr='automatic',
+#                        smearing_width='0.1', #0.1
+#                        #elec_energy_tol='0.0000001',
+#                        #elec_method='edft',
+#                        #nextra_bands='13',
+#                        mixing_scheme='Pulay',
+#                        kpoints_mp_spacing='0.04', #0.015
+#                        #perc_extra_bands=150,
+#                        write_checkpoint='none')
+
+============================================================
+test file: /fs3/e89/e89/casv2/ship-testing-framework/scripts/../tests/TiAl/TiAl_trans_2/test.py
+============================================================
+from ase import Atoms
+import numpy as np
+import os
+import sys
+from ase.io import read, write
+import model
+
+calc = model.calculator
+
+al = read(os.path.join(os.path.abspath(os.path.dirname(__file__)), "TiAl_trans_2.xyz"), ":")
+
+E = []
+
+for at in al:
+    at.set_calculator(calc)
+    E.append(at.get_potential_energy())
+
+properties = { "energy" : E }
+============================================================
+aprun -n 48 castep.mpi
+castep call stdout:
+Application 38281417 resources: utime ~1401s, stime ~53s, Rss ~390416, inblocks ~137099, outblocks ~308338
+WARNING: /fs3/e89/e89/casv2/ship-testing-framework/example_run_dir/TiAl/run_dir/run_TiAl-model-CASTEP-test-TiAl_trans_2/_CASTEP/castep.castep contains warnings
+ Warning: There are no empty bands for at least one kpoint and spin; this may
+
+          If this warning persists, you should consider increasing nextra_bands
+
+ Warning: There are no empty bands for at least one kpoint and spin; this may
+
+          If this warning persists, you should consider increasing nextra_bands
+
+castep call stdout:
+Application 38281426 resources: utime ~1342s, stime ~51s, Rss ~390416, inblocks ~137094, outblocks ~308280
+castep call stdout:
+Application 38281434 resources: utime ~1309s, stime ~52s, Rss ~390416, inblocks ~137094, outblocks ~308255
+castep call stdout:
+Application 38281447 resources: utime ~1381s, stime ~51s, Rss ~390508, inblocks ~137088, outblocks ~308255
+castep call stdout:
+Application 38281454 resources: utime ~1359s, stime ~51s, Rss ~390416, inblocks ~137084, outblocks ~308253
+castep call stdout:
+Application 38281467 resources: utime ~1505s, stime ~39s, Rss ~390400, inblocks ~134678, outblocks ~308370
+castep call stdout:
+Application 38281475 resources: utime ~1712s, stime ~41s, Rss ~390400, inblocks ~134678, outblocks ~308370
+castep call stdout:
+Application 38281482 resources: utime ~1754s, stime ~38s, Rss ~390400, inblocks ~134677, outblocks ~308369
+castep call stdout:
+Application 38281493 resources: utime ~1642s, stime ~39s, Rss ~390400, inblocks ~134668, outblocks ~308370
+castep call stdout:
+Application 38281500 resources: utime ~1493s, stime ~51s, Rss ~390500, inblocks ~137090, outblocks ~308292
+castep call stdout:
+Application 38281520 resources: utime ~1476s, stime ~52s, Rss ~390496, inblocks ~137104, outblocks ~308292
+castep call stdout:
+Application 38281539 resources: utime ~1721s, stime ~53s, Rss ~390408, inblocks ~137090, outblocks ~308277
+castep call stdout:
+Application 38281551 resources: utime ~1582s, stime ~52s, Rss ~390500, inblocks ~137079, outblocks ~308277
+castep call stdout:
+Application 38281555 resources: utime ~1510s, stime ~51s, Rss ~390480, inblocks ~137101, outblocks ~308297
+castep call stdout:
+Application 38281560 resources: utime ~1613s, stime ~52s, Rss ~390500, inblocks ~137087, outblocks ~308254
+castep call stdout:
+Application 38281573 resources: utime ~1500s, stime ~52s, Rss ~390408, inblocks ~137091, outblocks ~308251
+castep call stdout:
+Application 38281587 resources: utime ~1799s, stime ~52s, Rss ~390408, inblocks ~137089, outblocks ~308286
+castep call stdout:
+Application 38281598 resources: utime ~1756s, stime ~52s, Rss ~390408, inblocks ~137079, outblocks ~308287
+castep call stdout:
+Application 38281603 resources: utime ~1746s, stime ~53s, Rss ~390408, inblocks ~136865, outblocks ~308280
+castep call stdout:
+Application 38281610 resources: utime ~1473s, stime ~45s, Rss ~390396, inblocks ~135862, outblocks ~308264
+castep call stdout:
+Application 38281614 resources: utime ~1505s, stime ~44s, Rss ~390464, inblocks ~135862, outblocks ~308265
+castep call stdout:
+Application 38281618 resources: utime ~1838s, stime ~52s, Rss ~390412, inblocks ~136878, outblocks ~308281
+castep call stdout:
+Application 38281622 resources: utime ~1605s, stime ~52s, Rss ~390408, inblocks ~137082, outblocks ~308286
+castep call stdout:
+Application 38281629 resources: utime ~1558s, stime ~52s, Rss ~390408, inblocks ~137091, outblocks ~308286
+castep call stdout:
+Application 38281631 resources: utime ~1869s, stime ~53s, Rss ~390408, inblocks ~137077, outblocks ~308252
+castep call stdout:
+Application 38281639 resources: utime ~1701s, stime ~52s, Rss ~390408, inblocks ~137089, outblocks ~308255
+castep call stdout:
+Application 38281642 resources: utime ~1454s, stime ~53s, Rss ~390408, inblocks ~137088, outblocks ~308302
+castep call stdout:
+Application 38281654 resources: utime ~1511s, stime ~52s, Rss ~390496, inblocks ~137075, outblocks ~308277
+castep call stdout:
+Application 38281664 resources: utime ~1608s, stime ~54s, Rss ~390480, inblocks ~137090, outblocks ~308277
+castep call stdout:
+Application 38281669 resources: utime ~1476s, stime ~53s, Rss ~390504, inblocks ~137096, outblocks ~308294
+castep call stdout:
+Application 38281677 resources: utime ~1448s, stime ~52s, Rss ~390432, inblocks ~137103, outblocks ~308292
+castep call stdout:
+Application 38281688 resources: utime ~1541s, stime ~38s, Rss ~390400, inblocks ~134670, outblocks ~308372
+castep call stdout:
+Application 38281694 resources: utime ~1620s, stime ~39s, Rss ~390400, inblocks ~134671, outblocks ~308369
+castep call stdout:
+Application 38281718 resources: utime ~1530s, stime ~40s, Rss ~390496, inblocks ~134676, outblocks ~308371
+castep call stdout:
+Application 38281736 resources: utime ~1586s, stime ~39s, Rss ~390400, inblocks ~134677, outblocks ~308369
+castep call stdout:
+Application 38281741 resources: utime ~1411s, stime ~52s, Rss ~390416, inblocks ~137103, outblocks ~308252
+castep call stdout:
+Application 38281743 resources: utime ~1296s, stime ~50s, Rss ~390416, inblocks ~137088, outblocks ~308254
+WARNING: /fs3/e89/e89/casv2/ship-testing-framework/example_run_dir/TiAl/run_dir/run_TiAl-model-CASTEP-test-TiAl_trans_2/_CASTEP/castep.castep contains warnings
+ Warning: There are no empty bands for at least one kpoint and spin; this may
+
+          If this warning persists, you should consider increasing nextra_bands
+
+ Warning: There are no empty bands for at least one kpoint and spin; this may
+
+          If this warning persists, you should consider increasing nextra_bands
+
+castep call stdout:
+Application 38281754 resources: utime ~1296s, stime ~52s, Rss ~390488, inblocks ~137100, outblocks ~308253
+castep call stdout:
+Application 38281757 resources: utime ~1361s, stime ~51s, Rss ~390416, inblocks ~137098, outblocks ~308281
+WARNING: /fs3/e89/e89/casv2/ship-testing-framework/example_run_dir/TiAl/run_dir/run_TiAl-model-CASTEP-test-TiAl_trans_2/_CASTEP/castep.castep contains warnings
+ Warning: There are no empty bands for at least one kpoint and spin; this may
+
+          If this warning persists, you should consider increasing nextra_bands
+
+ Warning: There are no empty bands for at least one kpoint and spin; this may
+
+          If this warning persists, you should consider increasing nextra_bands
+
+castep call stdout:
+Application 38281762 resources: utime ~1499s, stime ~53s, Rss ~390448, inblocks ~137091, outblocks ~308337
+WARNING: /fs3/e89/e89/casv2/ship-testing-framework/example_run_dir/TiAl/run_dir/run_TiAl-model-CASTEP-test-TiAl_trans_2/_CASTEP/castep.castep contains warnings
+ Warning: There are no empty bands for at least one kpoint and spin; this may
+
+          If this warning persists, you should consider increasing nextra_bands
+
+ Warning: There are no empty bands for at least one kpoint and spin; this may
+
+          If this warning persists, you should consider increasing nextra_bands
+
+============================================================
+Property calculation output:
+
+
+Summary of computed properties:
+{'energy': [-3408.503192176, -3408.42759626, -3408.270845974, -3408.029093658, -3407.71192147, -3407.316554832, -3406.856242066, -3406.32233933, -3405.717262899, -3405.054041964, -3404.355236852, -3403.619379094, -3402.864482289, -3402.113480794, -3401.388644414, -3400.709038438, -3400.100348459, -3399.584498744, -3399.196347762, -3398.981024135, -3398.981025423, -3399.196347762, -3399.584498744, -3400.100349147, -3400.70903847, -3401.388644633, -3402.113490787, -3402.864483055, -3403.619379017, -3404.355236641, -3405.054042701, -3405.71726265, -3406.322339322, -3406.856242082, -3407.316555049, -3407.711921403, -3408.029095215, -3408.270847408, -3408.42759663, -3408.503191988]}
+============================================================

@@ -25,7 +25,7 @@
 # ASE_INTERFACE _try_reuse : False
 #######################################################
 
-CUT_OFF_ENERGY: 600.0 
+CUT_OFF_ENERGY: 500.0 
 ELEC_CONVERGENCE_WIN: 3
 CALCULATE_STRESS: TRUE
 MAX_SCF_CYCLES: 250

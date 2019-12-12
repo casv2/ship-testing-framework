@@ -1,5 +1,5 @@
 Model CASTEP, Test phonon_TiAl
-Test run at 2019-10-31 13:09
+Test run at 2019-12-11 23:28
 
 model file: ../../models/CASTEP/model.py
 ============================================================
@@ -28,11 +28,12 @@ no_checkpoint = True
 def start(test_name):
         global calculator
 	calculator = Castep(directory="./_CASTEP",
-                        cut_off_energy=600, #700
+			cut_off_energy=500, #700
                         max_scf_cycles=250,
                         calculate_stress=True,
                         finite_basis_corr='automatic',
                         smearing_width='0.1', #0.1
+                        #elec_energy_tol='0.0000001',
                         #elec_energy_tol='0.0000001',
                         #elec_method='edft',
                         #nextra_bands='13',
@@ -40,6 +41,19 @@ def start(test_name):
                         kpoints_mp_spacing='0.04', #0.015
                         #perc_extra_bands=150,
                         write_checkpoint='none')
+
+#                        cut_off_energy=600, #700
+#                        max_scf_cycles=250,
+#                        calculate_stress=True,
+#                        finite_basis_corr='automatic',
+#                        smearing_width='0.1', #0.1
+#                        #elec_energy_tol='0.0000001',
+#                        #elec_method='edft',
+#                        #nextra_bands='13',
+#                        mixing_scheme='Pulay',
+#                        kpoints_mp_spacing='0.04', #0.015
+#                        #perc_extra_bands=150,
+#                        write_checkpoint='none')
 
 ============================================================
 test file: /fs3/e89/e89/casv2/ship-testing-framework/scripts/../tests/TiAl/phonon_TiAl/test.py
@@ -102,7 +116,7 @@ def run(calc, phonon):
 
         at.set_calculator(calc)
 
-        energy = at.get_potential_energy(force_consistent=True)
+        energy = at.get_potential_energy()
         forces = at.get_forces()
         stress = at.get_stress(voigt=False)
 
@@ -188,11 +202,11 @@ aprun -n 48 castep.mpi
 [Phonopy] 0 [0.005698977436222317, 0.0, 0.008217156210114842]
 [Phonopy] 27 [0.005698977436222317, 0.0, 0.008217156210114842]
 castep call stdout:
-Application 37671663 resources: utime ~236049s, stime ~3263s, Rss ~1559760, inblocks ~145321, outblocks ~328887
-[Phonopy] Drift force:   -0.00001    0.00000   -0.00002
+Application 38281594 resources: utime ~169525s, stime ~593s, Rss ~1237996, inblocks ~146561, outblocks ~323052
+[Phonopy] Drift force:    0.00000   -0.00002    0.00003
 castep call stdout:
-Application 37673007 resources: utime ~221426s, stime ~3383s, Rss ~1655116, inblocks ~145438, outblocks ~328909
-[Phonopy] Drift force:    0.00001   -0.00006   -0.00000
+Application 38282152 resources: utime ~160113s, stime ~642s, Rss ~1306256, inblocks ~146764, outblocks ~323085
+[Phonopy] Drift force:    0.00004    0.00003    0.00004
 ============================================================
 Property calculation output:
 

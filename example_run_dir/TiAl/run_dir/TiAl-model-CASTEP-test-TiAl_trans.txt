@@ -1,0 +1,167 @@
+Model CASTEP, Test TiAl_trans
+Test run at 2019-12-04 16:05
+
+model file: ../../models/CASTEP/model.py
+============================================================
+import os
+from distutils import spawn
+
+#from matscipy.socketcalc import CastepClient, SocketCalculator
+from ase.calculators.castep import Castep
+
+model_abs_dir = os.path.abspath(os.path.dirname(__file__))
+
+mpirun = "aprun"
+mpirun_args = "-n 48"
+castep = "castep.mpi"
+
+os.environ['CASTEP_COMMAND'] = '{0} {1} {2}'.format(mpirun, mpirun_args, castep)
+
+print os.environ['CASTEP_COMMAND']
+
+name = 'CASTEP'
+Castep.name = name
+Castep.todict = lambda self: {}
+
+no_checkpoint = True
+
+def start(test_name):
+        global calculator
+	calculator = Castep(directory="./_CASTEP",
+			cut_off_energy=500, #700
+                        max_scf_cycles=250,
+                        calculate_stress=True,
+                        finite_basis_corr='automatic',
+                        smearing_width='0.1', #0.1
+                        #elec_energy_tol='0.0000001',
+                        #elec_energy_tol='0.0000001',
+                        #elec_method='edft',
+                        #nextra_bands='13',
+                        mixing_scheme='Pulay',
+                        kpoints_mp_spacing='0.04', #0.015
+                        #perc_extra_bands=150,
+                        write_checkpoint='none')
+
+#                        cut_off_energy=600, #700
+#                        max_scf_cycles=250,
+#                        calculate_stress=True,
+#                        finite_basis_corr='automatic',
+#                        smearing_width='0.1', #0.1
+#                        #elec_energy_tol='0.0000001',
+#                        #elec_method='edft',
+#                        #nextra_bands='13',
+#                        mixing_scheme='Pulay',
+#                        kpoints_mp_spacing='0.04', #0.015
+#                        #perc_extra_bands=150,
+#                        write_checkpoint='none')
+
+============================================================
+test file: /fs3/e89/e89/casv2/ship-testing-framework/scripts/../tests/TiAl/TiAl_trans/test.py
+============================================================
+from ase import Atoms
+import numpy as np
+import os
+import sys
+from ase.io import read, write
+import model
+
+calc = model.calculator
+
+al = read(os.path.join(os.path.abspath(os.path.dirname(__file__)), "TiAl_trans_hex.xyz"), ":")
+
+E = []
+
+for at in al:
+    at.set_calculator(calc)
+    E.append(at.get_potential_energy())
+
+properties = { "energy" : E }
+============================================================
+aprun -n 48 castep.mpi
+castep call stdout:
+Application 38186051 resources: utime ~1500s, stime ~55s, Rss ~390624, inblocks ~136927, outblocks ~308695
+castep call stdout:
+Application 38186070 resources: utime ~1482s, stime ~52s, Rss ~390612, inblocks ~137176, outblocks ~308703
+castep call stdout:
+Application 38186087 resources: utime ~1493s, stime ~52s, Rss ~390612, inblocks ~137173, outblocks ~308703
+castep call stdout:
+Application 38186122 resources: utime ~1488s, stime ~54s, Rss ~390612, inblocks ~137193, outblocks ~308703
+castep call stdout:
+Application 38186137 resources: utime ~1488s, stime ~54s, Rss ~390620, inblocks ~137184, outblocks ~308703
+castep call stdout:
+Application 38186149 resources: utime ~1478s, stime ~53s, Rss ~390580, inblocks ~137176, outblocks ~308581
+castep call stdout:
+Application 38186166 resources: utime ~1536s, stime ~54s, Rss ~390580, inblocks ~137167, outblocks ~308582
+castep call stdout:
+Application 38186179 resources: utime ~1564s, stime ~53s, Rss ~390584, inblocks ~137168, outblocks ~308579
+castep call stdout:
+Application 38186188 resources: utime ~1620s, stime ~55s, Rss ~390588, inblocks ~137163, outblocks ~308603
+castep call stdout:
+Application 38186193 resources: utime ~1472s, stime ~52s, Rss ~390652, inblocks ~137170, outblocks ~308589
+castep call stdout:
+Application 38186200 resources: utime ~1432s, stime ~52s, Rss ~390580, inblocks ~137176, outblocks ~308588
+castep call stdout:
+Application 38186210 resources: utime ~1406s, stime ~53s, Rss ~390580, inblocks ~137170, outblocks ~308586
+castep call stdout:
+Application 38186231 resources: utime ~1414s, stime ~53s, Rss ~390588, inblocks ~137179, outblocks ~308589
+castep call stdout:
+Application 38186245 resources: utime ~1374s, stime ~52s, Rss ~390564, inblocks ~137161, outblocks ~308571
+castep call stdout:
+Application 38186250 resources: utime ~1316s, stime ~52s, Rss ~390624, inblocks ~137155, outblocks ~308568
+castep call stdout:
+Application 38186255 resources: utime ~1209s, stime ~50s, Rss ~390568, inblocks ~137137, outblocks ~308433
+castep call stdout:
+Application 38186261 resources: utime ~1238s, stime ~50s, Rss ~390588, inblocks ~137102, outblocks ~308434
+castep call stdout:
+Application 38186263 resources: utime ~1474s, stime ~53s, Rss ~390576, inblocks ~137165, outblocks ~308432
+castep call stdout:
+Application 38186267 resources: utime ~1395s, stime ~50s, Rss ~390576, inblocks ~137102, outblocks ~308434
+castep call stdout:
+Application 38186277 resources: utime ~1287s, stime ~50s, Rss ~390580, inblocks ~137226, outblocks ~308443
+castep call stdout:
+Application 38186280 resources: utime ~1383s, stime ~51s, Rss ~390564, inblocks ~137218, outblocks ~308445
+castep call stdout:
+Application 38186287 resources: utime ~1303s, stime ~50s, Rss ~390580, inblocks ~137145, outblocks ~308444
+castep call stdout:
+Application 38186298 resources: utime ~1265s, stime ~50s, Rss ~390564, inblocks ~137102, outblocks ~308445
+castep call stdout:
+Application 38186308 resources: utime ~1344s, stime ~51s, Rss ~390572, inblocks ~137140, outblocks ~308443
+castep call stdout:
+Application 38186320 resources: utime ~1351s, stime ~50s, Rss ~390604, inblocks ~137095, outblocks ~308444
+castep call stdout:
+Application 38186324 resources: utime ~1280s, stime ~51s, Rss ~390568, inblocks ~137149, outblocks ~308434
+castep call stdout:
+Application 38186332 resources: utime ~1277s, stime ~52s, Rss ~390616, inblocks ~137096, outblocks ~308429
+castep call stdout:
+Application 38186337 resources: utime ~1304s, stime ~50s, Rss ~390568, inblocks ~137110, outblocks ~308434
+castep call stdout:
+Application 38186341 resources: utime ~1419s, stime ~51s, Rss ~390564, inblocks ~137107, outblocks ~308435
+castep call stdout:
+Application 38186352 resources: utime ~1296s, stime ~49s, Rss ~390588, inblocks ~137344, outblocks ~308367
+castep call stdout:
+Application 38186356 resources: utime ~1200s, stime ~49s, Rss ~390572, inblocks ~137369, outblocks ~308365
+castep call stdout:
+Application 38186373 resources: utime ~1180s, stime ~49s, Rss ~390564, inblocks ~137493, outblocks ~308365
+castep call stdout:
+Application 38186374 resources: utime ~1179s, stime ~48s, Rss ~390584, inblocks ~137583, outblocks ~308378
+castep call stdout:
+Application 38186379 resources: utime ~1243s, stime ~49s, Rss ~390592, inblocks ~137295, outblocks ~308417
+castep call stdout:
+Application 38186384 resources: utime ~1248s, stime ~50s, Rss ~390600, inblocks ~137346, outblocks ~308417
+castep call stdout:
+Application 38186389 resources: utime ~1317s, stime ~50s, Rss ~390588, inblocks ~137376, outblocks ~308417
+castep call stdout:
+Application 38186391 resources: utime ~1187s, stime ~51s, Rss ~390572, inblocks ~137345, outblocks ~308391
+castep call stdout:
+Application 38186400 resources: utime ~1195s, stime ~49s, Rss ~390572, inblocks ~137111, outblocks ~308388
+castep call stdout:
+Application 38186407 resources: utime ~1218s, stime ~49s, Rss ~390608, inblocks ~137137, outblocks ~308389
+castep call stdout:
+Application 38186412 resources: utime ~1214s, stime ~50s, Rss ~390576, inblocks ~137114, outblocks ~308459
+============================================================
+Property calculation output:
+
+
+Summary of computed properties:
+{'energy': [-1703.688214508, -1703.65832625, -1703.549269044, -1703.335776373, -1702.976551821, -1702.4186702, -1701.585710151, -1700.386516699, -1698.709245194, -1696.396358637, -1693.193553429, -1688.575079066, -1681.479255064, -1670.34003858, -1653.472176268, -1629.69302874, -1599.153747825, -1564.565980611, -1532.180715923, -1510.986975, -1508.494556548, -1525.552550748, -1555.751110957, -1590.012391269, -1621.320616081, -1646.288631018, -1664.322295966, -1676.456188309, -1684.399531311, -1689.774116612, -1693.727001663, -1696.787747706, -1699.145046734, -1700.90195628, -1702.163369153, -1703.03600829, -1703.619769358, -1703.984190471, -1704.181311309, -1704.247516616]}
+============================================================

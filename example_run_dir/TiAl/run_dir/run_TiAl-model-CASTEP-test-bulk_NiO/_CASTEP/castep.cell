@@ -1,0 +1,28 @@
+#######################################################
+#CASTEP cell file: /fs3/e89/e89/casv2/ship-testing-framework/example_run_dir/TiAl/run_dir/run_TiAl-model-CASTEP-test-bulk_NiO/_CASTEP/castep.cell
+#Created using the Atomic Simulation Environment (ASE)#
+#######################################################
+
+%BLOCK LATTICE_CART
+ 4.140268 -0.000000  0.000000
+-0.000000  4.059091  0.040591
+ 0.000000  0.040591  4.059100
+%ENDBLOCK LATTICE_CART
+
+%BLOCK POSITIONS_ABS
+Ni -0.000021  0.000000  0.000004
+O -0.000017  0.020296  2.029554
+O -0.000017  2.029545  0.020300
+Ni -0.000017  2.049841  2.049850
+O  2.070117  0.000000  0.000008
+Ni  2.070117  0.020296  2.029554
+Ni  2.070117  2.029545  0.020300
+O  2.070117  2.049841  2.049850
+%ENDBLOCK POSITIONS_ABS
+
+%BLOCK SPECIES_POT
+O 2|1.1|15|18|20|20:21(qc=7)
+Ni 3|2.4|2.4|1.0|8|9|10|40:41:32U2U2(qc=5.5)
+%ENDBLOCK SPECIES_POT
+
+KPOINTS_MP_SPACING: 0.03 

@@ -1,0 +1,748 @@
+Model CASTEP, Test bulk_NiO
+Test run at 2019-11-17 20:56
+
+model file: ../../models/CASTEP/model.py
+============================================================
+import os
+from distutils import spawn
+
+#from matscipy.socketcalc import CastepClient, SocketCalculator
+from ase.calculators.castep import Castep
+
+model_abs_dir = os.path.abspath(os.path.dirname(__file__))
+
+mpirun = "aprun"
+mpirun_args = "-n 48"
+castep = "castep.mpi"
+
+os.environ['CASTEP_COMMAND'] = '{0} {1} {2}'.format(mpirun, mpirun_args, castep)
+
+print os.environ['CASTEP_COMMAND']
+
+name = 'CASTEP'
+Castep.name = name
+Castep.todict = lambda self: {}
+
+no_checkpoint = True
+
+def start(test_name):
+        global calculator
+	calculator = Castep(directory="./_CASTEP",
+			cut_off_energy=500, #700
+                        max_scf_cycles=250,
+                        calculate_stress=True,
+                        finite_basis_corr='automatic',
+                        smearing_width='0.1', #0.1
+                        #elec_energy_tol='0.0000001',
+                        #elec_energy_tol='0.0000001',
+                        #elec_method='edft',
+                        #nextra_bands='13',
+                        mixing_scheme='Pulay',
+                        kpoints_mp_spacing='0.03', #0.015
+                        #perc_extra_bands=150,
+                        write_checkpoint='none')
+
+#                        cut_off_energy=600, #700
+#                        max_scf_cycles=250,
+#                        calculate_stress=True,
+#                        finite_basis_corr='automatic',
+#                        smearing_width='0.1', #0.1
+#                        #elec_energy_tol='0.0000001',
+#                        #elec_method='edft',
+#                        #nextra_bands='13',
+#                        mixing_scheme='Pulay',
+#                        kpoints_mp_spacing='0.04', #0.015
+#                        #perc_extra_bands=150,
+#                        write_checkpoint='none')
+
+============================================================
+test file: /fs3/e89/e89/casv2/ship-testing-framework/scripts/../tests/TiAl/bulk_NiO/test.py
+============================================================
+import os.path, lattice
+
+properties = lattice.do_lattice(os.path.abspath(os.path.dirname(__file__)), 'cubic')
+============================================================
+aprun -n 48 castep.mpi
+relax bulk
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-bulk-relaxed.xyz
+castep call stdout:
+Application 37884272 resources: utime ~3852s, stime ~52s, Rss ~374268, inblocks ~137422, outblocks ~306416
+PreconLBFGS:   0  20:58:10    -7236.526588       0.0000       0.1082
+castep call stdout:
+Application 37884296 resources: utime ~3245s, stime ~50s, Rss ~374524, inblocks ~137418, outblocks ~306417
+/work/e89/e89/casv2/miniconda2/lib/python2.7/site-packages/ase/optimize/precon/precon.py:514: UserWarning: mu (0.827) < 1.0, capping at mu=1.0
+  warnings.warn('mu (%.3f) < 1.0, capping at mu=1.0' % self.mu)
+estimate_mu(): mu=1.0, mu_c=247.5137223799543
+castep call stdout:
+Application 37884305 resources: utime ~3306s, stime ~49s, Rss ~374540, inblocks ~137409, outblocks ~306417
+castep call stdout:
+Application 37884322 resources: utime ~3837s, stime ~51s, Rss ~374544, inblocks ~137457, outblocks ~306556
+castep call stdout:
+Application 37884329 resources: utime ~4046s, stime ~51s, Rss ~374548, inblocks ~137468, outblocks ~306556
+PreconLBFGS:   1  21:04:06    -7236.939275       0.0000       0.0244
+castep call stdout:
+Application 37884353 resources: utime ~3935s, stime ~51s, Rss ~374544, inblocks ~137462, outblocks ~306556
+castep call stdout:
+Application 37884373 resources: utime ~3488s, stime ~49s, Rss ~374548, inblocks ~137456, outblocks ~306557
+castep call stdout:
+Application 37884406 resources: utime ~4082s, stime ~50s, Rss ~374548, inblocks ~137431, outblocks ~306557
+PreconLBFGS:   2  21:08:41    -7236.945992       0.0000       0.0077
+symmetry.check: prec 0.01 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+final relaxed bulk
+8
+Lattice="4.059085986292367 -1.4919087257125455e-08 4.3184796468347976e-08 -1.491908725712545e-08 4.059090804959424 3.513061443442603e-08 4.318479646834797e-08 3.513061443442603e-08 4.059100411587104" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=3
+Ni      -0.00002030       0.00000000       0.00000406 
+O      -0.00001621       0.00000002       2.02955426 
+O      -0.00001624       2.02954540       0.00000408 
+Ni      -0.00001622       2.02954542       2.02955428 
+O       2.02952676      -0.00000001       0.00000814 
+Ni       2.02952678       0.00000001       2.02955429 
+Ni       2.02952675       2.02954540       0.00000410 
+O       2.02952677       2.02954541       2.02955430 
+calculating E vs. V
+8
+Lattice="4.059085986292367 -1.4919087257125455e-08 4.3184796468347976e-08 -1.491908725712545e-08 4.059090804959424 3.513061443442603e-08 4.318479646834797e-08 3.513061443442603e-08 4.059100411587104" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=3
+Ni      -0.00002030       0.00000000       0.00000406 
+O      -0.00001621       0.00000002       2.02955426 
+O      -0.00001624       2.02954540       0.00000408 
+Ni      -0.00001622       2.02954542       2.02955428 
+O       2.02952676      -0.00000001       0.00000814 
+Ni       2.02952678       0.00000001       2.02955429 
+Ni       2.02952675       2.02954540       0.00000410 
+O       2.02952677       2.02954541       2.02955430 
+trying to relax i 0
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_00-relaxed.xyz
+PreconLBFGS:   0  21:08:41    -7236.945989       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.059085986292367 -1.4919087257125455e-08 4.3184796468347976e-08 -1.491908725712545e-08 4.059090804959424 3.513061443442603e-08 4.318479646834797e-08 3.513061443442603e-08 4.059100411587104" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002030       0.00000000       0.00000406 
+O      -0.00001621       0.00000002       2.02955426 
+O      -0.00001624       2.02954540       0.00000408 
+Ni      -0.00001622       2.02954542       2.02955428 
+O       2.02952676      -0.00000001       0.00000814 
+Ni       2.02952678       0.00000001       2.02955429 
+Ni       2.02952675       2.02954540       0.00000410 
+O       2.02952677       2.02954541       2.02955430 
+8
+Lattice="4.024974407284951 -1.479371084839487e-08 4.282188186106349e-08 -1.4793710848394867e-08 4.024979185457092 3.483538522915521e-08 4.282188186106348e-08 3.483538522915521e-08 4.024988711352991" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002012       0.00000000       0.00000402 
+O      -0.00001608       0.00000002       2.01249838 
+O      -0.00001611       2.01248959       0.00000404 
+Ni      -0.00001609       2.01248961       2.01249840 
+O       2.01247110      -0.00000001       0.00000807 
+Ni       2.01247113       0.00000001       2.01249840 
+Ni       2.01247110       2.01248959       0.00000406 
+O       2.01247112       2.01248960       2.01249842 
+trying to relax i -1
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-1-relaxed.xyz
+castep call stdout:
+Application 37884438 resources: utime ~3519s, stime ~50s, Rss ~374544, inblocks ~137461, outblocks ~306556
+PreconLBFGS:   0  21:10:02    -7236.909847       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.024974407284951 -1.479371084839487e-08 4.282188186106349e-08 -1.4793710848394867e-08 4.024979185457092 3.483538522915521e-08 4.282188186106348e-08 3.483538522915521e-08 4.024988711352991" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002012       0.00000000       0.00000402 
+O      -0.00001608       0.00000002       2.01249838 
+O      -0.00001611       2.01248959       0.00000404 
+Ni      -0.00001609       2.01248961       2.01249840 
+O       2.01247110      -0.00000001       0.00000807 
+Ni       2.01247113       0.00000001       2.01249840 
+Ni       2.01247110       2.01248959       0.00000406 
+O       2.01247112       2.01248960       2.01249842 
+8
+Lattice="3.9902746253592154 -1.4666172511906922e-08 4.245270933675151e-08 -1.4666172511906918e-08 3.990279362338168 3.453506523989941e-08 4.24527093367515e-08 3.453506523989941e-08 3.990288806110188" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001995       0.00000000       0.00000399 
+O      -0.00001594       0.00000002       1.99514839 
+O      -0.00001597       1.99513968       0.00000401 
+Ni      -0.00001595       1.99513970       1.99514841 
+O       1.99512135      -0.00000001       0.00000800 
+Ni       1.99512137       0.00000001       1.99514841 
+Ni       1.99512134       1.99513967       0.00000403 
+O       1.99512137       1.99513969       1.99514843 
+trying to relax i -2
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-2-relaxed.xyz
+castep call stdout:
+Application 37884460 resources: utime ~3171s, stime ~48s, Rss ~374548, inblocks ~137462, outblocks ~306557
+PreconLBFGS:   0  21:11:16    -7236.793542       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="3.9902746253592154 -1.4666172511906922e-08 4.245270933675151e-08 -1.4666172511906918e-08 3.990279362338168 3.453506523989941e-08 4.24527093367515e-08 3.453506523989941e-08 3.990288806110188" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001995       0.00000000       0.00000399 
+O      -0.00001594       0.00000002       1.99514839 
+O      -0.00001597       1.99513968       0.00000401 
+Ni      -0.00001595       1.99513970       1.99514841 
+O       1.99512135      -0.00000001       0.00000800 
+Ni       1.99512137       0.00000001       1.99514841 
+Ni       1.99512134       1.99513967       0.00000403 
+O       1.99512137       1.99513969       1.99514843 
+8
+Lattice="3.954960608516265 -1.4536376567583799e-08 4.207700193981715e-08 -1.4536376567583796e-08 3.9549653035728514 3.4229429164677045e-08 4.2077001939817145e-08 3.4229429164677045e-08 3.9549746637672842" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001977       0.00000000       0.00000395 
+O      -0.00001580       0.00000002       1.97749129 
+O      -0.00001583       1.97748265       0.00000397 
+Ni      -0.00001581       1.97748267       1.97749130 
+O       1.97746448      -0.00000001       0.00000793 
+Ni       1.97746451       0.00000001       1.97749131 
+Ni       1.97746448       1.97748264       0.00000399 
+O       1.97746450       1.97748266       1.97749133 
+trying to relax i -3
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-3-relaxed.xyz
+castep call stdout:
+Application 37884474 resources: utime ~3166s, stime ~49s, Rss ~374548, inblocks ~137436, outblocks ~306557
+PreconLBFGS:   0  21:12:30    -7236.586639       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="3.954960608516265 -1.4536376567583799e-08 4.207700193981715e-08 -1.4536376567583796e-08 3.9549653035728514 3.4229429164677045e-08 4.2077001939817145e-08 3.4229429164677045e-08 3.9549746637672842" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001977       0.00000000       0.00000395 
+O      -0.00001580       0.00000002       1.97749129 
+O      -0.00001583       1.97748265       0.00000397 
+Ni      -0.00001581       1.97748267       1.97749130 
+O       1.97746448      -0.00000001       0.00000793 
+Ni       1.97746451       0.00000001       1.97749131 
+Ni       1.97746448       1.97748264       0.00000399 
+O       1.97746450       1.97748266       1.97749133 
+8
+Lattice="3.9190044309667535 -1.4404220374759747e-08 4.169446256654466e-08 -1.4404220374759744e-08 3.9190090833386444 3.391823531111164e-08 4.1694462566544655e-08 3.391823531111164e-08 3.9190183584356904" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001960       0.00000000       0.00000392 
+O      -0.00001566       0.00000002       1.95951310 
+O      -0.00001568       1.95950454       0.00000394 
+Ni      -0.00001566       1.95950456       1.95951312 
+O       1.95948654      -0.00000001       0.00000786 
+Ni       1.95948656       0.00000001       1.95951312 
+Ni       1.95948653       1.95950453       0.00000396 
+O       1.95948655       1.95950455       1.95951314 
+trying to relax i -4
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-4-relaxed.xyz
+castep call stdout:
+Application 37884509 resources: utime ~2928s, stime ~50s, Rss ~374544, inblocks ~137438, outblocks ~306556
+PreconLBFGS:   0  21:13:39    -7236.278935       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="3.9190044309667535 -1.4404220374759747e-08 4.169446256654466e-08 -1.4404220374759744e-08 3.9190090833386444 3.391823531111164e-08 4.1694462566544655e-08 3.391823531111164e-08 3.9190183584356904" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001960       0.00000000       0.00000392 
+O      -0.00001566       0.00000002       1.95951310 
+O      -0.00001568       1.95950454       0.00000394 
+Ni      -0.00001566       1.95950456       1.95951312 
+O       1.95948654      -0.00000001       0.00000786 
+Ni       1.95948656       0.00000001       1.95951312 
+Ni       1.95948653       1.95950453       0.00000396 
+O       1.95948655       1.95950455       1.95951314 
+8
+Lattice="3.8823760783665446 -1.4269593616328738e-08 4.13047718929909e-08 -1.4269593616328735e-08 3.8823806872557802 3.360122391078368e-08 4.130477189299089e-08 3.360122391078368e-08 3.8823898756646047" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001941       0.00000000       0.00000388 
+O      -0.00001551       0.00000002       1.94119882 
+O      -0.00001554       1.94119034       0.00000390 
+Ni      -0.00001552       1.94119036       1.94119884 
+O       1.94117251      -0.00000001       0.00000779 
+Ni       1.94117253       0.00000001       1.94119884 
+Ni       1.94117250       1.94119034       0.00000392 
+O       1.94117252       1.94119035       1.94119886 
+trying to relax i -5
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-5-relaxed.xyz
+castep call stdout:
+Application 37884528 resources: utime ~2650s, stime ~49s, Rss ~374544, inblocks ~137444, outblocks ~306427
+PreconLBFGS:   0  21:14:52    -7235.850295       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="3.8823760783665446 -1.4269593616328738e-08 4.13047718929909e-08 -1.4269593616328735e-08 3.8823806872557802 3.360122391078368e-08 4.130477189299089e-08 3.360122391078368e-08 3.8823898756646047" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001941       0.00000000       0.00000388 
+O      -0.00001551       0.00000002       1.94119882 
+O      -0.00001554       1.94119034       0.00000390 
+Ni      -0.00001552       1.94119036       1.94119884 
+O       1.94117251      -0.00000001       0.00000779 
+Ni       1.94117253       0.00000001       1.94119884 
+Ni       1.94117250       1.94119034       0.00000392 
+O       1.94117252       1.94119035       1.94119886 
+8
+Lattice="3.845043226821201 -1.413237748648e-08 4.090758602380429e-08 -1.4132377486479996e-08 3.845047791391449 3.327811520655662e-08 4.0907586023804285e-08 3.327811520655662e-08 3.845056891444716" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001923       0.00000000       0.00000385 
+O      -0.00001536       0.00000002       1.92253229 
+O      -0.00001539       1.92252390       0.00000386 
+Ni      -0.00001537       1.92252391       1.92253231 
+O       1.92250623      -0.00000001       0.00000771 
+Ni       1.92250625       0.00000001       1.92253231 
+Ni       1.92250623       1.92252389       0.00000388 
+O       1.92250625       1.92252391       1.92253233 
+trying to relax i -6
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-6-relaxed.xyz
+castep call stdout:
+Application 37884539 resources: utime ~3051s, stime ~49s, Rss ~374544, inblocks ~137440, outblocks ~306426
+PreconLBFGS:   0  21:16:02    -7235.286107       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="3.845043226821201 -1.413237748648e-08 4.090758602380429e-08 -1.4132377486479996e-08 3.845047791391449 3.327811520655662e-08 4.0907586023804285e-08 3.327811520655662e-08 3.845056891444716" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001923       0.00000000       0.00000385 
+O      -0.00001536       0.00000002       1.92253229 
+O      -0.00001539       1.92252390       0.00000386 
+Ni      -0.00001537       1.92252391       1.92253231 
+O       1.92250623      -0.00000001       0.00000771 
+Ni       1.92250625       0.00000001       1.92253231 
+Ni       1.92250623       1.92252389       0.00000388 
+O       1.92250625       1.92252391       1.92253233 
+8
+Lattice="3.806970991241477 -1.399244376578379e-08 4.05025338149677e-08 -1.3992443765783786e-08 3.806975510614992 3.2948607274641734e-08 4.0502533814967697e-08 3.2948607274641734e-08 3.806984520562803" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001903       0.00000000       0.00000381 
+O      -0.00001521       0.00000002       1.90349607 
+O      -0.00001523       1.90348776       0.00000382 
+Ni      -0.00001521       1.90348777       1.90349608 
+O       1.90347027      -0.00000001       0.00000763 
+Ni       1.90347029       0.00000001       1.90349609 
+Ni       1.90347026       1.90348775       0.00000384 
+O       1.90347028       1.90348776       1.90349610 
+trying to relax i -7
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-7-relaxed.xyz
+castep call stdout:
+Application 37884553 resources: utime ~2587s, stime ~48s, Rss ~374544, inblocks ~137456, outblocks ~306426
+PreconLBFGS:   0  21:17:07    -7234.571077       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="3.806970991241477 -1.399244376578379e-08 4.05025338149677e-08 -1.3992443765783786e-08 3.806975510614992 3.2948607274641734e-08 4.0502533814967697e-08 3.2948607274641734e-08 3.806984520562803" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001903       0.00000000       0.00000381 
+O      -0.00001521       0.00000002       1.90349607 
+O      -0.00001523       1.90348776       0.00000382 
+Ni      -0.00001521       1.90348777       1.90349608 
+O       1.90347027      -0.00000001       0.00000763 
+Ni       1.90347029       0.00000001       1.90349609 
+Ni       1.90347026       1.90348775       0.00000384 
+O       1.90347028       1.90348776       1.90349610 
+8
+Lattice="3.768121637729753 -1.384965376407364e-08 4.0089213813864905e-08 -1.3849653764073637e-08 3.7681261109839936 3.261237353535756e-08 4.00892138138649e-08 3.261237353535756e-08 3.768135028987146" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001884       0.00000000       0.00000377 
+O      -0.00001505       0.00000002       1.88407128 
+O      -0.00001508       1.88406306       0.00000378 
+Ni      -0.00001506       1.88406307       1.88407130 
+O       1.88404575      -0.00000001       0.00000756 
+Ni       1.88404577       0.00000001       1.88407130 
+Ni       1.88404574       1.88406305       0.00000380 
+O       1.88404576       1.88406306       1.88407132 
+trying to relax i -8
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-8-relaxed.xyz
+castep call stdout:
+Application 37884568 resources: utime ~2651s, stime ~48s, Rss ~374548, inblocks ~137441, outblocks ~306426
+PreconLBFGS:   0  21:18:22    -7233.663894       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="3.768121637729753 -1.384965376407364e-08 4.0089213813864905e-08 -1.3849653764073637e-08 3.7681261109839936 3.261237353535756e-08 4.00892138138649e-08 3.261237353535756e-08 3.768135028987146" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001884       0.00000000       0.00000377 
+O      -0.00001505       0.00000002       1.88407128 
+O      -0.00001508       1.88406306       0.00000378 
+Ni      -0.00001506       1.88406307       1.88407130 
+O       1.88404575      -0.00000001       0.00000756 
+Ni       1.88404577       0.00000001       1.88407130 
+Ni       1.88404574       1.88406305       0.00000380 
+O       1.88404576       1.88406306       1.88407132 
+8
+Lattice="3.7284542535564453 -1.370385710745143e-08 3.966719074814494e-08 -1.3703857107451427e-08 3.728458679720302 3.2269059896838754e-08 3.9667190748144936e-08 3.2269059896838754e-08 3.7284675038427655" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001864       0.00000000       0.00000373 
+O      -0.00001489       0.00000002       1.86423748 
+O      -0.00001492       1.86422934       0.00000374 
+Ni      -0.00001490       1.86422936       1.86423750 
+O       1.86421221      -0.00000001       0.00000748 
+Ni       1.86421223       0.00000001       1.86423750 
+Ni       1.86421221       1.86422933       0.00000376 
+O       1.86421223       1.86422935       1.86423752 
+trying to relax i -9
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-9-relaxed.xyz
+castep call stdout:
+Application 37884605 resources: utime ~2991s, stime ~49s, Rss ~374544, inblocks ~137418, outblocks ~306368
+PreconLBFGS:   0  21:19:35    -7232.564405       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="3.7284542535564453 -1.370385710745143e-08 3.966719074814494e-08 -1.3703857107451427e-08 3.728458679720302 3.2269059896838754e-08 3.9667190748144936e-08 3.2269059896838754e-08 3.7284675038427655" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001864       0.00000000       0.00000373 
+O      -0.00001489       0.00000002       1.86423748 
+O      -0.00001492       1.86422934       0.00000374 
+Ni      -0.00001490       1.86422936       1.86423750 
+O       1.86421221      -0.00000001       0.00000748 
+Ni       1.86421223       0.00000001       1.86423750 
+Ni       1.86421221       1.86422933       0.00000376 
+O       1.86421223       1.86422935       1.86423752 
+8
+Lattice="3.687924366884108 -1.3554890340591112e-08 3.923599147994989e-08 -1.3554890340591109e-08 3.6879287449336777 3.191828146382078e-08 3.923599147994988e-08 3.191828146382078e-08 3.6879374731341694" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001844       0.00000000       0.00000369 
+O      -0.00001473       0.00000002       1.84397242 
+O      -0.00001476       1.84396437       0.00000370 
+Ni      -0.00001474       1.84396439       1.84397244 
+O       1.84394743      -0.00000001       0.00000740 
+Ni       1.84394745       0.00000001       1.84397244 
+Ni       1.84394742       1.84396437       0.00000372 
+O       1.84394744       1.84396438       1.84397246 
+trying to relax i -10
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_-10-relaxed.xyz
+castep call stdout:
+Application 37884641 resources: utime ~3035s, stime ~51s, Rss ~374612, inblocks ~137448, outblocks ~306540
+PreconLBFGS:   0  21:21:10    -7231.182800       0.0001       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="3.687924366884108 -1.3554890340591112e-08 3.923599147994989e-08 -1.3554890340591109e-08 3.6879287449336777 3.191828146382078e-08 3.923599147994988e-08 3.191828146382078e-08 3.6879374731341694" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00001844       0.00000000       0.00000369 
+O      -0.00001473       0.00000002       1.84397242 
+O      -0.00001476       1.84396437       0.00000370 
+Ni      -0.00001474       1.84396439       1.84397244 
+O       1.84394743      -0.00000001       0.00000740 
+Ni       1.84394745       0.00000001       1.84397244 
+Ni       1.84394742       1.84396437       0.00000372 
+O       1.84394744       1.84396438       1.84397246 
+8
+Lattice="4.092633672810253 -1.5042391090580875e-08 4.354171179833884e-08 -1.5042391090580872e-08 4.092638531302811 3.542096325783278e-08 4.3541711798338834e-08 3.542096325783278e-08 4.092648217327708" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=3
+Ni      -0.00002046       0.00000000       0.00000409 
+O      -0.00001635       0.00000002       2.04632820 
+O      -0.00001638       2.04631927       0.00000411 
+Ni      -0.00001636       2.04631928       2.04632822 
+O       2.04630047      -0.00000001       0.00000821 
+Ni       2.04630049       0.00000001       2.04632822 
+Ni       2.04630046       2.04631926       0.00000413 
+O       2.04630048       2.04631928       2.04632824 
+trying to relax i 1
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_01-relaxed.xyz
+castep call stdout:
+Application 37884682 resources: utime ~4590s, stime ~52s, Rss ~374548, inblocks ~137454, outblocks ~306558
+PreconLBFGS:   0  21:22:59    -7236.913311       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.092633672810253 -1.5042391090580875e-08 4.354171179833884e-08 -1.5042391090580872e-08 4.092638531302811 3.542096325783278e-08 4.3541711798338834e-08 3.542096325783278e-08 4.092648217327708" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002046       0.00000000       0.00000409 
+O      -0.00001635       0.00000002       2.04632820 
+O      -0.00001638       2.04631927       0.00000411 
+Ni      -0.00001636       2.04631928       2.04632822 
+O       2.04630047      -0.00000001       0.00000821 
+Ni       2.04630049       0.00000001       2.04632822 
+Ni       2.04630046       2.04631926       0.00000413 
+O       2.04630048       2.04631928       2.04632824 
+8
+Lattice="4.125640208465788 -1.5163705935145217e-08 4.3892869800219834e-08 -1.5163705935145213e-08 4.125645106141429 3.570662852381792e-08 4.389286980021983e-08 3.570662852381792e-08 4.125654870282805" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002063       0.00000000       0.00000413 
+O      -0.00001648       0.00000002       2.06283156 
+O      -0.00001651       2.06282255       0.00000414 
+Ni      -0.00001649       2.06282257       2.06283158 
+O       2.06280360      -0.00000001       0.00000827 
+Ni       2.06280362       0.00000001       2.06283158 
+Ni       2.06280359       2.06282255       0.00000417 
+O       2.06280362       2.06282256       2.06283160 
+trying to relax i 2
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_02-relaxed.xyz
+castep call stdout:
+Application 37884726 resources: utime ~3722s, stime ~53s, Rss ~374548, inblocks ~137458, outblocks ~306556
+PreconLBFGS:   0  21:24:31    -7236.819240       0.0000       0.0001
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.125640208465788 -1.5163705935145217e-08 4.3892869800219834e-08 -1.5163705935145213e-08 4.125645106141429 3.570662852381792e-08 4.389286980021983e-08 3.570662852381792e-08 4.125654870282805" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002063       0.00000000       0.00000413 
+O      -0.00001648       0.00000002       2.06283156 
+O      -0.00001651       2.06282255       0.00000414 
+Ni      -0.00001649       2.06282257       2.06283158 
+O       2.06280360      -0.00000001       0.00000827 
+Ni       2.06280362       0.00000001       2.06283158 
+Ni       2.06280359       2.06282255       0.00000417 
+O       2.06280362       2.06282256       2.06283160 
+8
+Lattice="4.15812690200615 -1.5283110110681505e-08 4.4238497178700564e-08 -1.52831101106815e-08 4.158131838247754 3.598779465552095e-08 4.423849717870056e-08 3.598779465552095e-08 4.158141679275298" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002079       0.00000000       0.00000416 
+O      -0.00001661       0.00000002       2.07907500 
+O      -0.00001664       2.07906592       0.00000418 
+Ni      -0.00001662       2.07906594       2.07907502 
+O       2.07904682      -0.00000001       0.00000834 
+Ni       2.07904684       0.00000001       2.07907502 
+Ni       2.07904681       2.07906591       0.00000420 
+O       2.07904683       2.07906593       2.07907504 
+trying to relax i 3
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_03-relaxed.xyz
+castep call stdout:
+Application 37884761 resources: utime ~3905s, stime ~51s, Rss ~374548, inblocks ~137441, outblocks ~306557
+PreconLBFGS:   0  21:26:00    -7236.675797       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.15812690200615 -1.5283110110681505e-08 4.4238497178700564e-08 -1.52831101106815e-08 4.158131838247754 3.598779465552095e-08 4.423849717870056e-08 3.598779465552095e-08 4.158141679275298" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002079       0.00000000       0.00000416 
+O      -0.00001661       0.00000002       2.07907500 
+O      -0.00001664       2.07906592       0.00000418 
+Ni      -0.00001662       2.07906594       2.07907502 
+O       2.07904682      -0.00000001       0.00000834 
+Ni       2.07904684       0.00000001       2.07907502 
+Ni       2.07904681       2.07906591       0.00000420 
+O       2.07904683       2.07906593       2.07907504 
+8
+Lattice="4.190113750577206 -1.5400677116289074e-08 4.4578806684305956e-08 -1.540067711628907e-08 4.190118724791391 3.626463472442241e-08 4.457880668430595e-08 3.626463472442241e-08 4.190128641522122" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002095       0.00000000       0.00000419 
+O      -0.00001674       0.00000002       2.09506851 
+O      -0.00001677       2.09505936       0.00000421 
+Ni      -0.00001675       2.09505938       2.09506853 
+O       2.09504011      -0.00000001       0.00000840 
+Ni       2.09504014       0.00000001       2.09506853 
+Ni       2.09504011       2.09505935       0.00000423 
+O       2.09504013       2.09505937       2.09506855 
+trying to relax i 4
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_04-relaxed.xyz
+castep call stdout:
+Application 37884815 resources: utime ~3341s, stime ~49s, Rss ~374544, inblocks ~137424, outblocks ~306416
+PreconLBFGS:   0  21:27:18    -7236.446228       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.190113750577206 -1.5400677116289074e-08 4.4578806684305956e-08 -1.540067711628907e-08 4.190118724791391 3.626463472442241e-08 4.457880668430595e-08 3.626463472442241e-08 4.190128641522122" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002095       0.00000000       0.00000419 
+O      -0.00001674       0.00000002       2.09506851 
+O      -0.00001677       2.09505936       0.00000421 
+Ni      -0.00001675       2.09505938       2.09506853 
+O       2.09504011      -0.00000001       0.00000840 
+Ni       2.09504014       0.00000001       2.09506853 
+Ni       2.09504011       2.09505935       0.00000423 
+O       2.09504013       2.09505937       2.09506855 
+8
+Lattice="4.221619548231718 -1.551647602912323e-08 4.491399826779982e-08 -1.5516476029123227e-08 4.221624559847415 3.6537311389461654e-08 4.4913998267799816e-08 3.6537311389461654e-08 4.221634551142831" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002111       0.00000000       0.00000422 
+O      -0.00001686       0.00000002       2.11082150 
+O      -0.00001689       2.11081228       0.00000424 
+Ni      -0.00001687       2.11081230       2.11082152 
+O       2.11079289      -0.00000001       0.00000847 
+Ni       2.11079291       0.00000001       2.11082152 
+Ni       2.11079288       2.11081227       0.00000426 
+O       2.11079290       2.11081229       2.11082154 
+trying to relax i 5
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_05-relaxed.xyz
+castep call stdout:
+Application 37884842 resources: utime ~3628s, stime ~50s, Rss ~374536, inblocks ~137412, outblocks ~306416
+PreconLBFGS:   0  21:28:47    -7236.212208       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.221619548231718 -1.551647602912323e-08 4.491399826779982e-08 -1.5516476029123227e-08 4.221624559847415 3.6537311389461654e-08 4.4913998267799816e-08 3.6537311389461654e-08 4.221634551142831" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002111       0.00000000       0.00000422 
+O      -0.00001686       0.00000002       2.11082150 
+O      -0.00001689       2.11081228       0.00000424 
+Ni      -0.00001687       2.11081230       2.11082152 
+O       2.11079289      -0.00000001       0.00000847 
+Ni       2.11079291       0.00000001       2.11082152 
+Ni       2.11079288       2.11081227       0.00000426 
+O       2.11079290       2.11081229       2.11082154 
+8
+Lattice="4.252661983263946 -1.563057186214658e-08 4.524426011573203e-08 -1.5630571862146578e-08 4.252667031731081 3.680597773944923e-08 4.5244260115732026e-08 3.680597773944923e-08 4.252677096494542" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002126       0.00000000       0.00000425 
+O      -0.00001699       0.00000002       2.12634280 
+O      -0.00001702       2.12633352       0.00000427 
+Ni      -0.00001700       2.12633353       2.12634282 
+O       2.12631398      -0.00000001       0.00000853 
+Ni       2.12631400       0.00000001       2.12634282 
+Ni       2.12631397       2.12633351       0.00000429 
+O       2.12631400       2.12633353       2.12634284 
+trying to relax i 6
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_06-relaxed.xyz
+castep call stdout:
+Application 37884858 resources: utime ~4418s, stime ~54s, Rss ~374536, inblocks ~137466, outblocks ~306651
+PreconLBFGS:   0  21:31:07    -7235.940289       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.252661983263946 -1.563057186214658e-08 4.524426011573203e-08 -1.5630571862146578e-08 4.252667031731081 3.680597773944923e-08 4.5244260115732026e-08 3.680597773944923e-08 4.252677096494542" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002126       0.00000000       0.00000425 
+O      -0.00001699       0.00000002       2.12634280 
+O      -0.00001702       2.12633352       0.00000427 
+Ni      -0.00001700       2.12633353       2.12634282 
+O       2.12631398      -0.00000001       0.00000853 
+Ni       2.12631400       0.00000001       2.12634282 
+Ni       2.12631397       2.12633351       0.00000429 
+O       2.12631400       2.12633353       2.12634284 
+8
+Lattice="4.283257725737757 -1.5743025885836842e-08 4.556976958165404e-08 -1.574302588583684e-08 4.283262810526048 3.707077805060604e-08 4.556976958165403e-08 3.707077805060604e-08 4.28327294770037" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002142       0.00000000       0.00000428 
+O      -0.00001711       0.00000002       2.14164076 
+O      -0.00001714       2.14163141       0.00000430 
+Ni      -0.00001712       2.14163142       2.14164078 
+O       2.14161173      -0.00000001       0.00000859 
+Ni       2.14161175       0.00000001       2.14164078 
+Ni       2.14161172       2.14163140       0.00000432 
+O       2.14161174       2.14163142       2.14164080 
+trying to relax i 7
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_07-relaxed.xyz
+castep call stdout:
+Application 37884876 resources: utime ~4003s, stime ~52s, Rss ~374544, inblocks ~137449, outblocks ~306650
+PreconLBFGS:   0  21:32:47    -7235.646590       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.283257725737757 -1.5743025885836842e-08 4.556976958165404e-08 -1.574302588583684e-08 4.283262810526048 3.707077805060604e-08 4.556976958165403e-08 3.707077805060604e-08 4.28327294770037" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002142       0.00000000       0.00000428 
+O      -0.00001711       0.00000002       2.14164076 
+O      -0.00001714       2.14163141       0.00000430 
+Ni      -0.00001712       2.14163142       2.14164078 
+O       2.14161173      -0.00000001       0.00000859 
+Ni       2.14161175       0.00000001       2.14164078 
+Ni       2.14161172       2.14163140       0.00000432 
+O       2.14161174       2.14163142       2.14164080 
+8
+Lattice="4.3134225063826355 -1.585389591816746e-08 4.589069402549695e-08 -1.5853895918167456e-08 4.313427626980474 3.733184846939315e-08 4.589069402549694e-08 3.733184846939315e-08 4.3134378355457" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002157       0.00000000       0.00000431 
+O      -0.00001723       0.00000002       2.15672323 
+O      -0.00001726       2.15671381       0.00000433 
+Ni      -0.00001724       2.15671383       2.15672325 
+O       2.15669400      -0.00000001       0.00000865 
+Ni       2.15669402       0.00000001       2.15672325 
+Ni       2.15669399       2.15671381       0.00000436 
+O       2.15669401       2.15671382       2.15672327 
+trying to relax i 8
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_08-relaxed.xyz
+castep call stdout:
+Application 37884887 resources: utime ~4097s, stime ~52s, Rss ~374536, inblocks ~137447, outblocks ~306650
+PreconLBFGS:   0  21:34:21    -7235.323363       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.3134225063826355 -1.585389591816746e-08 4.589069402549695e-08 -1.5853895918167456e-08 4.313427626980474 3.733184846939315e-08 4.589069402549694e-08 3.733184846939315e-08 4.3134378355457" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002157       0.00000000       0.00000431 
+O      -0.00001723       0.00000002       2.15672323 
+O      -0.00001726       2.15671381       0.00000433 
+Ni      -0.00001724       2.15671383       2.15672325 
+O       2.15669400      -0.00000001       0.00000865 
+Ni       2.15669402       0.00000001       2.15672325 
+Ni       2.15669399       2.15671381       0.00000436 
+O       2.15669401       2.15671382       2.15672327 
+8
+Lattice="4.3431711878699915 -1.5963236586582245e-08 4.62071915718834e-08 -1.5963236586582242e-08 4.343176343783414 3.7589317629394725e-08 4.6207191571883396e-08 3.7589317629394725e-08 4.343186622754763" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002172       0.00000000       0.00000434 
+O      -0.00001735       0.00000002       2.17159765 
+O      -0.00001738       2.17158817       0.00000436 
+Ni      -0.00001736       2.17158819       2.17159767 
+O       2.17156822      -0.00000001       0.00000871 
+Ni       2.17156824       0.00000001       2.17159768 
+Ni       2.17156821       2.17158816       0.00000439 
+O       2.17156824       2.17158818       2.17159770 
+trying to relax i 9
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_09-relaxed.xyz
+castep call stdout:
+Application 37884909 resources: utime ~3954s, stime ~51s, Rss ~374544, inblocks ~137456, outblocks ~306650
+PreconLBFGS:   0  21:35:57    -7234.983172       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.3431711878699915 -1.5963236586582245e-08 4.62071915718834e-08 -1.5963236586582242e-08 4.343176343783414 3.7589317629394725e-08 4.6207191571883396e-08 3.7589317629394725e-08 4.343186622754763" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002172       0.00000000       0.00000434 
+O      -0.00001735       0.00000002       2.17159765 
+O      -0.00001738       2.17158817       0.00000436 
+Ni      -0.00001736       2.17158819       2.17159767 
+O       2.17156822      -0.00000001       0.00000871 
+Ni       2.17156824       0.00000001       2.17159768 
+Ni       2.17156821       2.17158816       0.00000439 
+O       2.17156824       2.17158818       2.17159770 
+8
+Lattice="4.37251782934528 -1.6071099565181848e-08 4.6519411796687635e-08 -1.6071099565181845e-08 4.372523020097012 3.784330720983113e-08 4.651941179668763e-08 3.784330720983113e-08 4.372533368522976" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002186       0.00000000       0.00000437 
+O      -0.00001747       0.00000002       2.18627106 
+O      -0.00001750       2.18626151       0.00000439 
+Ni      -0.00001747       2.18626153       2.18627108 
+O       2.18624142      -0.00000001       0.00000877 
+Ni       2.18624145       0.00000001       2.18627108 
+Ni       2.18624142       2.18626150       0.00000441 
+O       2.18624144       2.18626152       2.18627110 
+trying to relax i 10
+relax_config failed to read base run config from  TiAl-model-None-test-bulk_NiO-E_vs_V_10-relaxed.xyz
+castep call stdout:
+Application 37884936 resources: utime ~3681s, stime ~52s, Rss ~374536, inblocks ~137462, outblocks ~306649
+PreconLBFGS:   0  21:37:21    -7234.621458       0.0000       0.0000
+symmetry.check: prec 0.0001 got symmetry group number 225 , international (Hermann-Mauguin) Fm-3m , Hall -F 4 2 3
+symmetry.check: prec 1e-06 got symmetry group number 6 , international (Hermann-Mauguin) Pm , Hall P -2y
+8
+Lattice="4.37251782934528 -1.6071099565181848e-08 4.6519411796687635e-08 -1.6071099565181845e-08 4.372523020097012 3.784330720983113e-08 4.651941179668763e-08 3.784330720983113e-08 4.372533368522976" Properties=species:S:1:pos:R:3 pbc="T T T" n_minim_iter=0
+Ni      -0.00002186       0.00000000       0.00000437 
+O      -0.00001747       0.00000002       2.18627106 
+O      -0.00001750       2.18626151       0.00000439 
+Ni      -0.00001747       2.18626153       2.18627108 
+O       2.18624142      -0.00000001       0.00000877 
+Ni       2.18624145       0.00000001       2.18627108 
+Ni       2.18624142       2.18626150       0.00000441 
+O       2.18624144       2.18626152       2.18627110 
+calculating elastic constants
+/work/e89/e89/casv2/miniconda2/lib/python2.7/site-packages/ase/optimize/precon/lbfgs.py:137: UserWarning: The system is likely too small to benefit from the standard preconditioner, hence it is disabled. To re-enable preconditioning, call`PreconLBFGS` by explicitly providing the kwarg `precon`
+  'kwarg `precon`')
+castep call stdout:
+Application 37884963 resources: utime ~3430s, stime ~48s, Rss ~374528, inblocks ~137469, outblocks ~306546
+PreconLBFGS:   0  21:38:40    -7236.891525       0.0001
+castep call stdout:
+Application 37884980 resources: utime ~3968s, stime ~51s, Rss ~374532, inblocks ~137442, outblocks ~306555
+PreconLBFGS:   0  21:40:18    -7236.918831       0.0000
+castep call stdout:
+Application 37885012 resources: utime ~3827s, stime ~48s, Rss ~374544, inblocks ~137446, outblocks ~306555
+PreconLBFGS:   0  21:41:47    -7236.928025       0.0001
+castep call stdout:
+Application 37885049 resources: utime ~3812s, stime ~50s, Rss ~374528, inblocks ~137467, outblocks ~306557
+PreconLBFGS:   0  21:43:16    -7236.918801       0.0000
+castep call stdout:
+Application 37885077 resources: utime ~4706s, stime ~56s, Rss ~374528, inblocks ~137477, outblocks ~306558
+PreconLBFGS:   0  21:45:17    -7236.894817       0.0000
+Fitting C_11
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-9.714707, -5.32264 , -1.258804,  2.225353,  5.385025]) GPa
+Cij (gradient) / GPa    :     377.4745699999997
+Error in Cij / GPa      :     14.896586666171926
+Correlation coefficient :     0.9976720651629877
+Setting C11 (1) to 2.356011 +/- 0.092977
+
+
+Fitting C_21
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-5.715689, -3.530266, -1.258188,  0.756109,  2.750858]) GPa
+Cij (gradient) / GPa    :     212.1946899999998
+Error in Cij / GPa      :     3.4232302325293684
+Correlation coefficient :     0.9996098422567987
+Setting C21 (7) to 1.324415 +/- 0.021366
+
+
+Fitting C_31
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-5.715268, -3.530972, -1.258335,  0.75658 ,  2.751395]) GPa
+Cij (gradient) / GPa    :     212.20877999999982
+Error in Cij / GPa      :     3.415536569344341
+Correlation coefficient :     0.9996116445602281
+Updating C31 (7) with value 1.324503 +/- 0.021318
+
+
+Fitting C_44
+Strain array([-0.02, -0.01,  0.  ,  0.01,  0.02])
+Stress array([-5.94673e-01, -3.09660e-01, -1.00000e-06,  3.69024e-01,
+        8.03651e-01]) GPa
+Cij (gradient) / GPa    :     34.75332
+Error in Cij / GPa      :     1.7667583713683157
+Correlation coefficient :     0.9961457798664597
+Setting C44 (4) to 0.216913 +/- 0.011027
+
+
+[[ C11  C12  C12               ]
+ [ C12  C11  C12               ]
+ [ C12  C12  C11               ]
+ [                C44          ]
+ [                     C44     ]
+ [                          C44]]
+
+ = 
+
+[[377.47 212.2  212.2    0.     0.     0.  ]
+ [212.2  377.47 212.2    0.     0.     0.  ]
+ [212.2  212.2  377.47   0.     0.     0.  ]
+ [  0.     0.     0.    34.75   0.     0.  ]
+ [  0.     0.     0.     0.    34.75   0.  ]
+ [  0.     0.     0.     0.     0.    34.75]]
+C_11 = 377.47 +/- 14.90 GPa
+C_12 = 212.20 +/- 3.42 GPa
+C_44 = 34.75 +/- 1.77 GPa
+============================================================
+Property calculation output:
+
+
+Summary of computed properties:
+{'c44': 34.75332, 'c12': 212.20173499999981, 'c11': 377.4745699999997, 'B': 267.2926799999998, 'E_vs_V': [(6.269863549955031, -903.8960449455), (6.478859001620201, -904.068838033625), (6.687854453285359, -904.206241958875), (6.896849904950533, -904.319592835), (7.105845356615705, -904.40893695225), (7.314840808280867, -904.47940505375), (7.523836259946032, -904.532911260125), (7.732831711611203, -904.571289625875), (7.941827163276374, -904.597063278), (8.150822614941541, -904.611543889375), (8.359818066606707, -904.61600228825), (8.568813518271872, -904.611871794375), (8.777808969937043, -904.60008429875), (8.986804421602217, -904.582143326125), (9.195799873267369, -904.552132900125), (9.404795324932548, -904.522838766375), (9.613790776597709, -904.488809745), (9.822786228262883, -904.452063921125), (10.03178167992805, -904.41163931575), (10.240777131593223, -904.36909235975), (10.449772583258373, -904.3238561615)]}
+============================================================

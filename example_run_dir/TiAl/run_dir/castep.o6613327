@@ -1,0 +1,17 @@
+--------------------------------------------------------------------------------
+*** casv2   Job: 6613327.sdb   started: 31/10/19 13:09:14   host: mom3 ***
+*** casv2   Job: 6613327.sdb   started: 31/10/19 13:09:14   host: mom3 ***
+*** casv2   Job: 6613327.sdb   started: 31/10/19 13:09:14   host: mom3 ***
+*** casv2   Job: 6613327.sdb   started: 31/10/19 13:09:14   host: mom3 ***
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Resources requested: ncpus=48,place=free,walltime=24:00:00
+Resources allocated: cpupercent=8,cput=00:01:03,mem=122012kb,ncpus=48,vmem=911228kb,walltime=24:01:18
+
+*** casv2   Job: 6613327.sdb   ended: 01/11/19 13:10:31   queue: standard ***
+*** casv2   Job: 6613327.sdb   ended: 01/11/19 13:10:31   queue: standard ***
+*** casv2   Job: 6613327.sdb   ended: 01/11/19 13:10:31   queue: standard ***
+*** casv2   Job: 6613327.sdb   ended: 01/11/19 13:10:31   queue: standard ***
+--------------------------------------------------------------------------------

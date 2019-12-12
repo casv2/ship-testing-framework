@@ -1,5 +1,5 @@
 Model CASTEP, Test phonon_Ti_hcp
-Test run at 2019-10-31 11:05
+Test run at 2019-12-11 23:24
 
 model file: ../../models/CASTEP/model.py
 ============================================================
@@ -28,11 +28,12 @@ no_checkpoint = True
 def start(test_name):
         global calculator
 	calculator = Castep(directory="./_CASTEP",
-                        cut_off_energy=600, #700
+			cut_off_energy=500, #700
                         max_scf_cycles=250,
                         calculate_stress=True,
                         finite_basis_corr='automatic',
                         smearing_width='0.1', #0.1
+                        #elec_energy_tol='0.0000001',
                         #elec_energy_tol='0.0000001',
                         #elec_method='edft',
                         #nextra_bands='13',
@@ -40,6 +41,19 @@ def start(test_name):
                         kpoints_mp_spacing='0.04', #0.015
                         #perc_extra_bands=150,
                         write_checkpoint='none')
+
+#                        cut_off_energy=600, #700
+#                        max_scf_cycles=250,
+#                        calculate_stress=True,
+#                        finite_basis_corr='automatic',
+#                        smearing_width='0.1', #0.1
+#                        #elec_energy_tol='0.0000001',
+#                        #elec_method='edft',
+#                        #nextra_bands='13',
+#                        mixing_scheme='Pulay',
+#                        kpoints_mp_spacing='0.04', #0.015
+#                        #perc_extra_bands=150,
+#                        write_checkpoint='none')
 
 ============================================================
 test file: /fs3/e89/e89/casv2/ship-testing-framework/scripts/../tests/TiAl/phonon_Ti_hcp/test.py
@@ -187,8 +201,8 @@ aprun -n 48 castep.mpi
 [Phonopy] Atomic displacements:
 [Phonopy] 0 [0.005338467418154442, -1.6977702972561242e-18, 0.008455812534895949]
 castep call stdout:
-Application 37669409 resources: utime ~99225s, stime ~1388s, Rss ~930628, inblocks ~152170, outblocks ~315964
-[Phonopy] Drift force:   -0.00002   -0.00000   -0.00003
+Application 38281549 resources: utime ~87793s, stime ~302s, Rss ~809620, inblocks ~149617, outblocks ~315259
+[Phonopy] Drift force:   -0.00001   -0.00000    0.00002
 ============================================================
 Property calculation output:
 
