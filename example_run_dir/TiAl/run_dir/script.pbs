@@ -30,4 +30,4 @@ export CASTEP_TMPDIR=$PBS_O_WORKDIR
 # Change the name of the input file to match your own job
 
 #source /work/e89/e89/casv2/virtualenv/venv/bin/activate
-python ../../../scripts/run-model-test.py CASTEP phonon_TiAl3 -s TiAl -f
+python ../../../scripts/run-model-test.py CASTEP phonon_Ti_hcp -s TiAl -f
