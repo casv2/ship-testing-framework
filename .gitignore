@@ -15,6 +15,8 @@
 .DS_Store
 example_run_dir/Si
 example_run_dir/TiAl/run_dir
+example_run_dir/Ti/run_dir
+example_run_dir/TiAl/old
 tests/Al
 tests/Si
 tests/W
