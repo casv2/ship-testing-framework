@@ -13,7 +13,7 @@ from phonopy.phonon.band_structure import get_band_qpoints_and_path_connections
 
 calc = model.calculator
 
-model_name = model.model_dir.split("/")[-1]
+model_name = model.model_abs_dir.split("/")[-1]
 
 def get_crystal():
     at = read(os.path.join(os.path.abspath(os.path.dirname(__file__)), "bulk.xyz"))
