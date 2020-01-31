@@ -7,7 +7,7 @@ from ase.calculators.castep import Castep
 model_abs_dir = os.path.abspath(os.path.dirname(__file__))
 
 mpirun = "mpirun"
-mpirun_args = "-n 16"
+mpirun_args = "-n 28"
 castep = "castep.mpi"
 
 os.environ['CASTEP_COMMAND'] = '{0} {1} {2}'.format(mpirun, mpirun_args, castep)
