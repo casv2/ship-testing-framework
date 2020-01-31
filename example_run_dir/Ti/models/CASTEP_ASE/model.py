@@ -6,8 +6,8 @@ from ase.calculators.castep import Castep
 
 model_abs_dir = os.path.abspath(os.path.dirname(__file__))
 
-mpirun = "aprun"
-mpirun_args = "-n 48"
+mpirun = "mpirun"
+mpirun_args = "-n 16"
 castep = "castep.mpi"
 
 os.environ['CASTEP_COMMAND'] = '{0} {1} {2}'.format(mpirun, mpirun_args, castep)
@@ -49,4 +49,3 @@ def start(test_name):
 #                        kpoints_mp_spacing='0.04', #0.015
 #                        #perc_extra_bands=150,
 #                        write_checkpoint='none')
-
