@@ -7,7 +7,7 @@ from ase.calculators.castep import Castep
 model_abs_dir = os.path.abspath(os.path.dirname(__file__))
 
 mpirun = "mpirun"
-mpirun_args = "-n 28"
+mpirun_args = "-n 16"
 castep = "castep.mpi"
 
 os.environ['CASTEP_COMMAND'] = '{0} {1} {2}'.format(mpirun, mpirun_args, castep)
@@ -23,7 +23,7 @@ no_checkpoint = True
 def start(test_name):
         global calculator
 	calculator = Castep(directory="./_CASTEP",
-			cut_off_energy=500, #700
+						cut_off_energy=700, #700
                         max_scf_cycles=250,
                         calculate_stress=True,
                         finite_basis_corr='automatic',
