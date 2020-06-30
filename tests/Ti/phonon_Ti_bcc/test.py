@@ -19,16 +19,6 @@ from phonopy.phonon.band_structure import get_band_qpoints_and_path_connections
 
 import model
 
-import pyjulip
-
-#from ase.calculators.lj import LennardJones
-
-#calc = LennardJones()
-#
-calc = pyjulip.SHIP("/Users/Cas/Work/Ti/Phonons/Ti_pot_reg.json")
-
-import model
-
 calc = model.calculator
 # print(calc)
 print("hello")
@@ -51,7 +41,7 @@ def phonopy_pre_process(cell, supercell_matrix=None):
     phonon = Phonopy(cell,
                      smat)
 
-    phonon.generate_displacements(distance=0.01)
+    phonon.generate_displacements(distance=0.02)
     print("[Phonopy] Atomic displacements:")
     disps = phonon.get_displacements()
     for d in disps:

@@ -32,7 +32,7 @@ def phonopy_pre_process(cell, supercell_matrix=None):
     phonon = Phonopy(cell,
                      smat)
 
-    phonon.generate_displacements(distance=0.01)
+    phonon.generate_displacements(distance=0.02)
     print("[Phonopy] Atomic displacements:")
     disps = phonon.get_displacements()
     for d in disps:
