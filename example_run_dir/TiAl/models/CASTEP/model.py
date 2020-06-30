@@ -7,7 +7,7 @@ from ase.calculators.castep import Castep
 model_abs_dir = os.path.abspath(os.path.dirname(__file__))
 
 mpirun = "mpirun"
-mpirun_args = "-n 16"
+mpirun_args = "-n 32"
 castep = "castep.mpi"
 
 os.environ['CASTEP_COMMAND'] = '{0} {1} {2}'.format(mpirun, mpirun_args, castep)
@@ -22,30 +22,21 @@ no_checkpoint = True
 
 def start(test_name):
         global calculator
-	calculator = Castep(directory="./_CASTEP",
-						cut_off_energy=500, #700
-                        max_scf_cycles=250,
-                        calculate_stress=True,
-                        finite_basis_corr='automatic',
-                        smearing_width='0.1', #0.1
-                        #elec_energy_tol='0.0000001',
-                        #elec_energy_tol='0.0000001',
-                        #elec_method='edft',
-                        #nextra_bands='13',
-                        mixing_scheme='Pulay',
-                        kpoints_mp_spacing='0.04', #0.015
-                        #perc_extra_bands=150,
-                        write_checkpoint='none')
+	calculator = Castep()
 
-#                        cut_off_energy=600, #700
-#                        max_scf_cycles=250,
-#                        calculate_stress=True,
-#                        finite_basis_corr='automatic',
-#                        smearing_width='0.1', #0.1
-#                        #elec_energy_tol='0.0000001',
-#                        #elec_method='edft',
-#                        #nextra_bands='13',
-#                        mixing_scheme='Pulay',
-#                        kpoints_mp_spacing='0.04', #0.015
-#                        #perc_extra_bands=150,
-#                        write_checkpoint='none')
+	calculator._directory="./_CASTEP"
+
+	calculator.param.cut_off_energy=700
+	calculator.param.elec_energy_tol=1E-7
+	calculator.param.elec_force_tol=1E-3
+	calculator.param.spin_polarised=False
+	calculator.param.mixing_scheme='Pulay'
+	calculator.param.write_checkpoint='none'
+	calculator.param.fine_grid_scale=2
+	calculator.param.smearing_width=0.1
+	calculator.param.finite_basis_corr='automatic'
+	calculator.param.calculate_stress=True
+
+	calculator.cell.kpoints_mp_spacing=0.02
+
+	return calculator

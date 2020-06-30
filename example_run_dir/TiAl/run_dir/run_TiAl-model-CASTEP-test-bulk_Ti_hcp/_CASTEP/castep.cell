@@ -1,5 +1,5 @@
 #######################################################
-#CASTEP cell file: /fs3/e89/e89/casv2/ship-testing-framework/example_run_dir/TiAl/run_dir/run_TiAl-model-CASTEP-test-bulk_Ti_hcp/_CASTEP/castep.cell
+#CASTEP cell file: ./_CASTEP/castep.cell
 #Created using the Atomic Simulation Environment (ASE)#
 #######################################################
 
@@ -18,4 +18,4 @@ Ti  0.016504  1.650522  2.309355
 Ti 3|1.8|9|10|11|30U:40:31:32(qc=5.5)
 %ENDBLOCK SPECIES_POT
 
-KPOINTS_MP_SPACING: 0.04 
+KPOINTS_MP_SPACING: 0.02 

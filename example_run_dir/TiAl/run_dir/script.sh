@@ -1,11 +1,11 @@
-#!/bin/bash
-#$ -pe smp 1 
-#$ -l h_rt=24:00:00
-#$ -q 'tomsk|any|orinoco'
-#$ -S /bin/bash
-#$ -N job
-#$ -j yes
-#$ -cwd
+#!/bin/sh
+#SBATCH -A CSANYI-SL4-CPU
+#SBATCH -p skylake
+#SBATCH --nodes=1
+#SBATCH --ntasks=32
+#SBATCH --time=12:00:00
 
-export JULIA_NUM_THREADS=1
-python ../../../scripts/run-model-test.py CASTEP bulk_Ni -s TiAl -f
+module load castep
+
+python ../../../scripts/run-model-test.py CASTEP bulk_Ti_bcc -s TiAl -f
+python ../../../scripts/run-model-test.py CASTEP bulk_Ti_hcp -s TiAl -f

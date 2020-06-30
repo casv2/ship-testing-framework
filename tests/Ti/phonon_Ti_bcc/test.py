@@ -19,23 +19,11 @@ from phonopy.phonon.band_structure import get_band_qpoints_and_path_connections
 
 import model
 
-import pyjulip
-
-#from ase.calculators.lj import LennardJones
-
-#calc = LennardJones()
-#
-calc = pyjulip.SHIP("/Users/Cas/Work/Ti/Phonons/Ti_pot_reg.json")
-
-import model
-
 calc = model.calculator
-# print(calc)
-print("hello")
 
 def get_crystal():
-    #at = read(os.path.join(os.path.abspath(os.path.dirname(__file__)), "bulk.xyz"))
-    at = read("/Users/Cas/gits/ship-testing-framework/tests/Ti/phonon_Ti_bcc/bulk.xyz")
+    at = read(os.path.join(os.path.abspath(os.path.dirname(__file__)), "bulk.xyz"))
+    #at = read("/Users/Cas/gits/ship-testing-framework/tests/Ti/phonon_Ti_bcc/bulk.xyz")
 
     cell = PhonopyAtoms(symbols=at.get_chemical_symbols(),
                     cell=at.get_cell(),
@@ -51,7 +39,7 @@ def phonopy_pre_process(cell, supercell_matrix=None):
     phonon = Phonopy(cell,
                      smat)
 
-    phonon.generate_displacements(distance=0.01)
+    phonon.generate_displacements(distance=0.02)
     print("[Phonopy] Atomic displacements:")
     disps = phonon.get_displacements()
     for d in disps:

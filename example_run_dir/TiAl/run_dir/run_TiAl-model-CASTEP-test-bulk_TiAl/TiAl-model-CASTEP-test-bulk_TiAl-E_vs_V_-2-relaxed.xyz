@@ -1,4 +1,4 @@
 2
-Lattice="2.7165225623695872 0.0 0.0 0.0 2.7165225623695872 0.0 0.0 0.0 3.9168588563651143" Properties=species:S:1:pos:R:3:tags:I:1 spacegroup="P 1" unit_cell=conventional pbc="T T T" n_minim_iter=0
-Ti       1.35826128       1.35826128       1.95842943        0 
+Lattice="2.7158443795006826 0.0 0.0 0.0 2.7158443795006826 0.0 0.0 0.0 3.914243996470205" Properties=species:S:1:pos:R:3:tags:I:1 spacegroup="P 1" unit_cell=conventional pbc="T T T" n_minim_iter=0
+Ti       1.35792219       1.35792219       1.95712200        0 
 Al       0.00000000       0.00000000       0.00000000        1 
