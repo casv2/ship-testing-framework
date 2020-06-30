@@ -14,7 +14,7 @@ for model in readdir(model_dir)
     cd(fit_dir)
     @show readdir(fit_dir)
 
-    if startswith(model, "PoSH")
+    if startswith(model, "SHIPs")
         fit_file = glob("*.json")[1]
         @show fit_file
         fit_path = joinpath(fit_dir, fit_file)

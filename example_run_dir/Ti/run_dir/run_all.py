@@ -5,7 +5,7 @@ import sys
 model = sys.argv[1]
 
 ps = []
-tests = ["bulk_Ti_bcc", "bulk_Ti_hcp", "phonon_Ti_bcc", "phonon_Ti_hcp"]
+tests = ["bulk_Ti_bcc", "bulk_Ti_hcp", "phonon_bcc", "phonon_hcp"]
 
 for test in tests:
 	r_str = ("python ../../../scripts/run-model-test.py {0} {1} -s Ti -f".format(model, test)).split(" ")

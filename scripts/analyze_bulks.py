@@ -23,7 +23,7 @@ except:
 (args, models, bulk_tests, default_analysis_settings) = analyze_start('bulk_*')
 
 print bulk_tests
-#bulk_tests = ["bulk_TiAl3"]#["bulk_Ti_bcc", "bulk_Ti_hcp"]#, "bulk_Al_fcc"]#, "bulk_Ti3Al", "bulk_TiAl3"]
+bulk_tests = ["bulk_Ti_hcp", "bulk_Ti_bcc"]
 
 ref_linestyles=[ "-", "--" ]
 other_linestyles=[ ":", ":" ]
@@ -234,7 +234,7 @@ plt.legend(loc="center left", bbox_to_anchor=[1, 0.5])
 #plt.legend()
 plt.xlabel("V ($A^3$/atom)")
 plt.ylabel("E (eV/atom)")
-#plt.ylim(-1593.8, -1593)
+plt.ylim(-6.5, -5.0)
 plt.savefig("bulk_plot.pdf", bbox_inches='tight')
 
 #os.system("convert -density 350 *_plot.pdf *_table.pdf -quality 100 bulk_analysis.pdf")
